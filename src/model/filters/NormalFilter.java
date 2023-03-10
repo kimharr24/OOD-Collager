@@ -29,6 +29,6 @@ public class NormalFilter implements Filter {
    */
   @Override
   public void applyFilter(Color color) throws IllegalArgumentException {
-    
+
   }
 }
