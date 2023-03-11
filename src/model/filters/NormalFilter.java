@@ -1,6 +1,6 @@
 package model.filters;
 
-import model.colors.Color;
+import model.colors.ColorModel;
 
 /**
  * Represents a normal filter, that is, a filter which does not do
@@ -25,10 +25,11 @@ public class NormalFilter implements Filter {
   /**
    * Executes the normal filter on a given color. The normal filter does nothing.
    * @param color the color to apply the filter to.
+   * @return the same color that was given to it.
    * @throws IllegalArgumentException if the color is null.
    */
   @Override
-  public void applyFilter(Color color) throws IllegalArgumentException {
-
+  public ColorModel apply(ColorModel color) throws IllegalArgumentException {
+    return color;
   }
 }
