@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/ImagePixel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/colors/ColorModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/colors/ColorState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Position2DTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/UtilTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/Color.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Collager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Collager.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +38,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -54,7 +53,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UtilTest">
     <configuration name="ImageUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ImageUtil" />
       <module name="Collager" />
@@ -62,8 +61,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Position2DTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Position2DTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UtilTest" />
+        <item itemvalue="JUnit.Position2DTest" />
         <item itemvalue="Application.ImageUtil" />
       </list>
     </recent_temporary>
@@ -78,7 +97,7 @@
       <updated>1678036515424</updated>
       <workItem from="1678036516588" duration="20000" />
       <workItem from="1678036922882" duration="2929000" />
-      <workItem from="1678383807080" duration="13622000" />
+      <workItem from="1678383807080" duration="14272000" />
     </task>
     <servers />
   </component>
