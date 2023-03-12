@@ -22,52 +22,52 @@ public class RGBAColorTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testNegativeRedComponent() {
-    ColorModel color = new RGBAColor(-6, 100, 200, 100,8);
+    ColorModel color = new RGBAColor(-6, 100, 200, 100, 8);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testNegativeGreenComponent() {
-    ColorModel color = new RGBAColor(6, -100, 200, 100,8);
+    ColorModel color = new RGBAColor(6, -100, 200, 100, 8);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testNegativeBlueComponent() {
-    ColorModel color = new RGBAColor(6, 100, -200, 100,8);
+    ColorModel color = new RGBAColor(6, 100, -200, 100, 8);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testNegativeAlphaComponent() {
-    ColorModel color = new RGBAColor(6, 100, 200, -100,8);
+    ColorModel color = new RGBAColor(6, 100, 200, -100, 8);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testConstructorZeroBits() {
-    ColorModel color = new RGBAColor(6, 100, 200, 100,0);
+    ColorModel color = new RGBAColor(6, 100, 200, 100, 0);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testConstructorNegativeBits() {
-    ColorModel color = new RGBAColor(6, 100, 200, 100,-10);
+    ColorModel color = new RGBAColor(6, 100, 200, 100, -10);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testRedComponentExceedsBitRange() {
-    ColorModel color = new RGBAColor(2, 100, 200, 100,1);
+    ColorModel color = new RGBAColor(2, 100, 200, 100, 1);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testGreenComponentExceedsBitRange() {
-    ColorModel color = new RGBAColor(2, 256, 200, 100,8);
+    ColorModel color = new RGBAColor(2, 256, 200, 100, 8);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testBlueComponentExceedsBitRange() {
-    ColorModel color = new RGBAColor(2, 100, 512, 100,9);
+    ColorModel color = new RGBAColor(2, 100, 512, 100, 9);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testAlphaComponentExceedsBitRange() {
-    ColorModel color = new RGBAColor(2, 1, 1, 4,2);
+    ColorModel color = new RGBAColor(2, 1, 1, 4, 2);
   }
 
   @Test
@@ -119,9 +119,12 @@ public class RGBAColorTest {
     assertEquals(0, this.color1.filterRedChannel().getGreenComponent());
     assertEquals(0, this.color1.filterRedChannel().getBlueComponent());
     assertEquals(99, this.color1.filterRedChannel().getAlphaComponent());
+    assertEquals(255, this.color1.filterRedChannel().getMaxValue());
+
     assertEquals(260, this.color2.filterRedChannel().getRedComponent());
     assertEquals(0, this.color2.filterRedChannel().getGreenComponent());
     assertEquals(0, this.color2.filterRedChannel().getBlueComponent());
     assertEquals(442, this.color2.filterRedChannel().getAlphaComponent());
+    assertEquals(511, this.color2.filterRedChannel().getMaxValue());
   }
 }

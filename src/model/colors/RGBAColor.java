@@ -95,4 +95,24 @@ public class RGBAColor implements ColorModel {
   public ColorModel filterRedChannel() {
     return new RGBAColor(this.red, 0, 0, this.alpha, this.bits);
   }
+
+  @Override
+  public ColorModel filterGreenChannel() {
+    return new RGBAColor(0, this.green, 0, this.alpha, this.bits);
+  }
+
+  @Override
+  public ColorModel filterBlueChannel() {
+    return new RGBAColor(0, 0, this.blue, this.alpha, this.bits);
+  }
+
+  @Override
+  public ColorModel brightenValueColor() {
+    int maxValue = Math.max(Math.max(this.red, this.green), this.blue);
+
+    return new RGBAColor(Math.min(this.red + maxValue, this.getMaxValue()),
+            Math.min(this.green + maxValue, this.getMaxValue()),
+            Math.min(this.blue + maxValue, this.getMaxValue()),
+            this.alpha, this.bits);
+  }
 }

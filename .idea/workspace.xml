@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/RGBAColorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/filters/BlueComponentFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/filters/BrightenValueFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ImagePixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePixel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/colors/ColorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/ColorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/ColorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/ColorState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/RGBAColorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/RGBAColorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,24 +41,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hkimr/Desktop/CS 3500/BuilderDesignPattern",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hkimr/Desktop/CS 3500/BuilderDesignPattern&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.RGBAColorTest">
     <configuration name="ImageUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ImageUtil" />
@@ -109,7 +113,8 @@
       <updated>1678036515424</updated>
       <workItem from="1678036516588" duration="20000" />
       <workItem from="1678036922882" duration="2929000" />
-      <workItem from="1678383807080" duration="20755000" />
+      <workItem from="1678383807080" duration="22526000" />
+      <workItem from="1678631616821" duration="4379000" />
     </task>
     <servers />
   </component>

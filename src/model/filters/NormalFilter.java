@@ -6,30 +6,18 @@ import model.colors.ColorModel;
  * Represents a normal filter, that is, a filter which does not do
  * anything to the layer it is applied to.
  */
-public class NormalFilter implements Filter {
-  private final String name;
-
+public class NormalFilter extends AbstractFilter {
   /**
    * Default constructor for a normal filter. The default constructor
-   * names this filter "Normal."
+   * names this filter "Normal Filter."
    */
   public NormalFilter() {
-    this.name = "Normal";
+    super("Normal Filter");
   }
 
-  @Override
-  public String getName() {
-    return this.name;
-  }
-
-  /**
-   * Executes the normal filter on a given color. The normal filter does nothing.
-   * @param color the color to apply the filter to.
-   * @return the same color that was given to it.
-   * @throws IllegalArgumentException if the color is null.
-   */
   @Override
   public ColorModel apply(ColorModel color) throws IllegalArgumentException {
+    this.checkNullColor(color);
     return color;
   }
 }
