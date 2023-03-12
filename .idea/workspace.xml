@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/Position2DTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/UtilTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/RGBAColorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Collager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Collager.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ImagePixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/colors/ColorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/ColorModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/colors/ColorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/ColorState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +55,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.UtilTest">
+  <component name="RunManager" selected="JUnit.RGBAColorTest">
     <configuration name="ImageUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ImageUtil" />
       <module name="Collager" />
@@ -70,6 +72,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RGBAColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RGBAColorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
@@ -81,6 +92,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RGBAColorTest" />
         <item itemvalue="JUnit.UtilTest" />
         <item itemvalue="JUnit.Position2DTest" />
         <item itemvalue="Application.ImageUtil" />
@@ -97,11 +109,22 @@
       <updated>1678036515424</updated>
       <workItem from="1678036516588" duration="20000" />
       <workItem from="1678036922882" duration="2929000" />
-      <workItem from="1678383807080" duration="14272000" />
+      <workItem from="1678383807080" duration="20755000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
