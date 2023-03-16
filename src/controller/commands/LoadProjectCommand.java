@@ -1,4 +1,4 @@
-package controller;
+package controller.commands;
 
 import java.io.FileInputStream;
 import java.io.IOException;

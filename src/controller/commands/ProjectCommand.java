@@ -1,4 +1,4 @@
-package controller;
+package controller.commands;
 
 /**
  * Represents the interface for calling a project command.

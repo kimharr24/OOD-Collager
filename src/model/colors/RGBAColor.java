@@ -1,5 +1,7 @@
 package model.colors;
 
+import utils.Util;
+
 /**
  * Represents an RGBA (red, blue, green, alpha) color. Color formats that do not
  * have alpha channels can adhere to the RGBA color by using a default value of alpha or
@@ -31,7 +33,7 @@ public class RGBAColor implements ColorModel {
     if (bits <= 0) {
       throw new IllegalArgumentException("Must use at least 1 bit to represent a color.");
     }
-    int maxValue = (1 << bits) - 1;
+    int maxValue = Util.getMaxValueFromBits(bits);
     if (red > maxValue || green > maxValue || blue > maxValue || alpha > maxValue) {
       throw new IllegalArgumentException(String.format("RGBA cannot have a value greater than %d",
               maxValue));
@@ -83,7 +85,7 @@ public class RGBAColor implements ColorModel {
 
   @Override
   public int getMaxValue() {
-    return (1 << this.bits) - 1;
+    return Util.getMaxValueFromBits(this.bits);
   }
 
   @Override

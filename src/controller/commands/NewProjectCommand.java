@@ -1,4 +1,4 @@
-package controller;
+package controller.commands;
 
 public class NewProjectCommand implements ProjectCommand {
   private final Project project;
