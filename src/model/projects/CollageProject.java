@@ -1,7 +1,6 @@
 package model.projects;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import model.colors.RGBAColor;
@@ -13,12 +12,21 @@ import model.layers.LayerModel;
 import model.pixels.Pixel;
 import utils.Util;
 
+/**
+ * Represents a collage project.
+ */
 public class CollageProject implements ProjectModel<Pixel> {
   private final int canvasWidth;
   private final int canvasHeight;
   private final String projectName;
   private List<LayerModel<Pixel>> layers;
 
+  /**
+   * Represents the constructor for the collage project.
+   * @param projectName the name of the project
+   * @param canvasHeight the height of the project's canvas
+   * @param canvasWidth the width of the project's canvas
+   */
   public CollageProject(String projectName, int canvasHeight, int canvasWidth) {
     this.projectName = projectName;
     this.canvasWidth = canvasWidth;
@@ -31,6 +39,12 @@ public class CollageProject implements ProjectModel<Pixel> {
     this.layers = new ArrayList<>(List.of(defaultLayer));
   }
 
+  /**
+   * Sets a filter on a given layer of the project.
+   * @param layerName the name of the layer.
+   * @param filter    the filter to give to the layer.
+   * @throws IllegalArgumentException
+   */
   @Override
   public void setLayerFilter(String layerName, Filter filter) throws IllegalArgumentException {
     for (LayerModel<Pixel> layer : this.layers) {
@@ -44,6 +58,13 @@ public class CollageProject implements ProjectModel<Pixel> {
     // TODO
   }
 
+  /**
+   *
+   * @param layerName the name of the layer.
+   * @param filePath  the path to the image.
+   * @param row       the row coordinate of the starting position.
+   * @param col       the column coordinate of the starting position.
+   */
   @Override
   public void addImageToLayer(String layerName, String filePath, int row, int col) {
     for (LayerModel<Pixel> layer : this.layers) {
@@ -53,6 +74,7 @@ public class CollageProject implements ProjectModel<Pixel> {
       }
     }
   }
+
 
   public void saveCompiledImage() {
     // TODO

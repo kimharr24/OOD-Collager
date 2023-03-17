@@ -18,6 +18,10 @@ public abstract class AbstractFilter implements Filter {
     this.name = name;
   }
 
+  /**
+   * Gets the name of the filter.
+   * @return the filter name.
+   */
   public String getName() {
     return this.name;
   }

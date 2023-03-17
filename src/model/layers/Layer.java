@@ -35,23 +35,43 @@ public class Layer implements LayerModel<Pixel> {
     this.image = new Image(width, height);
   }
 
+  /**
+   * Gets the name of the layer associated with this layer.
+   * @return the layer name
+   */
   public String getLayerName() {
     return this.layerName;
   }
 
+  /**
+   * Gets the image from the image model.
+   * @return the image
+   */
   @Override
   public ImageModel<Pixel> getImage() {
     return this.image;
   }
 
+  /**
+   * Returns the name of the filter associated with this layer.
+   * @return the name of the filter.
+   */
   public String getFilterName() {
     return this.filter.getName();
   }
 
+  /**
+   * Sets the given filter to the current filter.
+   * @param filter the filter to set the current layer to.
+   */
   public void setFilter(Filter filter) {
     this.filter = filter;
   }
 
+  /**
+   * Renames the current layer to the given name.
+   * @param name the name to change this layer's name to.
+   */
   @Override
   public void setName(String name) {
     this.layerName = name;

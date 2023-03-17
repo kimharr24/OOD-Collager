@@ -20,6 +20,11 @@ public class Image implements ImageModel<Pixel> {
   private final int height;
   private List<List<Pixel>> imageGrid;
 
+  /**
+   * Represents the constructor for an Image.
+   * @param width the width value of the image
+   * @param height the height value of the image
+   */
   public Image(int width, int height) {
     this.width = width;
     this.height = height;
@@ -54,6 +59,13 @@ public class Image implements ImageModel<Pixel> {
     }
   }
 
+  /**
+   * Overlays the given image in the filepath to the project.
+   * @param filePath the file path to the image to overlay onto the current image.
+   * @param row      the row coordinate of the position to place the given image's top left corner.
+   * @param col      the col coordinate of the position to place the given image's top left corner.
+   * @throws IllegalArgumentException if the image being overlayed is not a supported image type
+   */
   @Override
   public void overlayImage(String filePath, int row, int col) throws IllegalArgumentException {
     this.validateCoordinate(row, col);
@@ -79,6 +91,13 @@ public class Image implements ImageModel<Pixel> {
     // TODO: update image
   }
 
+  /**
+   * Updates the position of the pixel's coordinates when it moves.
+   * @param pixel the updated pixel.
+   * @param row   the row coordinate of the position to place the updated pixel.
+   * @param col   the col coordinate of the position to place the updated pixel.
+   * @throws IllegalArgumentException
+   */
   @Override
   public void setImagePixelAtCoord(Pixel pixel, int row, int col)
           throws IllegalArgumentException {
@@ -88,6 +107,13 @@ public class Image implements ImageModel<Pixel> {
     this.imageGrid.set(row, targetRow);
   }
 
+  /**
+   * Gets the pixel at a given coordinate.
+   * @param row the row of the pixel to return.
+   * @param col the column of the pixel to return
+   * @return the pixel at the given coordinate
+   * @throws IllegalArgumentException
+   */
   @Override
   public Pixel getPixelAtCoord(int row, int col) throws IllegalArgumentException {
     return this.imageGrid.get(row).get(col);

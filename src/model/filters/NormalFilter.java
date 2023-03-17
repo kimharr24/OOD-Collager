@@ -15,6 +15,12 @@ public class NormalFilter extends AbstractFilter {
     super("Normal Filter");
   }
 
+  /**
+   * Applies the normalFilter() filter to the given layer.
+   * @param color the color to apply the filter to.
+   * @return a white and transparent layer.
+   * @throws IllegalArgumentException
+   */
   @Override
   public ColorModel apply(ColorModel color) throws IllegalArgumentException {
     this.checkNullColor(color);

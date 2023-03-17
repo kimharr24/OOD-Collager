@@ -1,6 +1,5 @@
 package model.colors;
 
-import model.images.Image;
 import utils.Util;
 
 /**
@@ -212,30 +211,5 @@ public class RGBAColor implements ColorModel {
             Math.max(this.green + lumaValue, 0),
             Math.max(this.blue + lumaValue, 0),
             this.alpha);
-  }
-
-  @Override
-  public ColorModel darkenValueColor() {
-    return null;
-  }
-
-  @Override
-  public ColorModel brightenIntensityColor() {
-    return null;
-  }
-
-  @Override
-  public ColorModel darkenIntensityColor() {
-    return null;
-  }
-
-  @Override
-  public ColorModel brightenLumaColor() {
-    return null;
-  }
-
-  @Override
-  public ColorModel darkenLumaColor() {
-    return null;
   }
 }

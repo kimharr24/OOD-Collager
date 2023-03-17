@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/LayerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/PPMInputCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/ImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/ImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/file_input_commands/AbstractFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/AbstractFileInputCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/Layer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/RGBAColorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/RGBAColorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/UtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/UtilTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +138,7 @@
       <workItem from="1678036922882" duration="2929000" />
       <workItem from="1678383807080" duration="22526000" />
       <workItem from="1678631616821" duration="14302000" />
-      <workItem from="1678885029528" duration="57052000" />
+      <workItem from="1678885029528" duration="57299000" />
     </task>
     <servers />
   </component>

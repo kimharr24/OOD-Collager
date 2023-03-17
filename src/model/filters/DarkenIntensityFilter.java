@@ -2,6 +2,10 @@ package model.filters;
 
 import model.colors.ColorModel;
 
+/**
+ * Represents the filter that darkens the layer by subtracting the average value of the three color
+ * components from each individual color component.
+ */
 public class DarkenIntensityFilter extends AbstractFilter {
 
   /**
