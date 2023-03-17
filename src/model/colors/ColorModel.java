@@ -39,4 +39,37 @@ public interface ColorModel extends ColorState {
    * @return the updated color after the brightening operation is applied.
    */
   ColorModel brightenValueColor();
+
+  /**
+   * Darkens the color by decreasing each component by the minimum value across all components.
+   * Each component will never become larger than the number of bits used for representation.
+   * @return the updated color after the darkening operation is applied.
+   */
+  ColorModel darkenValueColor();
+
+  /**
+   * Increases the intensity of the color.
+   * @return the updated color after the brightening operation is applied.
+   */
+  ColorModel brightenIntensityColor();
+
+  /**
+   * Decreases the intensity of the color.
+   * @return the updated color after the darkening operation is applied.
+   */
+  ColorModel darkenIntensityColor();
+
+  /**
+   * brightens the luma by increasing the luma value of the color.
+   * @return the updated color after the darkening operation is applied.
+   */
+  ColorModel brightenLumaColor();
+
+  /**
+   * 
+   * @return
+   */
+  ColorModel darkenLumaColor();
+
+  //implement these methods in RGBAColor class
 }

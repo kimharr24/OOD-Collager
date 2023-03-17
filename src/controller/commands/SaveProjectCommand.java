@@ -6,21 +6,18 @@ import java.io.ObjectOutputStream;
 
 import javax.swing.*;
 
+import model.CollageProject;
+
 public class SaveProjectCommand implements ProjectCommand {
 
-  private final Project project;
+  public SaveProjectCommand() {
 
-  private final String fileName;
-
-  public SaveProjectCommand(Project project, String fileName) {
-    this.project = project;
-    this.fileName = fileName;
   }
 
   /**
    * executes the given command when called by the given project command class.
    */
-  public void executeCommand() {
+  public void executeCommand(CollageProject project) {
     try {
       FileOutputStream fileOut = new FileOutputStream(fileName);
       ObjectOutputStream out = new ObjectOutputStream(fileOut);

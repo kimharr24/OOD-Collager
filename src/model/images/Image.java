@@ -32,7 +32,7 @@ public class Image implements ImageModel<ImagePixel> {
   }
 
   @Override
-  public void overlayImage(ImageModel<ImagePixel> image, int row, int col)
+  public void overlayImage(String filePath, int row, int col)
           throws IllegalArgumentException {
 
   }

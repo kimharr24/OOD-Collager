@@ -10,7 +10,7 @@ public class QuitProjectCommand implements ProjectCommand {
   }
 
   @Override
-  public void executeCommand() {
+  public void executeCommand(CollageProject project) {
     int answer = JOptionPane.showConfirmDialog(null,
             "Are you sure you want to quit? All unsaved work will be lost.",
             "Quit", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
