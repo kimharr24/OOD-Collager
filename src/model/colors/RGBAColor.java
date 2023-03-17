@@ -216,6 +216,25 @@ public class RGBAColor implements ColorModel {
   }
 
   @Override
+  public ColorModel getUpdatedColor(ColorModel color) {
+    double alphaPercentage = ((this.alpha / Util.MAX_PROJECT_VALUE) + (color.getAlphaComponent() /
+            Util.MAX_PROJECT_VALUE) * (1 - (this.alpha / Util.MAX_PROJECT_VALUE)));
+
+    double updatedRed = ((this.alpha / Util.MAX_PROJECT_VALUE) * this.red +
+            (color.getAlphaComponent() / Util.MAX_PROJECT_VALUE) * color.getRedComponent() *
+                    (1 - (this.alpha / Util.MAX_PROJECT_VALUE))) * (1 / alphaPercentage);
+    double updatedGreen = ((this.alpha / Util.MAX_PROJECT_VALUE) * this.green +
+            (color.getAlphaComponent() / Util.MAX_PROJECT_VALUE) * color.getGreenComponent() *
+                    (1 - (this.alpha / Util.MAX_PROJECT_VALUE))) * (1 / alphaPercentage);
+    double updatedBlue = ((this.alpha / Util.MAX_PROJECT_VALUE) * this.blue +
+            (color.getAlphaComponent() / Util.MAX_PROJECT_VALUE) * color.getBlueComponent() *
+                    (1 - (this.alpha / Util.MAX_PROJECT_VALUE))) * (1 / alphaPercentage);
+    double updatedAlpha = alphaPercentage * Util.MAX_PROJECT_VALUE;
+
+    return new RGBAColor(updatedRed, updatedGreen, updatedBlue, updatedAlpha);
+  }
+
+  @Override
   public boolean equals(Object other) {
     if(this == other) {
       return true;
@@ -234,6 +253,4 @@ public class RGBAColor implements ColorModel {
   public int hashCode() {
     return Objects.hash(this.red, this.blue, this.green, this.alpha);
   }
-
-
 }

@@ -71,5 +71,11 @@ public interface ColorModel extends ColorState {
    */
   ColorModel darkenLumaColor();
 
-  //implement these methods in RGBAColor class
+  /**
+   * Given the background color, updates this color based on the values of alpha.
+   * @param color the background color.
+   * @return the updated color.
+   * @throws IllegalArgumentException if the given color is null.
+   */
+  ColorModel getUpdatedColor(ColorModel color);
 }

@@ -24,15 +24,20 @@ public class Image implements ImageModel<Pixel> {
    * Represents the constructor for an Image.
    * @param width the width value of the image
    * @param height the height value of the image
+   * @throws IllegalArgumentException if the height or width are less than or equal to zero.
    */
-  public Image(int width, int height) {
+  public Image(int width, int height) throws IllegalArgumentException {
+    if (width <= 0 || height <= 0) {
+      throw new IllegalArgumentException("Width/height cannot be negative.");
+    }
     this.width = width;
     this.height = height;
     this.colorBackground(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
             Util.MAX_PROJECT_VALUE, 0));
   }
 
-  public void colorBackground(ColorModel color) {
+  public void colorBackground(ColorModel color) throws IllegalArgumentException {
+    Util.anyNull(new IllegalArgumentException("Color is null."), color);
     List<List<Pixel>> image = new ArrayList<>();
     for (int row = 0; row < this.height; row++) {
       List<Pixel> currentRow = new ArrayList<>();
@@ -59,13 +64,6 @@ public class Image implements ImageModel<Pixel> {
     }
   }
 
-  /**
-   * Overlays the given image in the filepath to the project.
-   * @param filePath the file path to the image to overlay onto the current image.
-   * @param row      the row coordinate of the position to place the given image's top left corner.
-   * @param col      the col coordinate of the position to place the given image's top left corner.
-   * @throws IllegalArgumentException if the image being overlayed is not a supported image type
-   */
   @Override
   public void overlayImage(String filePath, int row, int col) throws IllegalArgumentException {
     this.validateCoordinate(row, col);
@@ -82,40 +80,36 @@ public class Image implements ImageModel<Pixel> {
               Util.getFileExtension(filePath)));
     }
     ImageModel<Pixel> extractedImage = command.extractImage(filePath);
-    if (row + command.getImageHeight(filePath) > this.height
-            || col + command.getImageWidth(filePath) > this.width) {
+    int extractedImageHeight = command.getImageHeight(filePath);
+    int extractedImageWidth = command.getImageWidth(filePath);
+
+    if (row + extractedImageHeight > this.height || col + extractedImageWidth > this.width) {
       throw new IllegalArgumentException("Placing the image at the provided coordinate causes it " +
               "to go out-of-bounds of the current layer.");
     }
-
-    // TODO: update image
+    for (int i = 0; i < extractedImageHeight; i++) {
+      for (int j = 0; j < extractedImageWidth; j++) {
+        ColorModel updatedColor = extractedImage.getPixelAtCoord(i, j).getColor().getUpdatedColor(
+                this.getPixelAtCoord(row + i, col + j).getColor());
+        this.setImagePixelAtCoord(new ImagePixel(new Position2D(row + i, col + j),
+                updatedColor), row + i, col + j);
+      }
+    }
   }
 
-  /**
-   * Updates the position of the pixel's coordinates when it moves.
-   * @param pixel the updated pixel.
-   * @param row   the row coordinate of the position to place the updated pixel.
-   * @param col   the col coordinate of the position to place the updated pixel.
-   * @throws IllegalArgumentException
-   */
   @Override
   public void setImagePixelAtCoord(Pixel pixel, int row, int col)
           throws IllegalArgumentException {
     this.validateCoordinate(row, col);
+    Util.anyNull(new IllegalArgumentException("Pixel is null."), pixel);
     List<Pixel> targetRow = this.imageGrid.get(row);
     targetRow.set(col, pixel);
     this.imageGrid.set(row, targetRow);
   }
 
-  /**
-   * Gets the pixel at a given coordinate.
-   * @param row the row of the pixel to return.
-   * @param col the column of the pixel to return
-   * @return the pixel at the given coordinate
-   * @throws IllegalArgumentException
-   */
   @Override
   public Pixel getPixelAtCoord(int row, int col) throws IllegalArgumentException {
+    this.validateCoordinate(row, col);
     return this.imageGrid.get(row).get(col);
   }
 
