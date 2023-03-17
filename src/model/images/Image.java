@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.pixels.ImagePixel;
+import model.pixels.Pixel;
 import utils.Position2D;
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
 
-public class Image implements ImageModel<ImagePixel> {
+public class Image implements ImageModel<Pixel> {
   private final int width;
   private final int height;
-  private List<List<ImagePixel>> imageGrid;
+  private List<List<Pixel>> imageGrid;
 
   public Image(int width, int height) {
     this.width = width;
@@ -20,9 +21,9 @@ public class Image implements ImageModel<ImagePixel> {
   }
 
   public void colorBackground(ColorModel color) {
-    List<List<ImagePixel>> image = new ArrayList<>();
+    List<List<Pixel>> image = new ArrayList<>();
     for (int row = 0; row < this.width; row++) {
-      List<ImagePixel> currentRow = new ArrayList<>();
+      List<Pixel> currentRow = new ArrayList<>();
       for (int col = 0; col < this.height; col++) {
         currentRow.add(new ImagePixel(new Position2D(row, col), color));
       }
@@ -53,13 +54,13 @@ public class Image implements ImageModel<ImagePixel> {
   }
 
   @Override
-  public void setImagePixelAtCoord(ImagePixel pixel, int row, int col)
+  public void setImagePixelAtCoord(Pixel pixel, int row, int col)
           throws IllegalArgumentException {
     this.validateCoordinate(row, col);
   }
 
   @Override
-  public ImagePixel getPixelAtCoord(int row, int col) throws IllegalArgumentException {
+  public Pixel getPixelAtCoord(int row, int col) throws IllegalArgumentException {
     return this.imageGrid.get(row).get(col);
   }
 
