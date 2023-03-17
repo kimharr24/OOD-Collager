@@ -1,6 +1,7 @@
 package model.layers;
 
 import model.filters.Filter;
+import model.images.Image;
 import model.images.ImageModel;
 import model.pixels.Pixel;
 import utils.Util;
@@ -15,17 +16,22 @@ public class Layer implements LayerModel<Pixel> {
   private ImageModel<Pixel> image;
 
   /**
-   * Constructor for a layer in the image collage application.
+   * Constructor for a layer in the image collage application. By default, when a layer is
+   * constructed, the image is fully white and transparent. This default behavior is ensured
+   * by the constructor of the Image class.
+   *
    * @param layerName the name of this layer.
    * @param filter the filter that should be applied to this layer.
-   * @throws IllegalArgumentException if filter or image are null or image is of size 0.
+   * @param width the width of the layer.
+   * @param height the height of the layer.
+   * @throws IllegalArgumentException if filter is null.
    */
-  public Layer(String layerName, Filter filter)
+  public Layer(String layerName, Filter filter, int width, int height)
           throws IllegalArgumentException {
     Util.anyNull(new IllegalArgumentException("Filter given to layer cannot be null!"), filter);
     this.layerName = layerName;
     this.filter = filter;
-    // initialize the image here to a white transparent image
+    this.image = new Image(width, height);
   }
 
   public String getLayerName() {

@@ -14,7 +14,12 @@ public interface ImageModel<T> extends ImageState<T> {
    * @param row      the row coordinate of the position to place the given image's top left corner.
    * @param col      the col coordinate of the position to place the given image's top left corner.
    * @throws IllegalArgumentException if row or column are negative, or
-   *                                  if row or column are out-of-bounds.
+   *                                  if row or column are out-of-bounds or
+   *                                  if the file path is invalid or
+   *                                  contains an unsupported extension or
+   *                                  if the image stored at the filepath results in portions
+   *                                  of the image spilling out-of-bounds of the current image's
+   *                                  boundaries.
    */
   void overlayImage(String filePath, int row, int col) throws IllegalArgumentException;
 

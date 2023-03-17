@@ -22,6 +22,15 @@ public class Util {
     }
   }
 
+  /**
+   * Returns the extension of a file given a path to the file.
+   * @param path the path to the file.
+   * @return the file extension.
+   */
+  public static String getFileExtension(String path) {
+    return path.substring(path.lastIndexOf('.') + 1);
+  }
+
   public static int getMaxValueFromBits(int bits) {
     return (1 << bits) - 1;
   }

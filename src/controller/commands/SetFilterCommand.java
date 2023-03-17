@@ -2,6 +2,7 @@ package controller.commands;
 
 import java.util.InputMismatchException;
 
+import model.pixels.Pixel;
 import model.projects.CollageProject;
 import model.filters.BlueComponentFilter;
 import model.filters.BrightenValueFilter;
@@ -9,6 +10,7 @@ import model.filters.Filter;
 import model.filters.GreenComponentFilter;
 import model.filters.NormalFilter;
 import model.filters.RedComponentFilter;
+import model.projects.ProjectModel;
 
 /**
  * Represents a command that can be used to set the filter option of a particular
@@ -29,7 +31,7 @@ public class SetFilterCommand implements ProjectCommand {
   }
 
   @Override
-  public void executeCommand(CollageProject project) {
+  public void executeCommand(ProjectModel<Pixel> project) {
     Filter filter = null;
     try {
       switch (this.filterOption) {

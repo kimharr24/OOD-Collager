@@ -3,12 +3,18 @@ package model.images;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.images.file_input_commands.FileInputCommand;
+import model.images.file_input_commands.PPMInputCommand;
 import model.pixels.ImagePixel;
 import model.pixels.Pixel;
 import utils.Position2D;
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
+import utils.Util;
 
+/**
+ * Represents an image in the image collage project.
+ */
 public class Image implements ImageModel<Pixel> {
   private final int width;
   private final int height;
@@ -22,9 +28,9 @@ public class Image implements ImageModel<Pixel> {
 
   public void colorBackground(ColorModel color) {
     List<List<Pixel>> image = new ArrayList<>();
-    for (int row = 0; row < this.width; row++) {
+    for (int row = 0; row < this.height; row++) {
       List<Pixel> currentRow = new ArrayList<>();
-      for (int col = 0; col < this.height; col++) {
+      for (int col = 0; col < this.width; col++) {
         currentRow.add(new ImagePixel(new Position2D(row, col), color));
       }
       image.add(currentRow);
@@ -48,9 +54,22 @@ public class Image implements ImageModel<Pixel> {
   }
 
   @Override
-  public void overlayImage(String filePath, int row, int col)
-          throws IllegalArgumentException {
+  public void overlayImage(String filePath, int row, int col) throws IllegalArgumentException {
     this.validateCoordinate(row, col);
+
+    FileInputCommand<Pixel> command = null;
+    switch (Util.getFileExtension(filePath)) {
+      case "ppm":
+        command = new PPMInputCommand();
+        break;
+    }
+    
+    if (command == null) {
+      throw new IllegalArgumentException(String.format("%s is an unsupported file extension",
+              Util.getFileExtension(filePath)));
+    }
+
+    ImageModel<Pixel> extractedImage = command.extractImage(filePath);
   }
 
   @Override

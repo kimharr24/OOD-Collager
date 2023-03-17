@@ -1,5 +1,6 @@
 package model.projects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.filters.Filter;
@@ -20,6 +21,7 @@ public class CollageProject implements ProjectModel<Pixel> {
     this.projectName = projectName;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
+    this.layers = new ArrayList<>();
   }
 
   @Override
@@ -51,7 +53,7 @@ public class CollageProject implements ProjectModel<Pixel> {
 
   @Override
   public void addLayer(String layerName) {
-    this.layers.add(new Layer(layerName, new NormalFilter()));
+    this.layers.add(new Layer(layerName, new NormalFilter(), this.canvasWidth, this.canvasHeight));
   }
 
   @Override

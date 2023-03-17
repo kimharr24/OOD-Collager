@@ -3,11 +3,11 @@ package controller.commands;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import model.projects.CollageProject;
 import model.colors.ColorModel;
 import model.images.ImageModel;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
+import model.projects.ProjectModel;
 
 /**
  * Represents a command that can be executed to save a collage project according to
@@ -15,7 +15,7 @@ import model.pixels.Pixel;
  */
 public class SaveProjectCommand implements ProjectCommand {
   @Override
-  public void executeCommand(CollageProject project) {
+  public void executeCommand(ProjectModel<Pixel> project) {
     FileWriter writer = null;
 
     try {

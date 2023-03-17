@@ -1,6 +1,8 @@
 package controller.commands;
 
+import model.pixels.Pixel;
 import model.projects.CollageProject;
+import model.projects.ProjectModel;
 
 public class LoadProjectCommand implements ProjectCommand {
   private final String fileName;
@@ -10,7 +12,7 @@ public class LoadProjectCommand implements ProjectCommand {
   }
 
   @Override
-  public void executeCommand(CollageProject project) {
+  public void executeCommand(ProjectModel<Pixel> project) {
   }
 }
 

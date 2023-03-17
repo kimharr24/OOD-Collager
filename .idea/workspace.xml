@@ -5,30 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/pixels/Pixel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/projects/ProjectState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/CollageView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/AbstractFileInputCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/FileInputCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CommandController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/commands/AddLayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/AddLayerCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/commands/LoadProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/LoadProjectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/NewProjectCommand.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/commands/ProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/ProjectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/QuitProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/QuitProjectCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/QuitProjectCommand.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ImagePixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/pixels/ImagePixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Position2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Position2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/images/ImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/ImageModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/layers/LayerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/LayerState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Position2DTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Position2DTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -143,7 +136,7 @@
       <workItem from="1678036922882" duration="2929000" />
       <workItem from="1678383807080" duration="22526000" />
       <workItem from="1678631616821" duration="14302000" />
-      <workItem from="1678885029528" duration="36836000" />
+      <workItem from="1678885029528" duration="47699000" />
     </task>
     <servers />
   </component>

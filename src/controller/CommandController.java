@@ -9,12 +9,14 @@ import controller.commands.LoadProjectCommand;
 import controller.commands.ProjectCommand;
 import controller.commands.SaveProjectCommand;
 import controller.commands.SetFilterCommand;
+import model.pixels.Pixel;
 import model.projects.CollageProject;
+import model.projects.ProjectModel;
 
 public class CommandController {
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
-    CollageProject projectModel = null;
+    ProjectModel<Pixel> projectModel = null;
     ProjectCommand command = null;
     while(s.hasNext()) {
       String option = s.next();
