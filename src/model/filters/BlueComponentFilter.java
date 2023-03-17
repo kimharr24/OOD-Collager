@@ -15,6 +15,12 @@ public class BlueComponentFilter extends AbstractFilter {
     super("Blue Component Filter");
   }
 
+  /**
+   * Applies the BlueComponentFilter() method to a given color.
+   * @param color the color to apply the filter to.
+   * @return a new color that has the BlueComponentFilter() method applied.
+   * @throws IllegalArgumentException
+   */
   @Override
   public ColorModel apply(ColorModel color) throws IllegalArgumentException {
     this.checkNullColor(color);

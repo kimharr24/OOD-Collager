@@ -66,7 +66,7 @@ public interface ColorModel extends ColorState {
   ColorModel brightenLumaColor();
 
   /**
-   * 
+   *
    * @return
    */
   ColorModel darkenLumaColor();

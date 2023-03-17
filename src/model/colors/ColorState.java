@@ -13,29 +13,23 @@ public interface ColorState {
    * Retrieves the red component of the color.
    * @return the integer value of the red component.
    */
-  int getRedComponent();
+  double getRedComponent();
 
   /**
    * Retrieves the green component of the color.
    * @return the integer value of the green component.
    */
-  int getGreenComponent();
+  double getGreenComponent();
 
   /**
    * Retrieves the blue component of the color.
    * @return the integer value of the blue component.
    */
-  int getBlueComponent();
+  double getBlueComponent();
 
   /**
    * Retrieves the alpha component of the color.
    * @return the integer value of the alpha component.
    */
-  int getAlphaComponent();
-
-  /**
-   * Retrieves the maximum integer value that can be represented by this color.
-   * @return the maximum integer value.
-   */
-  int getMaxValue();
+  double getAlphaComponent();
 }

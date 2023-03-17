@@ -26,4 +26,8 @@ public class Util {
   public static int getMaxValueFromBits(int bits) {
     return (1 << bits) - 1;
   }
+
+  public static int getMinValueFromBits(int bits) {
+    return (1 >> bits) - 1;
+  }
 }
