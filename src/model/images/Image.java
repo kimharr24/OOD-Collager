@@ -23,7 +23,8 @@ public class Image implements ImageModel<Pixel> {
   public Image(int width, int height) {
     this.width = width;
     this.height = height;
-    this.colorBackground(new RGBAColor(255, 255, 255, 0, 8));
+    this.colorBackground(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+            Util.MAX_PROJECT_VALUE, 0));
   }
 
   public void colorBackground(ColorModel color) {
@@ -60,22 +61,31 @@ public class Image implements ImageModel<Pixel> {
     FileInputCommand<Pixel> command = null;
     switch (Util.getFileExtension(filePath)) {
       case "ppm":
-        command = new PPMInputCommand();
+        command = new PPMInputCommand(filePath);
         break;
     }
-    
+
     if (command == null) {
       throw new IllegalArgumentException(String.format("%s is an unsupported file extension",
               Util.getFileExtension(filePath)));
     }
-
     ImageModel<Pixel> extractedImage = command.extractImage(filePath);
+    if (row + command.getImageHeight(filePath) > this.height
+            || col + command.getImageWidth(filePath) > this.width) {
+      throw new IllegalArgumentException("Placing the image at the provided coordinate causes it " +
+              "to go out-of-bounds of the current layer.");
+    }
+
+    // TODO: update image
   }
 
   @Override
   public void setImagePixelAtCoord(Pixel pixel, int row, int col)
           throws IllegalArgumentException {
     this.validateCoordinate(row, col);
+    List<Pixel> targetRow = this.imageGrid.get(row);
+    targetRow.set(col, pixel);
+    this.imageGrid.set(row, targetRow);
   }
 
   @Override

@@ -24,7 +24,8 @@ public class Layer implements LayerModel<Pixel> {
    * @param filter the filter that should be applied to this layer.
    * @param width the width of the layer.
    * @param height the height of the layer.
-   * @throws IllegalArgumentException if filter is null.
+   * @throws IllegalArgumentException if filter is null or the width and height are less than
+   * or equal to zero.
    */
   public Layer(String layerName, Filter filter, int width, int height)
           throws IllegalArgumentException {

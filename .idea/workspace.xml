@@ -5,23 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/AbstractFileInputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/FileInputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/LayerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/PPMInputCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/AddLayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/AddLayerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/LoadProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/LoadProjectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/ProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/ProjectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/QuitProjectCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/images/ImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/ImageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/images/file_input_commands/AbstractFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/AbstractFileInputCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/Layer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/RGBAColorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/RGBAColorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/UtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/UtilTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +62,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.CommandController">
+  <component name="RunManager" selected="JUnit.PPMInputCommandTest">
     <configuration name="CommandController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controller.CommandController" />
       <module name="Collager" />
@@ -80,9 +76,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImageUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ImageUtil" />
+    <configuration name="PPMInputCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PPMInputCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PPMInputCommandTest.testExtractImageFileNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PPMInputCommandTest" />
+      <option name="METHOD_NAME" value="testExtractImageFileNotFound" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -91,15 +99,6 @@
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Position2DTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RGBAColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Collager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RGBAColorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,11 +115,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PPMInputCommandTest" />
+        <item itemvalue="JUnit.UtilTest" />
+        <item itemvalue="JUnit.PPMInputCommandTest.testExtractImageFileNotFound" />
         <item itemvalue="Application.CommandController" />
         <item itemvalue="JUnit.Position2DTest" />
-        <item itemvalue="JUnit.RGBAColorTest" />
-        <item itemvalue="JUnit.UtilTest" />
-        <item itemvalue="Application.ImageUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +135,7 @@
       <workItem from="1678036922882" duration="2929000" />
       <workItem from="1678383807080" duration="22526000" />
       <workItem from="1678631616821" duration="14302000" />
-      <workItem from="1678885029528" duration="47699000" />
+      <workItem from="1678885029528" duration="57052000" />
     </task>
     <servers />
   </component>

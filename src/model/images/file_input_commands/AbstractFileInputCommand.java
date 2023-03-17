@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import model.images.Image;
 import model.images.ImageModel;
 import model.pixels.Pixel;
 
@@ -14,6 +15,10 @@ import model.pixels.Pixel;
 public abstract class AbstractFileInputCommand implements FileInputCommand<Pixel> {
   protected Scanner scanner;
   protected ImageModel<Pixel> extractedImage;
+
+  public AbstractFileInputCommand(String filePath) {
+    this.extractedImage = new Image(this.getImageWidth(filePath), this.getImageHeight(filePath));
+  }
 
   /**
    * Checks whether the filepath is valid. If it is, instantiates the scanner to read

@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import utils.Util;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 /**
@@ -29,5 +30,20 @@ public class UtilTest {
     } catch (RuntimeException e) {
       fail("Expected code to run without runtime errors!");
     }
+  }
+
+  @Test
+  public void testGetFileExtension() {
+    assertEquals("ppm", Util.getFileExtension("./src/game.ppm"));
+    assertEquals("png", Util.getFileExtension("./src/algo/hello/something.png"));
+    assertEquals("jpg", Util.getFileExtension("../../../Desktop/lol.jpg"));
+  }
+
+  @Test
+  public void testConvertColorScale() {
+    assertEquals(255, Util.convertColorScale(Util.MAX_PROJECT_VALUE, 24, 24), 0.001);
+    assertEquals(0, Util.convertColorScale(Util.MAX_PROJECT_VALUE, 30, 0), 0.001);
+    assertEquals(211.0344, Util.convertColorScale(Util.MAX_PROJECT_VALUE, 29, 24), 0.001);
+    assertEquals(42.5, Util.convertColorScale(Util.MAX_PROJECT_VALUE, 60, 10), 0.001);
   }
 }

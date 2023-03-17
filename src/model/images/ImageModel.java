@@ -1,5 +1,7 @@
 package model.images;
 
+import model.colors.ColorModel;
+
 /**
  * Represents a mutable image stored in a collage project.
  *
@@ -33,4 +35,11 @@ public interface ImageModel<T> extends ImageState<T> {
    *                                  or if the row or column are out-of-bounds.
    */
   void setImagePixelAtCoord(T pixel, int row, int col) throws IllegalArgumentException;
+
+  /**
+   * Given a color, colors the entire image with that color.
+   * @param color the color to color the entire image with.
+   * @throws IllegalArgumentException if the provided color is null.
+   */
+  void colorBackground(ColorModel color) throws IllegalArgumentException;
 }

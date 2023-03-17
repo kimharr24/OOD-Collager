@@ -1,8 +1,10 @@
 package model.projects;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import model.colors.RGBAColor;
 import model.filters.Filter;
 import model.filters.NormalFilter;
 import model.images.ImageModel;
@@ -21,7 +23,12 @@ public class CollageProject implements ProjectModel<Pixel> {
     this.projectName = projectName;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
-    this.layers = new ArrayList<>();
+    LayerModel<Pixel> defaultLayer = new Layer("default-layer", new NormalFilter(),
+            canvasWidth, canvasHeight);
+    ImageModel<Pixel> image = defaultLayer.getImage();
+    image.colorBackground(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+            Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE));
+    this.layers = new ArrayList<>(List.of(defaultLayer));
   }
 
   @Override

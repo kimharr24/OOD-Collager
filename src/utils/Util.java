@@ -6,6 +6,7 @@ package utils;
  */
 public class Util {
   public static int MAX_PROJECT_VALUE = 255;
+
   /**
    * Checks to see whether any of the provided arguments are null.
    *
@@ -24,6 +25,7 @@ public class Util {
 
   /**
    * Returns the extension of a file given a path to the file.
+   *
    * @param path the path to the file.
    * @return the file extension.
    */
@@ -31,11 +33,24 @@ public class Util {
     return path.substring(path.lastIndexOf('.') + 1);
   }
 
-  public static int getMaxValueFromBits(int bits) {
-    return (1 << bits) - 1;
-  }
-
-  public static int getMinValueFromBits(int bits) {
-    return (1 >> bits) - 1;
+  /**
+   * Given a color whose value is oldValue, and whose scale is defined by [0, oldMaxValue],
+   * converts the color to this collage project's scale [0, MAX_PROJECT_VALUE].
+   * <p>
+   * Modified equation referenced from https://stackoverflow.com/questions/929103/
+   * convert-a-number-range-to-another-range-maintaining-ratio
+   *
+   * @param newMaxValue the maximum value of the current color scale.
+   * @param oldMaxValue the maximum value of the old color scale.
+   * @param oldValue    the value of the old color.
+   * @return the updated version of the old color, scaled to this project's scale.
+   * @throws IllegalArgumentException if oldMaxValue is negative or if oldValue is negative.
+   */
+  public static double convertColorScale(int newMaxValue, int oldMaxValue, int oldValue)
+          throws IllegalArgumentException {
+    if (oldMaxValue < 0 || oldValue < 0) {
+      throw new IllegalArgumentException("Max value or given value cannot be negative.");
+    }
+    return ((double) oldValue * newMaxValue) / oldMaxValue;
   }
 }
