@@ -13,8 +13,9 @@ public class PPMInputCommandTest {
   public void testGetImageWidth() {
     AbstractFileInputCommand command = new PPMInputCommand("./test/images/tako.ppm");
     assertEquals(600, command.getImageWidth("./test/images/tako.ppm"));
-    command = new PPMInputCommand("./test/images/small-image-255-max.ppm");
-    assertEquals(9, command.getImageWidth("./test/images/small-image-255-max.ppm"));
+    command = new PPMInputCommand("./test/images/emoji.ppm");
+    assertEquals(300, command.getImageWidth("./test/images/emoji.ppm"));
+
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -27,8 +28,8 @@ public class PPMInputCommandTest {
   public void testGetImageHeight() {
     AbstractFileInputCommand command = new PPMInputCommand("./test/images/tako.ppm");
     assertEquals(800, command.getImageHeight("./test/images/tako.ppm"));
-    command = new PPMInputCommand("./test/images/small-image-255-max.ppm");
-    assertEquals(4, command.getImageHeight("./test/images/small-image-255-max.ppm"));
+    command = new PPMInputCommand("./test/images/emoji.ppm");
+    assertEquals(300, command.getImageHeight("./test/images/emoji.ppm"));
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -57,6 +58,19 @@ public class PPMInputCommandTest {
 
     assertEquals(800, extractedImage.getImageHeight());
     assertEquals(600, extractedImage.getImageWidth());
+
+    command = new PPMInputCommand("./test/images/emoji.ppm");
+    extractedImage = command.extractImage("./test/images/emoji.ppm");
+
+    assertEquals(255,
+            extractedImage.getPixelAtCoord(0, 0).getColor().getRedComponent(), 0.001);
+    assertEquals(255,
+            extractedImage.getPixelAtCoord(0, 0).getColor().getGreenComponent(), 0.001);
+    assertEquals(255,
+            extractedImage.getPixelAtCoord(0, 0).getColor().getBlueComponent(), 0.001);
+
+    assertEquals(300, extractedImage.getImageHeight());
+    assertEquals(300, extractedImage.getImageWidth());
   }
 
   @Test(expected = IllegalArgumentException.class)

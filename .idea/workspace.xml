@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/RGBAColorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/RGBAColorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/LayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PPMInputCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PPMInputCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/images/small-image-255-max.ppm" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hkimr/Desktop/CS 3500/FileReading",
+    "last_opened_file_path": "C:/Users/hkimr/Desktop/OOD Group Work/Collager",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,7 +54,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.PPMInputCommandTest">
+  <component name="RunManager" selected="JUnit.LayerTest">
     <configuration name="CommandController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controller.CommandController" />
       <module name="Collager" />
@@ -75,6 +64,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LayerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,15 +96,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Position2DTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Collager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Position2DTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
@@ -118,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LayerTest" />
         <item itemvalue="JUnit.PPMInputCommandTest" />
         <item itemvalue="JUnit.UtilTest" />
         <item itemvalue="JUnit.PPMInputCommandTest.testExtractImageFileNotFound" />
         <item itemvalue="Application.CommandController" />
-        <item itemvalue="JUnit.Position2DTest" />
       </list>
     </recent_temporary>
   </component>
@@ -139,6 +128,7 @@
       <workItem from="1678383807080" duration="22526000" />
       <workItem from="1678631616821" duration="14302000" />
       <workItem from="1678885029528" duration="57299000" />
+      <workItem from="1679085008549" duration="1836000" />
     </task>
     <servers />
   </component>
