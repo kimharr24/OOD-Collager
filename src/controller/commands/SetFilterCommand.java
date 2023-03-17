@@ -2,6 +2,11 @@ package controller.commands;
 
 import java.util.InputMismatchException;
 
+import model.filters.BrightenIntensityFilter;
+import model.filters.BrightenLumaFilter;
+import model.filters.DarkenIntensityFilter;
+import model.filters.DarkenLumaFilter;
+import model.filters.DarkenValueFilter;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
 import model.filters.BlueComponentFilter;
@@ -51,10 +56,26 @@ public class SetFilterCommand implements ProjectCommand {
           filter = new BrightenValueFilter();
           break;
         case "darken-value":
-          filter = null;
+          filter = new DarkenValueFilter();
+          break;
+        case "brighten-intensity":
+          filter = new BrightenIntensityFilter();
+          break;
+        case "darken-intensity":
+          filter = new DarkenIntensityFilter();
+          break;
+        case "brighten-luma":
+          filter = new BrightenLumaFilter();
+          break;
+        case "darken-luma":
+          filter = new DarkenLumaFilter();
+          break;
+        default:
+          System.out.println("Unknown command");
           break;
       }
     } catch (InputMismatchException ignored) {
+
     }
     project.setLayerFilter(this.layerName, filter);
   }

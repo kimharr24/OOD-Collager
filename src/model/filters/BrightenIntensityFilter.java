@@ -2,6 +2,10 @@ package model.filters;
 
 import model.colors.ColorModel;
 
+/**
+ * Represents the filter that brightens the layer by adding the average value of the three color
+ * components to each individual color component.
+ */
 public class BrightenIntensityFilter extends AbstractFilter {
 
   /**

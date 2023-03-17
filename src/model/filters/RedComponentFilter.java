@@ -15,6 +15,12 @@ public class RedComponentFilter extends AbstractFilter {
     super("Red Component Filter");
   }
 
+  /**
+   * Applies the RedComponentFilter() filter to the layer.
+   * @param color the color to apply the filter to.
+   * @return the new color of the given pixel.
+   * @throws IllegalArgumentException
+   */
   @Override
   public ColorModel apply(ColorModel color) throws IllegalArgumentException {
     this.checkNullColor(color);

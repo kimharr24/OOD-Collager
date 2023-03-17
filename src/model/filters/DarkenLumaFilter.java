@@ -2,6 +2,10 @@ package model.filters;
 
 import model.colors.ColorModel;
 
+/**
+ * Represents the filter that darkens the layer by subtracting the luma value from each of the
+ * individual color components.
+ */
 public class DarkenLumaFilter extends AbstractFilter {
 
   /**

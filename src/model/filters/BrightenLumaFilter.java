@@ -2,6 +2,10 @@ package model.filters;
 
 import model.colors.ColorModel;
 
+/**
+ * Represents the filter that brightens the layer by adding the luma value to each of the
+ * individual color components.
+ */
 public class BrightenLumaFilter extends AbstractFilter {
 
   /**
