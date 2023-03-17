@@ -1,8 +1,6 @@
 package controller.commands;
 
-import model.CollageProject;
-import model.ImagePixel;
-import model.images.ImageModel;
+import model.projects.CollageProject;
 
 public class AddImageToLayerCommand implements ProjectCommand {
 

@@ -5,7 +5,6 @@ package utils;
  * view in the image collage project.
  */
 public class Util {
-
   public static int MAX_PROJECT_VALUE = 255;
   /**
    * Checks to see whether any of the provided arguments are null.

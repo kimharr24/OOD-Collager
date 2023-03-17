@@ -1,4 +1,4 @@
-package model;
+package utils;
 
 /**
  * Represents a 2-dimensional position on a grid

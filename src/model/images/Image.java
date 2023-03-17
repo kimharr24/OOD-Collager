@@ -3,8 +3,8 @@ package model.images;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.ImagePixel;
-import model.Position2D;
+import model.pixels.ImagePixel;
+import utils.Position2D;
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
 
@@ -31,10 +31,36 @@ public class Image implements ImageModel<ImagePixel> {
     this.imageGrid = image;
   }
 
+  /**
+   * Ensures that the given coordinate is within bounds of the image.
+   * @param row the row component of the coordinate.
+   * @param col the column component of the coordinate.
+   * @throws IllegalArgumentException if the coordinate is out-of-bounds.
+   */
+  private void validateCoordinate(int row, int col) throws IllegalArgumentException {
+    if (row < 0 || col < 0) {
+      throw new IllegalArgumentException("Coordinate cannot be negative.");
+    }
+    if (row >= this.height || col >= this.width) {
+      throw new IllegalArgumentException("Coordinate is out-of-bounds of the image.");
+    }
+  }
+
   @Override
   public void overlayImage(String filePath, int row, int col)
           throws IllegalArgumentException {
+    this.validateCoordinate(row, col);
+  }
 
+  @Override
+  public void setImagePixelAtCoord(ImagePixel pixel, int row, int col)
+          throws IllegalArgumentException {
+    this.validateCoordinate(row, col);
+  }
+
+  @Override
+  public ImagePixel getPixelAtCoord(int row, int col) throws IllegalArgumentException {
+    return this.imageGrid.get(row).get(col);
   }
 
   @Override
@@ -45,10 +71,5 @@ public class Image implements ImageModel<ImagePixel> {
   @Override
   public int getImageWidth() {
     return this.width;
-  }
-
-  @Override
-  public ImagePixel getPixelAtCoord(int row, int col) throws IllegalArgumentException {
-    return this.imageGrid.get(row).get(col);
   }
 }

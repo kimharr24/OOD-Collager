@@ -1,5 +1,6 @@
-package model;
+package model.pixels;
 
+import utils.Position2D;
 import model.colors.ColorModel;
 import model.filters.Filter;
 import utils.Util;
@@ -8,7 +9,7 @@ import utils.Util;
  * Represents a single pixel of an image. Combining multiple pixels into a grid will recover
  * the image representation.
  */
-public class ImagePixel {
+public class ImagePixel implements Pixel {
   private final Position2D position;
   private final ColorModel originalColor;
   private ColorModel color;

@@ -1,6 +1,6 @@
 package controller.commands;
 
-import model.CollageProject;
+import model.projects.CollageProject;
 
 /**
  * Represents the interface for calling a project command.

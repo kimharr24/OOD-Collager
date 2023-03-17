@@ -1,9 +1,8 @@
 package controller.commands;
 
-import model.CollageProject;
+import model.projects.CollageProject;
 
 public class AddLayerCommand implements ProjectCommand {
-
   private final String layerName;
 
   public AddLayerCommand(String layerName) {
