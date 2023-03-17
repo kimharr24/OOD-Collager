@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import model.Position2D;
+import utils.Position2D;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;

@@ -5,7 +5,6 @@ package utils;
  * view in the image collage project.
  */
 public class Util {
-
   public static int MAX_PROJECT_VALUE = 255;
   /**
    * Checks to see whether any of the provided arguments are null.
@@ -21,6 +20,15 @@ public class Util {
         throw exception;
       }
     }
+  }
+
+  /**
+   * Returns the extension of a file given a path to the file.
+   * @param path the path to the file.
+   * @return the file extension.
+   */
+  public static String getFileExtension(String path) {
+    return path.substring(path.lastIndexOf('.') + 1);
   }
 
   public static int getMaxValueFromBits(int bits) {

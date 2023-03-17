@@ -213,4 +213,29 @@ public class RGBAColor implements ColorModel {
             Math.max(this.blue + lumaValue, 0),
             this.alpha);
   }
+
+  @Override
+  public ColorModel darkenValueColor() {
+    return null;
+  }
+
+  @Override
+  public ColorModel brightenIntensityColor() {
+    return null;
+  }
+
+  @Override
+  public ColorModel darkenIntensityColor() {
+    return null;
+  }
+
+  @Override
+  public ColorModel brightenLumaColor() {
+    return null;
+  }
+
+  @Override
+  public ColorModel darkenLumaColor() {
+    return null;
+  }
 }

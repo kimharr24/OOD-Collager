@@ -1,38 +1,37 @@
 package model.layers;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import model.ImagePixel;
-import model.Position2D;
-import model.colors.RGBAColor;
 import model.filters.Filter;
-import model.filters.NormalFilter;
+import model.images.Image;
 import model.images.ImageModel;
+import model.pixels.Pixel;
 import utils.Util;
 
 /**
  * Represents a layer in the image collage application. A layer has a name, a filter applied
  * to it, and a stored image.
  */
-public class Layer implements LayerModel<ImagePixel> {
+public class Layer implements LayerModel<Pixel> {
   private String layerName;
   private Filter filter;
-  private ImageModel<ImagePixel> image;
+  private ImageModel<Pixel> image;
 
   /**
-   * Constructor for a layer in the image collage application.
+   * Constructor for a layer in the image collage application. By default, when a layer is
+   * constructed, the image is fully white and transparent. This default behavior is ensured
+   * by the constructor of the Image class.
+   *
    * @param layerName the name of this layer.
    * @param filter the filter that should be applied to this layer.
-   * @throws IllegalArgumentException if filter or image are null or image is of size 0.
+   * @param width the width of the layer.
+   * @param height the height of the layer.
+   * @throws IllegalArgumentException if filter is null.
    */
-  public Layer(String layerName, Filter filter)
+  public Layer(String layerName, Filter filter, int width, int height)
           throws IllegalArgumentException {
-    Util.anyNull(new IllegalArgumentException("Filter or image given to layer cannot be null!"),
-            filter, image);
+    Util.anyNull(new IllegalArgumentException("Filter given to layer cannot be null!"), filter);
     this.layerName = layerName;
     this.filter = filter;
-    // initialize the image here
+    this.image = new Image(width, height);
   }
 
   public String getLayerName() {
@@ -40,7 +39,7 @@ public class Layer implements LayerModel<ImagePixel> {
   }
 
   @Override
-  public ImageModel<ImagePixel> getImage() {
+  public ImageModel<Pixel> getImage() {
     return this.image;
   }
 

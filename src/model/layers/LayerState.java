@@ -15,6 +15,12 @@ public interface LayerState<T> {
   String getLayerName();
 
   /**
+   * Returns the name of the filter associated with this layer.
+   * @return the name of the filter.
+   */
+  String getFilterName();
+
+  /**
    * Returns a copy of the image stored in the current layer.
    * @return the stored image.
    */

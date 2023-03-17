@@ -1,0 +1,45 @@
+package model.projects;
+
+import model.filters.Filter;
+
+/**
+ * Represents a mutable collage project. All interactive actions a user can perform on a collage
+ * project are located in this interface.
+ *
+ * @param <T> the collage project's representation of an image's pixel.
+ */
+public interface ProjectModel<T> extends ProjectState<T> {
+  /**
+   * Given a layer's name, sets that layer to have the given filter.
+   *
+   * @param layerName the name of the layer.
+   * @param filter    the filter to give to the layer.
+   * @throws IllegalArgumentException if the given layer does not exist or the filter is null.
+   */
+  void setLayerFilter(String layerName, Filter filter) throws IllegalArgumentException;
+
+  /**
+   * Given a layer's name, places the image at the provided filepath, where the top-left corner
+   * of the image is placed at the coordinate (row, col) of the layer.
+   *
+   * @param layerName the name of the layer.
+   * @param filepath  the path to the image.
+   * @param row       the row coordinate of the starting position.
+   * @param col       the column coordinate of the starting position.
+   * @throws IllegalArgumentException if the given layer does not exist, the given filepath is
+   *                                  invalid, the image placed at (row, col) results in portions
+   *                                  of the image spilling out of the dimensions of the layer,
+   *                                  the row or col are negative, or the row or col are
+   *                                  out-of-bounds of the given layer.
+   */
+  void addImageToLayer(String layerName, String filepath, int row, int col)
+          throws IllegalArgumentException;
+
+  /**
+   * Adds a new layer to the top of the collage project. By default, this layer has a fully
+   * transparent white image with the normal filter.
+   *
+   * @param layerName the name of the new layer.
+   */
+  void addLayer(String layerName);
+}

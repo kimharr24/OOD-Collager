@@ -1,11 +1,10 @@
 package controller.commands;
 
-import model.CollageProject;
-import model.ImagePixel;
-import model.images.ImageModel;
+import model.pixels.Pixel;
+import model.projects.CollageProject;
+import model.projects.ProjectModel;
 
 public class AddImageToLayerCommand implements ProjectCommand {
-
   private final String layerName;
   private final String filePath;
   private final int row;
@@ -18,7 +17,7 @@ public class AddImageToLayerCommand implements ProjectCommand {
     this.col = col;
   }
 
-  public void executeCommand(CollageProject project) {
+  public void executeCommand(ProjectModel<Pixel> project) {
     project.addImageToLayer(this.layerName, this.filePath, this.row, this.col);
   }
 }

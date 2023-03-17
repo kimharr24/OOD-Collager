@@ -1,23 +1,37 @@
 package controller.commands;
 
-import model.CollageProject;
+import java.util.InputMismatchException;
+
+import model.pixels.Pixel;
+import model.projects.CollageProject;
+import model.filters.BlueComponentFilter;
 import model.filters.BrightenValueFilter;
 import model.filters.Filter;
+import model.filters.GreenComponentFilter;
 import model.filters.NormalFilter;
 import model.filters.RedComponentFilter;
+import model.projects.ProjectModel;
 
+/**
+ * Represents a command that can be used to set the filter option of a particular
+ * layer in the collage project.
+ */
 public class SetFilterCommand implements ProjectCommand {
-
   private final String layerName;
   private final String filterOption;
 
+  /**
+   * Sets the name of the layer whose filter to modify as well as the new filter.
+   * @param layerName the name of the layer whose filter will change.
+   * @param filterOption the filter to change it to.
+   */
   public SetFilterCommand(String layerName, String filterOption) {
     this.layerName = layerName;
     this.filterOption = filterOption;
   }
 
-  // finish the rest of the cases for choosing different filters (go to hw 3.3)
-  public void executeCommand(CollageProject project) {
+  @Override
+  public void executeCommand(ProjectModel<Pixel> project) {
     Filter filter = null;
     try {
       switch (this.filterOption) {
@@ -28,17 +42,19 @@ public class SetFilterCommand implements ProjectCommand {
           filter = new RedComponentFilter();
           break;
         case "blue-component":
-          filter = new RedComponentFilter();
+          filter = new BlueComponentFilter();
           break;
         case "green-component":
-          filter = new RedComponentFilter();
+          filter = new GreenComponentFilter();
           break;
         case "brighten-value":
           filter = new BrightenValueFilter();
           break;
         case "darken-value":
-          filter = new
+          filter = null;
+          break;
       }
+    } catch (InputMismatchException ignored) {
     }
     project.setLayerFilter(this.layerName, filter);
   }
