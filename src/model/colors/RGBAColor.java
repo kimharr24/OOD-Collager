@@ -1,5 +1,7 @@
 package model.colors;
 
+import java.util.Objects;
+
 import utils.Util;
 
 /**
@@ -212,4 +214,26 @@ public class RGBAColor implements ColorModel {
             Math.max(this.blue + lumaValue, 0),
             this.alpha);
   }
+
+  @Override
+  public boolean equals(Object other) {
+    if(this == other) {
+      return true;
+    }
+    if (!(other instanceof ColorModel)) {
+      return false;
+    }
+    ColorModel otherColor = (ColorModel) other;
+    return (this.red == otherColor.getRedComponent()) &&
+            this.blue == otherColor.getBlueComponent() &&
+            this.green == otherColor.getGreenComponent() &&
+            this.alpha == otherColor.getAlphaComponent();
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(this.red, this.blue, this.green, this.alpha);
+  }
+
+
 }
