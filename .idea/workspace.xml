@@ -5,37 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/commands/SaveImageCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/images/file_output_commands/FileOutputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/images/file_output_commands/PPMFileOutputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/PixelTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/commands/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/AddLayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/AddLayerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/LoadProjectCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BlueComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BlueComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenValueFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenValueFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/ImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/ImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/layers/LayerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/LayerState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/pixels/ImagePixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/pixels/ImagePixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/pixels/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/pixels/Pixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/LayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/LayerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -155,7 +127,7 @@
       <workItem from="1678383807080" duration="22526000" />
       <workItem from="1678631616821" duration="14302000" />
       <workItem from="1678885029528" duration="57299000" />
-      <workItem from="1679085008549" duration="20982000" />
+      <workItem from="1679085008549" duration="21700000" />
     </task>
     <servers />
   </component>
