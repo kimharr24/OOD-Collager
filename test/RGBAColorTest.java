@@ -3,7 +3,8 @@ import org.junit.Test;
 
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
-import model.layers.Layer;
+//import model.layers.Layer;
+//import model.pixels.Pixel;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -139,10 +140,6 @@ public class RGBAColorTest {
     assertEquals(200, updatedColor.getRedComponent(), 0.0001);
     assertEquals(200, updatedColor.getBlueComponent(), 0.0001);
     assertEquals(200, updatedColor.getGreenComponent(), 0.0001);
-
-  //    assertTrue(pixelColor.getRedComponent() > 0);
-  //    assertTrue(pixelColor.getBlueComponent() > 0);
-  //    assertTrue(pixelColor.getGreenComponent() > 0);
   }
 
     @Test
@@ -152,10 +149,6 @@ public class RGBAColorTest {
       assertEquals(0, updatedColor.getRedComponent(), 0.0001);
       assertEquals(0, updatedColor.getBlueComponent(), 0.0001);
       assertEquals(0, updatedColor.getGreenComponent(), 0.0001);
-
-  //    assertTrue(pixelColor.getRedComponent() > 0);
-  //    assertTrue(pixelColor.getBlueComponent() > 0);
-  //    assertTrue(pixelColor.getGreenComponent() > 0);
   }
 
   @Test
@@ -166,42 +159,35 @@ public class RGBAColorTest {
       assertEquals(200, updatedColor.getBlueComponent(), 0.0001);
       assertEquals(200, updatedColor.getGreenComponent(), 0.0001);
       assertEquals(100, updatedColor.getAlphaComponent(), 0.0001);
-
-  //    assertTrue(pixelColor.getRedComponent() > 0);
-  //    assertTrue(pixelColor.getBlueComponent() > 0);
-  //    assertTrue(pixelColor.getGreenComponent() > 0);
   }
 
   @Test
   public void testDarkenLuma() {
-    RGBAColor model = new RGBAColor(100,100,100,100);
-    model.darkenLumaColor();
-    RGBAColor pixelColor = new RGBAColor(1,1,1,100);
-    assertEquals(1,1);
-
-  //    assertTrue(pixelColor.getRedComponent() > 0);
-  //    assertTrue(pixelColor.getBlueComponent() > 0);
-  //    assertTrue(pixelColor.getGreenComponent() > 0);
+    RGBAColor model = new RGBAColor(100.0, 100, 100, 100);
+    ColorModel updatedColor = model.darkenLumaColor();
+    assertEquals(0, updatedColor.getRedComponent(), 0.0001);
+    assertEquals(0, updatedColor.getBlueComponent(), 0.0001);
+    assertEquals(0, updatedColor.getGreenComponent(), 0.0001);
+    assertEquals(100, updatedColor.getAlphaComponent(), 0.0001);
   }
 
   @Test
   public void testBrightenValue() {
-    RGBAColor model = new RGBAColor(100,100,100,100);
-    model.brightenValueColor();
-    RGBAColor pixelColor = new RGBAColor(1,1,1,100);
-    assertEquals(5, 5);
-
-  //    assertTrue(pixelColor.getRedComponent() > 0);
-  //    assertTrue(pixelColor.getBlueComponent() > 0);
-  //    assertTrue(pixelColor.getGreenComponent() > 0);
+    RGBAColor model = new RGBAColor(100.0, 100, 100, 100);
+    ColorModel updatedColor = model.brightenValueColor();
+    assertEquals(200, updatedColor.getRedComponent(), 0.0001);
+    assertEquals(200, updatedColor.getBlueComponent(), 0.0001);
+    assertEquals(200, updatedColor.getGreenComponent(), 0.0001);
+    assertEquals(100, updatedColor.getAlphaComponent(), 0.0001);
   }
 
   @Test
   public void testDarkenValue() {
-    RGBAColor model = new RGBAColor(100,100,100,100);
-    model.darkenValueColor();
-    RGBAColor pixelColor = new RGBAColor(50,50,50,100);
-    assertEquals(5, 5);
+    RGBAColor model = new RGBAColor(100.0, 100, 100, 100);
+    ColorModel updatedColor = model.darkenValueColor();
+    assertEquals(0, updatedColor.getRedComponent(), 0.0001);
+    assertEquals(0, updatedColor.getBlueComponent(), 0.0001);
+    assertEquals(0, updatedColor.getGreenComponent(), 0.0001);
+    assertEquals(100, updatedColor.getAlphaComponent(), 0.0001);
   }
-
 }

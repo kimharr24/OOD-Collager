@@ -86,8 +86,8 @@ public class FilterTest {
 
   @Test
   public void testApplyBrightenLuma() {
-    ColorModel originalColor = new RGBAColor(100, 50, 30, 255);
-    ColorModel expectedColor = new RGBAColor(40, 0, 0, 255);
+    ColorModel originalColor = new RGBAColor(100, 100, 100, 255);
+    ColorModel expectedColor = new RGBAColor(200, 200, 200, 255); // 60.63
 
     BrightenLumaFilter filter = new BrightenLumaFilter();
     ColorModel filteredColor = filter.apply(originalColor);
@@ -97,8 +97,8 @@ public class FilterTest {
 
   @Test
   public void testApplyDarkenLuma() {
-    ColorModel originalColor = new RGBAColor(100, 50, 30, 255);
-    ColorModel expectedColor = new RGBAColor(40, 0, 0, 255);
+    ColorModel originalColor = new RGBAColor(100, 100, 100, 255);
+    ColorModel expectedColor = new RGBAColor(0, 0, 0, 255);
 
     DarkenLumaFilter filter = new DarkenLumaFilter();
     ColorModel filteredColor = filter.apply(originalColor);
