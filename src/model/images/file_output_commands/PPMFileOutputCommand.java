@@ -8,6 +8,9 @@ import model.images.ImageModel;
 import model.pixels.Pixel;
 import utils.Util;
 
+/**
+ * Represents a command to save an image to a PPM file.
+ */
 public class PPMFileOutputCommand implements FileOutputCommand<Pixel> {
   @Override
   public void saveCollageImage(ImageModel<Pixel> image, String filePath) {

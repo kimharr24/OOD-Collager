@@ -35,12 +35,6 @@ public class PPMInputCommand extends AbstractFileInputCommand {
     }
   }
 
-  /**
-   * Extracts the given image from wherever it is being imported from, and stores it in the filepath
-   * @param filepath the path to the image to load.
-   * @return null
-   * @throws IllegalArgumentException
-   */
   @Override
   public ImageModel<Pixel> extractImage(String filepath) throws IllegalArgumentException {
     this.initializeScanner(filepath);

@@ -95,6 +95,10 @@ public class Image implements ImageModel<Pixel> {
 
   public ImageModel<Pixel> collapseImage(ImageModel<Pixel> aboveImage)
           throws IllegalArgumentException {
+    Util.anyNull(new IllegalArgumentException("Image cannot be null"), aboveImage);
+    if (aboveImage.getImageHeight() != this.height || aboveImage.getImageWidth() != this.width) {
+      throw new IllegalArgumentException("Image dimensions do not match.");
+    }
     ImageModel<Pixel> updatedImage = new Image(this.width, this.height);
     for (int i = 0; i < this.height; i++) {
       for (int j = 0; j < this.width; j++) {

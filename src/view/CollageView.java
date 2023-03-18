@@ -16,4 +16,9 @@ public interface CollageView {
    * well as their corresponding syntax.
    */
   void renderCommandOptions();
+
+  /**
+   * Shows the user the available filter options in the collage project.
+   */
+  void renderFilterOptions();
 }

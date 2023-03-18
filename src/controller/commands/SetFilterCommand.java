@@ -8,7 +8,6 @@ import model.filters.DarkenIntensityFilter;
 import model.filters.DarkenLumaFilter;
 import model.filters.DarkenValueFilter;
 import model.pixels.Pixel;
-import model.projects.CollageProject;
 import model.filters.BlueComponentFilter;
 import model.filters.BrightenValueFilter;
 import model.filters.Filter;
@@ -21,7 +20,7 @@ import model.projects.ProjectModel;
  * Represents a command that can be used to set the filter option of a particular
  * layer in the collage project.
  */
-public class SetFilterCommand implements ProjectCommand {
+public class SetFilterCommand extends AbstractProjectCommand {
   private final String layerName;
   private final String filterOption;
 
@@ -37,6 +36,7 @@ public class SetFilterCommand implements ProjectCommand {
 
   @Override
   public void executeCommand(ProjectModel<Pixel> project) {
+    this.checkNullProject(project);
     Filter filter = null;
     try {
       switch (this.filterOption) {
@@ -75,7 +75,7 @@ public class SetFilterCommand implements ProjectCommand {
           break;
       }
     } catch (InputMismatchException ignored) {
-
+      System.out.println("Unknown filter option!");
     }
     project.setLayerFilter(this.layerName, filter);
   }
