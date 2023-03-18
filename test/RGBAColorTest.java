@@ -3,8 +3,6 @@ import org.junit.Test;
 
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
-//import model.layers.Layer;
-//import model.pixels.Pixel;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -25,9 +23,6 @@ public class RGBAColorTest {
     this.color3 = new RGBAColor(1, 1, 1, 20);
   }
 
-  /**
-   *
-   */
   @Test(expected = IllegalArgumentException.class)
   public void testNegativeRedComponent() {
     ColorModel color = new RGBAColor(-6, 100, 200, 100);
@@ -189,5 +184,12 @@ public class RGBAColorTest {
     assertEquals(0, updatedColor.getBlueComponent(), 0.0001);
     assertEquals(0, updatedColor.getGreenComponent(), 0.0001);
     assertEquals(100, updatedColor.getAlphaComponent(), 0.0001);
+  }
+
+  @Test
+  public void testGetUpdatedColor() {
+    assertEquals(new RGBAColor(119.56904400606982, 101.07738998482552,
+                    57.661608497723826, 193.8235294117647),
+            this.color1.getUpdatedColor(this.color2));
   }
 }

@@ -45,6 +45,7 @@ public class SaveProjectCommand extends AbstractProjectCommand {
       }
       writer.close();
     } catch (IOException ignored) {
+      System.out.println("Unable to save project.");
     }
   }
 }

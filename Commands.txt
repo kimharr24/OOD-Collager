@@ -1,0 +1,27 @@
+EXAMPLE SCRIPT
+new-project my-project 500 500
+add-layer first-layer
+add-layer second-layer
+add-layer third-layer
+add-image-to-layer first-layer ./test/images/cat.ppm 0 0
+add-image-to-layer second-layer ./test/images/cat.ppm 100 100
+add-image-to-layer third-layer ./test/images/cat.ppm 50 50
+set-filter first-layer red-component
+set-filter second-layer green-component
+set-filter third-layer blue-component
+save-project
+save-image ./test/images/result.ppm
+quit
+
+SUPPORTED COMMANDS
+new-project project-name canvas-height canvas-width
+save-project
+add-layer layer-name
+add-image-to-layer layer-name image-name x-pos y-pos
+set-filter layer-name filter-option
+save-image file-name
+view-filter-options
+quit
+
+NOT SUPPORTED COMMANDS
+load-project path-to-project-file
