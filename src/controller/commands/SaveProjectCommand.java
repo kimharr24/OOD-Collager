@@ -14,13 +14,14 @@ import model.projects.ProjectModel;
  * Represents a command that can be executed to save a collage project according to
  * the formatting specifications of a .collage file.
  */
-public class SaveProjectCommand implements ProjectCommand {
+public class SaveProjectCommand extends AbstractProjectCommand {
   @Override
   public void executeCommand(ProjectModel<Pixel> project) {
+    this.checkNullProject(project);
     FileWriter writer = null;
 
     try {
-      writer = new FileWriter(project.getName() + ".txt");
+      writer = new FileWriter(project.getName() + ".collage");
       writer.write("C1\n");
       writer.write(String.format("%d %d\n", project.getCanvasWidth(), project.getCanvasHeight()));
       writer.write(project.getMaxValue() + "\n");

@@ -166,6 +166,16 @@ public class ImageTest {
   }
 
   @Test(expected = IllegalArgumentException.class)
+  public void testCollapseImageNullImage() {
+    this.image1.collapseImage(null);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testCollapseImageDifferentImageSize() {
+    this.image1.collapseImage(new Image(3, 3));
+  }
+
+  @Test(expected = IllegalArgumentException.class)
   public void testNullColorBackground() {
     this.image1.colorBackground(null);
   }
