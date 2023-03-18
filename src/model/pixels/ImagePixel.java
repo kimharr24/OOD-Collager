@@ -29,31 +29,18 @@ public class ImagePixel implements Pixel {
     this.color = color;
   }
 
-  /**
-   * Returns the position of this pixel within the image grid.
-   * @return this pixel's position.
-   */
   public Position2D getPosition() {
     return new Position2D(this.position.getRow(), this.position.getCol());
   }
 
-  /**
-   * Returns the color of this pixel.
-   * @return the color of the pixel.
-   */
   public ColorModel getColor() {
     return this.color.createCopy();
   }
 
-  /**
-   * Applies the provided filter on this image pixel, changing its color.
-   *
-   * The filter should never modify this class's originalColor field. Hence, a defensive
-   * copy of the original color is passed to the filter.
-   *
-   * @param filter the filter to be applied to this image pixel.
-   * @throws IllegalArgumentException if the filter is null.
-   */
+  public Pixel createCopy() {
+    return new ImagePixel(this.getPosition(), this.getColor());
+  }
+
   public void applyFilter(Filter filter) throws IllegalArgumentException {
     RuntimeException exception = new IllegalArgumentException("Filter applied to image pixel " +
             "cannot be null.");

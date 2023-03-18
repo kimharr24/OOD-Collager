@@ -1,5 +1,6 @@
 package model.layers;
 
+import model.filters.Filter;
 import model.images.ImageModel;
 
 /**
@@ -25,4 +26,10 @@ public interface LayerState<T> {
    * @return the stored image.
    */
   ImageModel<T> getImage();
+
+  /**
+   * Returns the filter associated with the current layer.
+   * @return the filter.
+   */
+  Filter getFilter();
 }

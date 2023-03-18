@@ -47,11 +47,16 @@ public class Layer implements LayerModel<Pixel> {
     return this.image;
   }
 
+  @Override
+  public Filter getFilter() {
+    return this.filter;
+  }
+
   public String getFilterName() {
     return this.filter.getName();
   }
 
-  public void setFilter(Filter filter) {
+  public void setFilter(Filter filter) throws IllegalArgumentException {
     this.filter = filter;
   }
 

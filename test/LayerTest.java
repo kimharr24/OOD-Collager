@@ -87,4 +87,10 @@ public class LayerTest {
     assertEquals(0,
             this.layer1.getImage().getPixelAtCoord(3, 5).getColor().getAlphaComponent(), 0.001);
   }
+
+  @Test
+  public void testGetFilter() {
+    assertEquals("Red Component Filter", this.layer1.getFilter().getName());
+    assertEquals("Brighten Intensity Filter", this.layer2.getFilter().getName());
+  }
 }

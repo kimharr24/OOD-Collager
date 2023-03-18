@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import model.colors.ColorModel;
+import model.filters.NormalFilter;
 import model.images.ImageModel;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
@@ -29,15 +30,17 @@ public class SaveProjectCommand implements ProjectCommand {
         writer.write(String.format("%s %s\n", currentLayer.getLayerName(),
                 currentLayer.getFilterName()));
         ImageModel<Pixel> image = currentLayer.getImage();
+        image.applyFilter(new NormalFilter());
         for (int i = 0; i < image.getImageHeight(); i++) {
           for (int j = 0; j < image.getImageWidth(); j++) {
             Pixel currentPixel = image.getPixelAtCoord(i, j);
             ColorModel currentColor = currentPixel.getColor();
-            writer.write(String.format("%d %d %d %d\n", currentColor.getRedComponent(),
-                    currentColor.getGreenComponent(), currentColor.getBlueComponent(),
-                    currentColor.getAlphaComponent()));
+            writer.write(String.format("%d %d %d %d\n", (int) currentColor.getRedComponent(),
+                    (int) currentColor.getGreenComponent(), (int) currentColor.getBlueComponent(),
+                    (int) currentColor.getAlphaComponent()));
           }
         }
+        image.applyFilter(currentLayer.getFilter());
       }
       writer.close();
     } catch (IOException ignored) {

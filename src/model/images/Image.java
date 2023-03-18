@@ -3,6 +3,7 @@ package model.images;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.filters.Filter;
 import model.images.file_input_commands.FileInputCommand;
 import model.images.file_input_commands.PPMInputCommand;
 import model.pixels.ImagePixel;
@@ -21,18 +22,92 @@ public class Image implements ImageModel<Pixel> {
   private List<List<Pixel>> imageGrid;
 
   /**
-   * Represents the constructor for an Image.
+   * Represents the constructor for an Image. When images are created, they are fully
+   * white and transparent by default.
    * @param width the width value of the image
    * @param height the height value of the image
+   * @throws IllegalArgumentException if the height or width are less than or equal to zero.
    */
-  public Image(int width, int height) {
+  public Image(int width, int height) throws IllegalArgumentException {
+    if (width <= 0 || height <= 0) {
+      throw new IllegalArgumentException("Width/height cannot be negative.");
+    }
     this.width = width;
     this.height = height;
     this.colorBackground(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
             Util.MAX_PROJECT_VALUE, 0));
   }
 
-  public void colorBackground(ColorModel color) {
+  /**
+   * Private constructor for an image to hide away the data representation of an image from
+   * clients. This constructor is used solely for modifying the existing image by providing
+   * a new image to it.
+   * @param width the width of the new image
+   * @param height the height of the new image
+   * @param imageGrid the updated image.
+   * @throws IllegalArgumentException if the width/height are negative, if the image is null,
+   * or if the image's dimensions do not match the supplied width/height.
+   */
+  private Image(int width, int height, List<List<Pixel>> imageGrid) {
+    if (width <= 0 || height <= 0) {
+      throw new IllegalArgumentException("Width/height cannot be negative.");
+    }
+    Util.anyNull(new IllegalArgumentException("Image cannot be null"), imageGrid);
+    if (imageGrid.size() != height || imageGrid.get(0).size() != width) {
+      throw new IllegalArgumentException("Provided image does not match height and " +
+              "width dimensions.");
+    }
+    this.width = width;
+    this.height = height;
+    this.imageGrid = this.createImageGridCopy(imageGrid);
+  }
+
+  /**
+   * Create a deep copy of the image's grid.
+   * @param originalImage the original image to be copied
+   * @return the deep copy of the image grid.
+   * @throws IllegalArgumentException if the original image is null or empty.
+   */
+  private List<List<Pixel>> createImageGridCopy(List<List<Pixel>> originalImage) {
+    List<List<Pixel>> copiedImageGrid = new ArrayList<>();
+    for (int i = 0; i < originalImage.size(); i++) {
+      List<Pixel> currentRow = new ArrayList<>();
+      for (int j = 0; j < originalImage.get(0).size(); j++) {
+        currentRow.add(originalImage.get(i).get(j).createCopy());
+      }
+      copiedImageGrid.add(currentRow);
+    }
+    return copiedImageGrid;
+  }
+
+  public ImageModel<Pixel> createCopy() {
+    return new Image(this.width, this.height, this.imageGrid);
+  }
+
+  public void applyFilter(Filter filter) throws IllegalArgumentException {
+    Util.anyNull(new IllegalArgumentException("Filter is null!"), filter);
+    for (int i = 0; i < this.height; i++) {
+      for (int j = 0; j < this.width; j++) {
+        this.getPixelAtCoord(i, j).applyFilter(filter);
+      }
+    }
+  }
+
+  public ImageModel<Pixel> collapseImage(ImageModel<Pixel> aboveImage)
+          throws IllegalArgumentException {
+    ImageModel<Pixel> updatedImage = new Image(this.width, this.height);
+    for (int i = 0; i < this.height; i++) {
+      for (int j = 0; j < this.width; j++) {
+        ColorModel updatedColor = aboveImage.getPixelAtCoord(i, j).getColor().getUpdatedColor(
+                this.getPixelAtCoord(i, j).getColor());
+        updatedImage.setImagePixelAtCoord(new ImagePixel(new Position2D(i, j), updatedColor), i, j);
+      }
+    }
+    return updatedImage;
+  }
+
+  public void colorBackground(ColorModel color) throws IllegalArgumentException {
+    Util.anyNull(new IllegalArgumentException("Color is null."), color);
     List<List<Pixel>> image = new ArrayList<>();
     for (int row = 0; row < this.height; row++) {
       List<Pixel> currentRow = new ArrayList<>();
@@ -59,13 +134,6 @@ public class Image implements ImageModel<Pixel> {
     }
   }
 
-  /**
-   * Overlays the given image in the filepath to the project.
-   * @param filePath the file path to the image to overlay onto the current image.
-   * @param row      the row coordinate of the position to place the given image's top left corner.
-   * @param col      the col coordinate of the position to place the given image's top left corner.
-   * @throws IllegalArgumentException if the image being overlayed is not a supported image type
-   */
   @Override
   public void overlayImage(String filePath, int row, int col) throws IllegalArgumentException {
     this.validateCoordinate(row, col);
@@ -82,40 +150,36 @@ public class Image implements ImageModel<Pixel> {
               Util.getFileExtension(filePath)));
     }
     ImageModel<Pixel> extractedImage = command.extractImage(filePath);
-    if (row + command.getImageHeight(filePath) > this.height
-            || col + command.getImageWidth(filePath) > this.width) {
+    int extractedImageHeight = command.getImageHeight(filePath);
+    int extractedImageWidth = command.getImageWidth(filePath);
+
+    if (row + extractedImageHeight > this.height || col + extractedImageWidth > this.width) {
       throw new IllegalArgumentException("Placing the image at the provided coordinate causes it " +
               "to go out-of-bounds of the current layer.");
     }
-
-    // TODO: update image
+    for (int i = 0; i < extractedImageHeight; i++) {
+      for (int j = 0; j < extractedImageWidth; j++) {
+        ColorModel updatedColor = extractedImage.getPixelAtCoord(i, j).getColor().getUpdatedColor(
+                this.getPixelAtCoord(row + i, col + j).getColor());
+        this.setImagePixelAtCoord(new ImagePixel(new Position2D(row + i, col + j),
+                updatedColor), row + i, col + j);
+      }
+    }
   }
 
-  /**
-   * Updates the position of the pixel's coordinates when it moves.
-   * @param pixel the updated pixel.
-   * @param row   the row coordinate of the position to place the updated pixel.
-   * @param col   the col coordinate of the position to place the updated pixel.
-   * @throws IllegalArgumentException
-   */
   @Override
   public void setImagePixelAtCoord(Pixel pixel, int row, int col)
           throws IllegalArgumentException {
     this.validateCoordinate(row, col);
+    Util.anyNull(new IllegalArgumentException("Pixel is null."), pixel);
     List<Pixel> targetRow = this.imageGrid.get(row);
     targetRow.set(col, pixel);
     this.imageGrid.set(row, targetRow);
   }
 
-  /**
-   * Gets the pixel at a given coordinate.
-   * @param row the row of the pixel to return.
-   * @param col the column of the pixel to return
-   * @return the pixel at the given coordinate
-   * @throws IllegalArgumentException
-   */
   @Override
   public Pixel getPixelAtCoord(int row, int col) throws IllegalArgumentException {
+    this.validateCoordinate(row, col);
     return this.imageGrid.get(row).get(col);
   }
 

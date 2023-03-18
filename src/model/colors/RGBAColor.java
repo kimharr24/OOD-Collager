@@ -209,10 +209,29 @@ public class RGBAColor implements ColorModel {
   public ColorModel darkenLumaColor() {
     double lumaValue = (this.red * 0.2126 + this.blue * 0.0722 + this.green * 0.7152);
 
-    return new RGBAColor(Math.max(this.red + lumaValue, 0),
-            Math.max(this.green + lumaValue, 0),
-            Math.max(this.blue + lumaValue, 0),
+    return new RGBAColor(Math.max(this.red - lumaValue, 0),
+            Math.max(this.green - lumaValue, 0),
+            Math.max(this.blue - lumaValue, 0),
             this.alpha);
+  }
+
+  @Override
+  public ColorModel getUpdatedColor(ColorModel color) {
+    double alphaPercentage = ((this.alpha / Util.MAX_PROJECT_VALUE) + (color.getAlphaComponent() /
+            Util.MAX_PROJECT_VALUE) * (1 - (this.alpha / Util.MAX_PROJECT_VALUE)));
+
+    double updatedRed = ((this.alpha / Util.MAX_PROJECT_VALUE) * this.red +
+            (color.getAlphaComponent() / Util.MAX_PROJECT_VALUE) * color.getRedComponent() *
+                    (1 - (this.alpha / Util.MAX_PROJECT_VALUE))) * (1 / alphaPercentage);
+    double updatedGreen = ((this.alpha / Util.MAX_PROJECT_VALUE) * this.green +
+            (color.getAlphaComponent() / Util.MAX_PROJECT_VALUE) * color.getGreenComponent() *
+                    (1 - (this.alpha / Util.MAX_PROJECT_VALUE))) * (1 / alphaPercentage);
+    double updatedBlue = ((this.alpha / Util.MAX_PROJECT_VALUE) * this.blue +
+            (color.getAlphaComponent() / Util.MAX_PROJECT_VALUE) * color.getBlueComponent() *
+                    (1 - (this.alpha / Util.MAX_PROJECT_VALUE))) * (1 / alphaPercentage);
+    double updatedAlpha = alphaPercentage * Util.MAX_PROJECT_VALUE;
+
+    return new RGBAColor(updatedRed, updatedGreen, updatedBlue, updatedAlpha);
   }
 
   @Override
@@ -234,6 +253,4 @@ public class RGBAColor implements ColorModel {
   public int hashCode() {
     return Objects.hash(this.red, this.blue, this.green, this.alpha);
   }
-
-
 }
