@@ -20,7 +20,7 @@ public class BrightenValueFilter extends AbstractFilter {
    * Applies the BrightenValueFilter() method to a given color.
    * @param color the color to apply the filter to.
    * @return a new color that has the BrightenValueFilter() method applied.
-   * @throws IllegalArgumentException
+   * @throws IllegalArgumentException if the color is null.
    */
   @Override
   public ColorModel apply(ColorModel color) throws IllegalArgumentException {

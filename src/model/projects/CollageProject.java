@@ -7,6 +7,8 @@ import model.colors.RGBAColor;
 import model.filters.Filter;
 import model.filters.NormalFilter;
 import model.images.ImageModel;
+import model.images.file_output_commands.FileOutputCommand;
+import model.images.file_output_commands.PPMFileOutputCommand;
 import model.layers.Layer;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
@@ -50,12 +52,23 @@ public class CollageProject implements ProjectModel<Pixel> {
     for (LayerModel<Pixel> layer : this.layers) {
       if (layer.getLayerName().equals(layerName)) {
         layer.setFilter(filter);
+        layer.getImage().applyFilter(filter);
       }
     }
   }
 
-  public void saveProject() {
-    // TODO
+  public void saveProjectImage(String filePath) {
+    ImageModel<Pixel> resultingImage = this.layers.get(0).getImage().createCopy();
+    resultingImage.applyFilter(this.layers.get(0).getFilter());
+
+    for (LayerModel<Pixel> layer : this.layers.subList(1, this.layers.size())) {
+      ImageModel<Pixel> currentImage = layer.getImage().createCopy();
+      currentImage.applyFilter(layer.getFilter());
+      resultingImage = resultingImage.collapseImage(currentImage);
+    }
+
+    FileOutputCommand<Pixel> saveCommand = new PPMFileOutputCommand();
+    saveCommand.saveCollageImage(resultingImage, filePath);
   }
 
   /**
@@ -73,11 +86,6 @@ public class CollageProject implements ProjectModel<Pixel> {
         existingImage.overlayImage(filePath, row, col);
       }
     }
-  }
-
-
-  public void saveCompiledImage() {
-    // TODO
   }
 
   @Override

@@ -16,6 +16,12 @@ public class DarkenLumaFilter extends AbstractFilter {
     super("Darken Luma Filter");
   }
 
+  /**
+   * Applies the darkenLumaColor() filter to a given layer
+   * @param color the color to apply the filter to.
+   * @return the new color of the pixel
+   * @throws IllegalArgumentException if the color is null.
+   */
   @Override
   public ColorModel apply(ColorModel color) throws IllegalArgumentException {
     this.checkNullColor(color);

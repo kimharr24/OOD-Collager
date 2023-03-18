@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 import controller.commands.AddImageToLayerCommand;
 import controller.commands.AddLayerCommand;
-import controller.commands.LoadProjectCommand;
 import controller.commands.ProjectCommand;
+import controller.commands.SaveImageCommand;
 import controller.commands.SaveProjectCommand;
 import controller.commands.SetFilterCommand;
 import model.pixels.Pixel;
@@ -40,7 +40,10 @@ public class CommandController {
             command = new AddImageToLayerCommand(s.next(), s.next(), s.nextInt(), s.nextInt());
             break;
           case "load-project":
-            command = new LoadProjectCommand(s.next());
+
+            break;
+          case "save-image":
+            command = new SaveImageCommand(s.next());
             break;
           default:
             System.out.println("Unknown command");

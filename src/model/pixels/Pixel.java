@@ -27,4 +27,10 @@ public interface Pixel {
    * @throws IllegalArgumentException if the given filter is null.
    */
   void applyFilter(Filter filter) throws IllegalArgumentException;
+
+  /**
+   * Creates a copy of this pixel.
+   * @return a copy of the pixel.
+   */
+  Pixel createCopy();
 }

@@ -209,9 +209,9 @@ public class RGBAColor implements ColorModel {
   public ColorModel darkenLumaColor() {
     double lumaValue = (this.red * 0.2126 + this.blue * 0.0722 + this.green * 0.7152);
 
-    return new RGBAColor(Math.max(this.red + lumaValue, 0),
-            Math.max(this.green + lumaValue, 0),
-            Math.max(this.blue + lumaValue, 0),
+    return new RGBAColor(Math.max(this.red - lumaValue, 0),
+            Math.max(this.green - lumaValue, 0),
+            Math.max(this.blue - lumaValue, 0),
             this.alpha);
   }
 

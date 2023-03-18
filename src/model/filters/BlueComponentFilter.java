@@ -19,7 +19,7 @@ public class BlueComponentFilter extends AbstractFilter {
    * Applies the BlueComponentFilter() method to a given color.
    * @param color the color to apply the filter to.
    * @return a new color that has the BlueComponentFilter() method applied.
-   * @throws IllegalArgumentException
+   * @throws IllegalArgumentException if the color is null.
    */
   @Override
   public ColorModel apply(ColorModel color) throws IllegalArgumentException {

@@ -19,8 +19,9 @@ public class GreenComponentFilter extends AbstractFilter {
    * Applies the GreenComponentFilter() filter to the given layer.
    * @param color the color to apply the filter to.
    * @return the new color of the given pixel after the filter has been applied
+   * @throws IllegalArgumentException if the color is null.
    */
-  public ColorModel apply(ColorModel color) {
+  public ColorModel apply(ColorModel color) throws IllegalArgumentException {
     this.checkNullColor(color);
     return color.filterGreenChannel();
   }

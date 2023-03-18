@@ -61,4 +61,10 @@ public interface ProjectState<T> {
    * @return true if the layer exists, false otherwise.
    */
   boolean containsLayer(String layerName);
+
+  /**
+   * Saves the image contained in the project.
+   * @param filePath the file path to save the image.
+   */
+  void saveProjectImage(String filePath);
 }
