@@ -2,10 +2,10 @@ import org.junit.Test;
 
 import model.images.Image;
 import model.images.ImageModel;
-import model.images.file_input_commands.FileInputCommand;
-import model.images.file_input_commands.PPMInputCommand;
-import model.images.file_output_commands.FileOutputCommand;
-import model.images.file_output_commands.PPMFileOutputCommand;
+import model.images.fileinputcommands.FileInputCommand;
+import model.images.fileinputcommands.PPMInputCommand;
+import model.images.fileoutputcommands.FileOutputCommand;
+import model.images.fileoutputcommands.PPMFileOutputCommand;
 import model.pixels.Pixel;
 
 import static org.junit.Assert.assertEquals;
@@ -25,6 +25,7 @@ public class PPMFileOutputCommandTest {
     FileOutputCommand<Pixel> outputCommand = new PPMFileOutputCommand();
     outputCommand.saveCollageImage(new Image(100, 100), "./test/images/extracted-cat.png");
   }
+
   @Test
   public void testSaveCollageImage() {
     FileInputCommand<Pixel> inputCommand = new PPMInputCommand("./test/images/cat.ppm");

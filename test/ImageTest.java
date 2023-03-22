@@ -57,113 +57,36 @@ public class ImageTest {
     }
   }
 
-  @Test
-  public void testCreateCopy() {
-    ImageModel<Pixel> image1Copy = this.image1.createCopy();
-
-    // Check that the copy and the original have the same initial conditions
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image1.getPixelAtCoord(3, 5).getColor());
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-            Util.MAX_PROJECT_VALUE, 0),
-            image1Copy.getPixelAtCoord(3, 5).getColor());
-    assertEquals(100, this.image1.getImageWidth());
-    assertEquals(100, image1Copy.getImageWidth());
-    assertEquals(200, this.image1.getImageHeight());
-    assertEquals(200, image1Copy.getImageHeight());
-
-    // Change a single pixel in the copy
-    image1Copy.setImagePixelAtCoord(new ImagePixel(new Position2D(3, 5),
-            new RGBAColor(1, 2, 3, 4)), 3, 5);
-    assertEquals(new RGBAColor(1, 2, 3, 4),
-            image1Copy.getPixelAtCoord(3, 5).getColor());
-    // Check that the original is unmodified
-    for (int i = 0; i < this.image1.getImageHeight(); i++) {
-      for (int j = 0; j < this.image1.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                        Util.MAX_PROJECT_VALUE, 0),
-                this.image1.getPixelAtCoord(i, j).getColor());
-      }
-    }
-
-    // Apply a filter to the copy
-    image1Copy.applyFilter(new RedComponentFilter());
-    image1Copy.setImagePixelAtCoord(new ImagePixel(new Position2D(3, 5),
-            new RGBAColor(1, 0, 0, 0)), 3, 5);
-    // Check that the original is unmodified
-    for (int i = 0; i < this.image1.getImageHeight(); i++) {
-      for (int j = 0; j < this.image1.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                        Util.MAX_PROJECT_VALUE, 0),
-                this.image1.getPixelAtCoord(i, j).getColor());
-      }
-    }
-
-    // Apply another filter to the copy
-    image1Copy.applyFilter(new GreenComponentFilter());
-    image1Copy.setImagePixelAtCoord(new ImagePixel(new Position2D(3, 5),
-            new RGBAColor(0, 2, 0, 0)), 3, 5);
-    // Check that the original is unmodified
-    for (int i = 0; i < this.image1.getImageHeight(); i++) {
-      for (int j = 0; j < this.image1.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                        Util.MAX_PROJECT_VALUE, 0),
-                this.image1.getPixelAtCoord(i, j).getColor());
-      }
-    }
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testApplyFilterNullFilter() {
-    this.image1.applyFilter(null);
-  }
-
-  @Test
-  public void testApplyFilter() {
-    // Check starting conditions
-    for (int i = 0; i < this.image1.getImageHeight(); i++) {
-      for (int j = 0; j < this.image1.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                        Util.MAX_PROJECT_VALUE, 0),
-                this.image1.getPixelAtCoord(i, j).getColor());
-      }
-    }
-
-    this.image1.applyFilter(new RedComponentFilter());
-    for (int i = 0; i < this.image1.getImageHeight(); i++) {
-      for (int j = 0; j < this.image1.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, 0, 0,0),
-                this.image1.getPixelAtCoord(i, j).getColor());
-      }
-    }
-
-    this.image1.applyFilter(new NormalFilter());
-    for (int i = 0; i < this.image1.getImageHeight(); i++) {
-      for (int j = 0; j < this.image1.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                        Util.MAX_PROJECT_VALUE, 0),
-                this.image1.getPixelAtCoord(i, j).getColor());
-      }
-    }
-
-    this.image1.applyFilter(new GreenComponentFilter());
-    for (int i = 0; i < this.image1.getImageHeight(); i++) {
-      for (int j = 0; j < this.image1.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(0, Util.MAX_PROJECT_VALUE, 0,0),
-                this.image1.getPixelAtCoord(i, j).getColor());
-      }
-    }
-
-    this.image1.applyFilter(new BrightenLumaFilter());
-    for (int i = 0; i < this.image1.getImageHeight(); i++) {
-      for (int j = 0; j < this.image1.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                        Util.MAX_PROJECT_VALUE, 0),
-                this.image1.getPixelAtCoord(i, j).getColor());
-      }
-    }
-  }
+//  @Test
+//  public void testCreateCopy() {
+//    ImageModel<Pixel> image1Copy = this.image1.createCopy();
+//
+//    // Check that the copy and the original have the same initial conditions
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image1.getPixelAtCoord(3, 5).getColor());
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//            Util.MAX_PROJECT_VALUE, 0),
+//            image1Copy.getPixelAtCoord(3, 5).getColor());
+//    assertEquals(100, this.image1.getImageWidth());
+//    assertEquals(100, image1Copy.getImageWidth());
+//    assertEquals(200, this.image1.getImageHeight());
+//    assertEquals(200, image1Copy.getImageHeight());
+//
+//    // Change a single pixel in the copy
+//    image1Copy.setImagePixelAtCoord(new ImagePixel(new Position2D(3, 5),
+//            new RGBAColor(1, 2, 3, 4)), 3, 5);
+//    assertEquals(new RGBAColor(1, 2, 3, 4),
+//            image1Copy.getPixelAtCoord(3, 5).getColor());
+//    // Check that the original is unmodified
+//    for (int i = 0; i < this.image1.getImageHeight(); i++) {
+//      for (int j = 0; j < this.image1.getImageWidth(); j++) {
+//        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                        Util.MAX_PROJECT_VALUE, 0),
+//                this.image1.getPixelAtCoord(i, j).getColor());
+//      }
+//    }
+//  }
 
   @Test(expected = IllegalArgumentException.class)
   public void testCollapseImageNullImage() {

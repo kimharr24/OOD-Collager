@@ -1,6 +1,7 @@
 package model.filters;
 
-import model.colors.ColorModel;
+import model.images.ImageModel;
+import model.pixels.Pixel;
 
 /**
  * Represents a filter that brightens by the maximum value across all color components.
@@ -16,15 +17,8 @@ public class BrightenValueFilter extends AbstractFilter {
     super("Brighten Value Filter");
   }
 
-  /**
-   * Applies the BrightenValueFilter() method to a given color.
-   * @param color the color to apply the filter to.
-   * @return a new color that has the BrightenValueFilter() method applied.
-   * @throws IllegalArgumentException if the color is null.
-   */
   @Override
-  public ColorModel apply(ColorModel color) throws IllegalArgumentException {
-    this.checkNullColor(color);
-    return color.brightenValueColor();
+  public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {
+
   }
 }

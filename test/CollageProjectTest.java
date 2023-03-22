@@ -1,23 +1,26 @@
 import org.junit.Test;
 
 import java.io.File;
-import java.util.List;
 
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
-import model.filters.BlueComponentFilter;
 import model.filters.Filter;
 import model.filters.NormalFilter;
 import model.images.ImageModel;
-import model.images.file_input_commands.PPMInputCommand;
+import model.images.fileinputcommands.PPMInputCommand;
 import model.layers.Layer;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
 import utils.Util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
+/**
+ * Testing class for a collage project.
+ */
 public class CollageProjectTest {
 
   @Test
@@ -79,10 +82,12 @@ public class CollageProjectTest {
     // Verify that the file was created and that it contains the expected data
     File outputFile = new File("test-output.ppm");
     assertTrue(outputFile.exists());
-    ImageModel<Pixel> loadedImage = new PPMInputCommand("test-output.ppm").extractImage("test-output.ppm");
+    ImageModel<Pixel> loadedImage = new PPMInputCommand("test-output.ppm").
+            extractImage("test-output.ppm");
     assertEquals(project.getCanvasWidth(), loadedImage.getImageWidth());
     assertEquals(project.getCanvasHeight(), loadedImage.getImageHeight());
-    assertEquals(new RGBAColor(255, 255, 255, 255), loadedImage.getPixelAtCoord(0, 0).getColor());
+    assertEquals(new RGBAColor(255, 255, 255, 255),
+            loadedImage.getPixelAtCoord(0, 0).getColor());
     assertTrue(outputFile.delete());
   }
 

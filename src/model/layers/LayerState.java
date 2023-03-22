@@ -31,5 +31,5 @@ public interface LayerState<T> {
    * Returns the filter associated with the current layer.
    * @return the filter.
    */
-  Filter getFilter();
+  Filter<T> getFilter();
 }

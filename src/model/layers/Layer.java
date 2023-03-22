@@ -12,7 +12,7 @@ import utils.Util;
  */
 public class Layer implements LayerModel<Pixel> {
   private String layerName;
-  private Filter filter;
+  private Filter<Pixel> filter;
   private ImageModel<Pixel> image;
 
   /**
@@ -21,16 +21,16 @@ public class Layer implements LayerModel<Pixel> {
    * by the constructor of the Image class.
    *
    * @param layerName the name of this layer.
-   * @param filter the filter that should be applied to this layer.
-   * @param width the width of the layer.
-   * @param height the height of the layer.
+   * @param filter    the filter that should be applied to this layer.
+   * @param width     the width of the layer.
+   * @param height    the height of the layer.
    * @throws IllegalArgumentException if filter is null or the width and height are less than
-   * or equal to zero.
+   *                                  or equal to zero.
    */
   public Layer(String layerName, Filter filter, int width, int height)
           throws IllegalArgumentException {
     Util.anyNull(new IllegalArgumentException("Filter given to layer cannot be null!"), filter);
-    if (width <= 0 || height <= 0 ) {
+    if (width <= 0 || height <= 0) {
       throw new IllegalArgumentException("Width and height of a layer cannot be negative!");
     }
     this.layerName = layerName;
@@ -48,7 +48,7 @@ public class Layer implements LayerModel<Pixel> {
   }
 
   @Override
-  public Filter getFilter() {
+  public Filter<Pixel> getFilter() {
     return this.filter;
   }
 
@@ -56,7 +56,8 @@ public class Layer implements LayerModel<Pixel> {
     return this.filter.getName();
   }
 
-  public void setFilter(Filter filter) throws IllegalArgumentException {
+  public void setFilter(Filter<Pixel> filter) throws IllegalArgumentException {
+    Util.anyNull(new IllegalArgumentException("Filter cannot be null"), filter);
     this.filter = filter;
   }
 
@@ -64,4 +65,9 @@ public class Layer implements LayerModel<Pixel> {
   public void setName(String name) {
     this.layerName = name;
   }
+
+  public void applyFilter(ImageModel<Pixel> compositeImage) {
+    this.filter.apply(this.image, compositeImage);
+  }
 }
+

@@ -1,6 +1,7 @@
 package model.filters;
 
-import model.colors.ColorModel;
+import model.images.ImageModel;
+import model.pixels.Pixel;
 
 /**
  * Represents the filter that brightens the layer by adding the luma value to each of the
@@ -16,15 +17,8 @@ public class BrightenLumaFilter extends AbstractFilter {
     super("Brighten Luma Filter");
   }
 
-  /**
-   * Applies the BrightenLumaFilter() method to a given color.
-   * @param color the color to apply the filter to.
-   * @return a new color that has the BrightenLumaFilter() method applied.
-   * @throws IllegalArgumentException if the color is null.
-   */
   @Override
-  public ColorModel apply(ColorModel color) throws IllegalArgumentException {
-    this.checkNullColor(color);
-    return color.brightenLumaColor();
+  public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {
+
   }
 }

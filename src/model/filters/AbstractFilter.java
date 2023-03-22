@@ -1,13 +1,14 @@
 package model.filters;
 
-import model.colors.ColorModel;
+import model.images.ImageModel;
+import model.pixels.Pixel;
 import utils.Util;
 
 /**
  * Abstract implementation of a concrete filter object. All filter objects
  * should instantiate their names using this abstract filter's constructor.
  */
-public abstract class AbstractFilter implements Filter {
+public abstract class AbstractFilter implements Filter<Pixel> {
   private final String name;
 
   /**
@@ -27,12 +28,41 @@ public abstract class AbstractFilter implements Filter {
   }
 
   /**
-   * Checks to ensure that the color given is not null.
-   * @param color the color to check for nullity.
-   * @throws IllegalArgumentException if the color is null.
+   * Checks whether the given images are valid for a filter object to operate on.
+   * @param image1 the first image.
+   * @param image2 the second image.
+   * @throws IllegalArgumentException if the images are invalid.
    */
-  protected void checkNullColor(ColorModel color) throws IllegalArgumentException {
-    Util.anyNull(new IllegalArgumentException("Cannot give a null color to image pixel when " +
-            "applying a filter"), color);
+  protected void checkImageValidity(ImageModel<Pixel> image1, ImageModel<Pixel> image2)
+          throws IllegalArgumentException {
+    this.checkNullImages(image1, image2);
+    this.checkImageSizeEquality(image1, image2);
+  }
+
+  /**
+   * Checks to ensure that both images are not null.
+   * @param image1 the first image.
+   * @param image2 the second image.
+   * @throws IllegalArgumentException if either image is null.
+   */
+  private void checkNullImages(ImageModel<Pixel> image1, ImageModel<Pixel> image2)
+          throws IllegalArgumentException {
+    Util.anyNull(new IllegalArgumentException("Current layer image and composite image " +
+            "cannot be null"), image1, image2);
+  }
+
+  /**
+   * Checks whether the two provided images have the same dimensions.
+   * @param image1 the first image.
+   * @param image2 the second image.
+   * @throws IllegalArgumentException if the images have different dimensions.
+   */
+  private void checkImageSizeEquality(ImageModel<Pixel> image1, ImageModel<Pixel> image2)
+          throws IllegalArgumentException {
+    if (image1.getImageWidth() != image2.getImageWidth() ||
+            image1.getImageHeight() != image2.getImageWidth()) {
+      throw new IllegalArgumentException("Current layer image and composite image must be " +
+              "of the same size.");
+    }
   }
 }

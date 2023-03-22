@@ -1,6 +1,7 @@
 package model.filters;
 
-import model.colors.ColorModel;
+import model.images.ImageModel;
+import model.pixels.Pixel;
 
 /**
  * Represents a blue component filter, that is, a filter which keeps only the blue channel
@@ -15,15 +16,14 @@ public class BlueComponentFilter extends AbstractFilter {
     super("Blue Component Filter");
   }
 
-  /**
-   * Applies the BlueComponentFilter() method to a given color.
-   * @param color the color to apply the filter to.
-   * @return a new color that has the BlueComponentFilter() method applied.
-   * @throws IllegalArgumentException if the color is null.
-   */
   @Override
-  public ColorModel apply(ColorModel color) throws IllegalArgumentException {
-    this.checkNullColor(color);
-    return color.filterBlueChannel();
+  public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {
+    this.checkImageValidity(image, compositeImage);
+    for (int i = 0; i < image.getImageHeight(); i++) {
+      for (int j = 0; j < image.getImageWidth(); j++) {
+        Pixel currentPixel = image.getPixelAtCoord(i, j);
+        currentPixel.setColor(currentPixel.getOriginalColor().filterBlueChannel());
+      }
+    }
   }
 }

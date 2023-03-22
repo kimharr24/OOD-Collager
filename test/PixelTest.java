@@ -2,10 +2,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import model.colors.RGBAColor;
-import model.filters.BlueComponentFilter;
-import model.filters.GreenComponentFilter;
-import model.filters.NormalFilter;
-import model.filters.RedComponentFilter;
 import model.pixels.ImagePixel;
 import model.pixels.Pixel;
 import utils.Position2D;
@@ -20,6 +16,7 @@ import static org.junit.Assert.fail;
 public class PixelTest {
   Pixel pixel1;
   Pixel pixel2;
+
   @Before
   public void init() {
     this.pixel1 = new ImagePixel(new Position2D(10, 20), new RGBAColor(1, 2, 3, 4));
@@ -67,24 +64,5 @@ public class PixelTest {
     assertEquals(new RGBAColor(1, 2, 3, 4), pixel1Copy.getColor());
     assertEquals(10, pixel1Copy.getPosition().getRow());
     assertEquals(20, pixel1Copy.getPosition().getCol());
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testApplyFilterNullFilter() {
-    this.pixel1.applyFilter(null);
-  }
-
-  @Test
-  public void testApplyFilter() {
-    // Filters can be consecutively applied without losing color information
-    assertEquals(new RGBAColor(1, 2, 3, 4), this.pixel1.getColor());
-    this.pixel1.applyFilter(new NormalFilter());
-    assertEquals(new RGBAColor(1, 2, 3, 4), this.pixel1.getColor());
-    this.pixel1.applyFilter(new RedComponentFilter());
-    assertEquals(new RGBAColor(1, 0, 0, 4), this.pixel1.getColor());
-    this.pixel1.applyFilter(new BlueComponentFilter());
-    assertEquals(new RGBAColor(0, 0, 3, 4), this.pixel1.getColor());
-    this.pixel1.applyFilter(new GreenComponentFilter());
-    assertEquals(new RGBAColor(0, 2, 0, 4), this.pixel1.getColor());
   }
 }

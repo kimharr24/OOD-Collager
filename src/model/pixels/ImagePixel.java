@@ -2,7 +2,6 @@ package model.pixels;
 
 import utils.Position2D;
 import model.colors.ColorModel;
-import model.filters.Filter;
 import utils.Util;
 
 /**
@@ -41,10 +40,13 @@ public class ImagePixel implements Pixel {
     return new ImagePixel(this.getPosition(), this.getColor());
   }
 
-  public void applyFilter(Filter filter) throws IllegalArgumentException {
-    RuntimeException exception = new IllegalArgumentException("Filter applied to image pixel " +
-            "cannot be null.");
-    Util.anyNull(exception, filter);
-    this.color = filter.apply(this.originalColor.createCopy());
+  @Override
+  public void setColor(ColorModel color) {
+    this.color = color;
+  }
+
+  @Override
+  public ColorModel getOriginalColor() {
+    return this.originalColor.createCopy();
   }
 }

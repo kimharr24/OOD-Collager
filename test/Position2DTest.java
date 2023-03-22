@@ -34,7 +34,7 @@ public class Position2DTest {
   public void testValidConstructor() {
     try {
       Position2D position = new Position2D(1, 2);
-    } catch(IllegalArgumentException e) {
+    } catch (IllegalArgumentException e) {
       fail("Expected constructor to be valid.");
     }
   }

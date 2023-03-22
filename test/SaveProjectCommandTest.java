@@ -7,6 +7,8 @@ import model.pixels.Pixel;
 import model.projects.CollageProject;
 import model.projects.ProjectModel;
 
+import static org.junit.Assert.fail;
+
 /**
  * Tests the command to save a project to a .collage file.
  */
@@ -19,11 +21,15 @@ public class SaveProjectCommandTest {
 
   @Test
   public void testSaveProjectCommand() {
-    ProjectModel<Pixel> project = new CollageProject("my-project", 100, 100);
-    project.addLayer("first-layer");
-    project.setLayerFilter("first-layer", new RedComponentFilter());
+    try {
+      ProjectModel<Pixel> project = new CollageProject("my-project", 100, 100);
+      project.addLayer("first-layer");
+      project.setLayerFilter("first-layer", new RedComponentFilter());
 
-    ProjectCommand command = new SaveProjectCommand();
-    command.executeCommand(project);
+      ProjectCommand command = new SaveProjectCommand();
+      command.executeCommand(project);
+    } catch (RuntimeException e) {
+      fail("Expected project saving to work!");
+    }
   }
 }

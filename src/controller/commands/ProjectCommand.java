@@ -1,7 +1,6 @@
 package controller.commands;
 
 import model.pixels.Pixel;
-import model.projects.CollageProject;
 import model.projects.ProjectModel;
 
 /**

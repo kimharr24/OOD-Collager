@@ -46,20 +46,6 @@ public interface ImageModel<T> extends ImageState<T> {
   void colorBackground(ColorModel color) throws IllegalArgumentException;
 
   /**
-   * Create a deep copy of this image, meaning that all the image's fields including
-   * its underlying image representation are defensive copies.
-   * @return the copied image.
-   */
-  ImageModel<T> createCopy();
-
-  /**
-   * Given a filter, applies the filter to the image's underlying data representation.
-   * @param filter the filter to apply to the image.
-   * @throws IllegalArgumentException if the given filter is null.
-   */
-  void applyFilter(Filter filter) throws IllegalArgumentException;
-
-  /**
    * Given an image to place above this image, collapses these two images into a single image
    * by computing the result of collapsing its pairwise pixel values.
    * @param aboveImage the image to place on top of this image.

@@ -36,7 +36,6 @@ public class Util {
   /**
    * Given a color whose value is oldValue, and whose scale is defined by [0, oldMaxValue],
    * converts the color to this collage project's scale [0, MAX_PROJECT_VALUE].
-   * <p>
    * Modified equation referenced from https://stackoverflow.com/questions/929103/
    * convert-a-number-range-to-another-range-maintaining-ratio
    *

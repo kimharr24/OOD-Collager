@@ -1,6 +1,7 @@
 package model.filters;
 
-import model.colors.ColorModel;
+import model.images.ImageModel;
+import model.pixels.Pixel;
 
 /**
  * Represents a green component filter, that is, a filter which keeps only the green channel
@@ -15,14 +16,14 @@ public class GreenComponentFilter extends AbstractFilter {
     super("Green Component Filter");
   }
 
-  /**
-   * Applies the GreenComponentFilter() filter to the given layer.
-   * @param color the color to apply the filter to.
-   * @return the new color of the given pixel after the filter has been applied
-   * @throws IllegalArgumentException if the color is null.
-   */
-  public ColorModel apply(ColorModel color) throws IllegalArgumentException {
-    this.checkNullColor(color);
-    return color.filterGreenChannel();
+  @Override
+  public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {
+    this.checkImageValidity(image, compositeImage);
+    for (int i = 0; i < image.getImageHeight(); i++) {
+      for (int j = 0; j < image.getImageWidth(); j++) {
+        Pixel currentPixel = image.getPixelAtCoord(i, j);
+        currentPixel.setColor(currentPixel.getOriginalColor().filterGreenChannel());
+      }
+    }
   }
 }

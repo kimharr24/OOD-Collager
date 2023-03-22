@@ -20,7 +20,6 @@ import view.CollageView;
  */
 public class CommandController implements Controller {
   private final Scanner scanner;
-  private ProjectModel<Pixel> model;
   private final CollageView view;
 
   /**
@@ -39,6 +38,7 @@ public class CommandController implements Controller {
   public void executeProgram() {
     this.view.renderCommandOptions();
     ProjectCommand command = null;
+    ProjectModel<Pixel> model = null;
 
     while (this.scanner.hasNext()) {
       String option = scanner.next();
@@ -47,21 +47,21 @@ public class CommandController implements Controller {
           case "quit":
             return;
           case "new-project":
-            this.model = new CollageProject(scanner.next(), scanner.nextInt(), scanner.nextInt());
+            model = new CollageProject(scanner.next(), scanner.nextInt(), scanner.nextInt());
             break;
           case "save-project":
-            if (this.model == null) {
+            if (model == null) {
               this.view.renderMessage("No project was found! Try creating a project first.");
             } else {
               command = new SaveProjectCommand();
             }
             break;
           case "add-layer":
-            if (this.model == null) {
+            if (model == null) {
               this.view.renderMessage("No project was found! Try creating a project first.");
             } else {
               String layerName = scanner.next();
-              if (this.model.containsLayer(layerName)) {
+              if (model.containsLayer(layerName)) {
                 this.view.renderMessage(
                         String.format("Layer with name %s already exists!", layerName));
               } else {
@@ -70,11 +70,11 @@ public class CommandController implements Controller {
             }
             break;
           case "set-filter":
-            if (this.model == null) {
+            if (model == null) {
               this.view.renderMessage("No project was found! Try creating a project first.");
             } else {
               String layerName = scanner.next();
-              if (!this.model.containsLayer(layerName)) {
+              if (!model.containsLayer(layerName)) {
                 this.view.renderMessage(String.format("Layer %s does not exist", layerName));
               } else {
                 command = new SetFilterCommand(layerName, scanner.next());
@@ -82,11 +82,11 @@ public class CommandController implements Controller {
             }
             break;
           case "add-image-to-layer":
-            if (this.model == null) {
+            if (model == null) {
               this.view.renderMessage("No project was found! Try creating a project first.");
             } else {
               String layerName = scanner.next();
-              if (!this.model.containsLayer(layerName)) {
+              if (!model.containsLayer(layerName)) {
                 this.view.renderMessage(String.format("Layer %s does not exist", layerName));
               } else {
                 command = new AddImageToLayerCommand(layerName, scanner.next(),
@@ -97,7 +97,7 @@ public class CommandController implements Controller {
           case "load-project":
             break;
           case "save-image":
-            if (this.model == null) {
+            if (model == null) {
               this.view.renderMessage("No project was found! Try creating a project first.");
             } else {
               command = new SaveImageCommand(scanner.next());
@@ -111,7 +111,7 @@ public class CommandController implements Controller {
             break;
         }
         if (command != null) {
-          command.executeCommand(this.model);
+          command.executeCommand(model);
         }
       } catch (InputMismatchException ignored) {
         this.view.renderMessage("Incorrect command format encountered.");

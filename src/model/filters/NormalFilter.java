@@ -1,6 +1,7 @@
 package model.filters;
 
-import model.colors.ColorModel;
+import model.images.ImageModel;
+import model.pixels.Pixel;
 
 /**
  * Represents a normal filter, that is, a filter which does not do
@@ -15,15 +16,14 @@ public class NormalFilter extends AbstractFilter {
     super("Normal Filter");
   }
 
-  /**
-   * Applies the normalFilter() filter to the given layer.
-   * @param color the color to apply the filter to.
-   * @return a white and transparent layer.
-   * @throws IllegalArgumentException if the color is null.
-   */
   @Override
-  public ColorModel apply(ColorModel color) throws IllegalArgumentException {
-    this.checkNullColor(color);
-    return color;
+  public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {
+    this.checkImageValidity(image, compositeImage);
+    for (int i = 0; i < image.getImageHeight(); i++) {
+      for (int j = 0; j < image.getImageWidth(); j++) {
+        Pixel currentPixel = image.getPixelAtCoord(i, j);
+        currentPixel.setColor(currentPixel.getOriginalColor());
+      }
+    }
   }
 }

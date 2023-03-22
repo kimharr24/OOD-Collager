@@ -12,6 +12,9 @@ import utils.Util;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Testing class for a layer.
+ */
 public class LayerTest {
   private LayerModel<Pixel> layer1;
   private LayerModel<Pixel> layer2;

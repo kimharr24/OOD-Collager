@@ -7,29 +7,37 @@ import model.colors.RGBAColor;
 import model.filters.Filter;
 import model.filters.NormalFilter;
 import model.images.ImageModel;
-import model.images.file_output_commands.FileOutputCommand;
-import model.images.file_output_commands.PPMFileOutputCommand;
+import model.images.fileoutputcommands.FileOutputCommand;
+import model.images.fileoutputcommands.PPMFileOutputCommand;
 import model.layers.Layer;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
 import utils.Util;
 
 /**
- * Represents a collage project.
+ * Represents a collage project for the image processing application.
+ *
+ * Invariant (1): All layers in the project contain images with the same dimensions.
+ * Invariant (2): All layers store the original, unfiltered images at all times.
  */
 public class CollageProject implements ProjectModel<Pixel> {
   private final int canvasWidth;
   private final int canvasHeight;
   private final String projectName;
-  private List<LayerModel<Pixel>> layers;
+  private final List<LayerModel<Pixel>> layers;
 
   /**
    * Represents the constructor for the collage project.
    * @param projectName the name of the project
    * @param canvasHeight the height of the project's canvas
    * @param canvasWidth the width of the project's canvas
+   * @throws IllegalArgumentException if the canvas width or height are less than or equal to 0.
    */
-  public CollageProject(String projectName, int canvasHeight, int canvasWidth) {
+  public CollageProject(String projectName, int canvasHeight, int canvasWidth)
+          throws IllegalArgumentException {
+    if (canvasHeight <= 0 || canvasWidth <= 0) {
+      throw new IllegalArgumentException("Canvas width and height must be at least 1 pixel");
+    }
     this.projectName = projectName;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
@@ -45,43 +53,72 @@ public class CollageProject implements ProjectModel<Pixel> {
    * Sets a filter on a given layer of the project.
    * @param layerName the name of the layer.
    * @param filter    the filter to give to the layer.
-   * @throws IllegalArgumentException
+   * @throws IllegalArgumentException if the filter is null.
    */
   @Override
-  public void setLayerFilter(String layerName, Filter filter) throws IllegalArgumentException {
+  public void setLayerFilter(String layerName, Filter<Pixel> filter) throws IllegalArgumentException {
     for (LayerModel<Pixel> layer : this.layers) {
       if (layer.getLayerName().equals(layerName)) {
         layer.setFilter(filter);
-        layer.getImage().applyFilter(filter);
       }
     }
   }
 
+  /**
+   * Saves the image contained in the project.
+   * @param filePath the file path to save the image.
+   */
   public void saveProjectImage(String filePath) {
-    ImageModel<Pixel> resultingImage = this.layers.get(0).getImage().createCopy();
-    resultingImage.applyFilter(this.layers.get(0).getFilter());
+    LayerModel<Pixel> bottomLayer = this.layers.get(0);
+    ImageModel<Pixel> dummyCompositeImage = bottomLayer.getImage();
 
-    for (LayerModel<Pixel> layer : this.layers.subList(1, this.layers.size())) {
-      ImageModel<Pixel> currentImage = layer.getImage().createCopy();
-      currentImage.applyFilter(layer.getFilter());
-      resultingImage = resultingImage.collapseImage(currentImage);
+    // Apply the filter on the bottom layer to the bottom layer
+    bottomLayer.applyFilter(dummyCompositeImage);
+    // Get the filtered bottom layer image
+    ImageModel<Pixel> resultingImage = bottomLayer.getImage();
+
+    for (LayerModel<Pixel> layer: this.layers.subList(1, this.layers.size())) {
+      // Apply the filter to the current layer
+      layer.applyFilter(resultingImage);
+      // Update the collapsed image by passing in the filtered layer image
+      resultingImage = resultingImage.collapseImage(layer.getImage());
+      // Temporarily keep track of the original layer filter
+      Filter<Pixel> originalFilter = layer.getFilter();
+      // Update the layer to use the normal filter
+      layer.setFilter(new NormalFilter());
+      // Apply the normal filter (passing in the composite image does not do anything useful)
+      layer.applyFilter(resultingImage);
+      // Reset the layer back to the original filter
+      layer.setFilter(originalFilter);
     }
-
     FileOutputCommand<Pixel> saveCommand = new PPMFileOutputCommand();
     saveCommand.saveCollageImage(resultingImage, filePath);
+
+    // Reset the bottom layer image to its original image
+    Filter<Pixel> originalBottomLayerFilter = bottomLayer.getFilter();
+    bottomLayer.setFilter(new NormalFilter());
+    bottomLayer.applyFilter(dummyCompositeImage);
+    bottomLayer.setFilter(originalBottomLayerFilter);
   }
 
   /**
+   * Given a layer's name, places the image at the provided filepath, where the top-left corner
+   * of the image is placed at the coordinate (row, col) of the layer.
    *
    * @param layerName the name of the layer.
    * @param filePath  the path to the image.
    * @param row       the row coordinate of the starting position.
    * @param col       the column coordinate of the starting position.
+   * @throws IllegalArgumentException if the given layer does not exist, the given filepath is
+   *                                  invalid, the image placed at (row, col) results in portions
+   *                                  of the image spilling out of the dimensions of the layer,
+   *                                  the row or col are negative, or the row or col are
+   *                                  out-of-bounds of the given layer.
    */
   @Override
   public void addImageToLayer(String layerName, String filePath, int row, int col) {
     for (LayerModel<Pixel> layer : this.layers) {
-      if(layer.getLayerName().equals(layerName)) {
+      if (layer.getLayerName().equals(layerName)) {
         ImageModel<Pixel> existingImage = layer.getImage();
         existingImage.overlayImage(filePath, row, col);
       }

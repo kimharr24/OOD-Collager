@@ -2,7 +2,6 @@ import org.junit.Test;
 
 import controller.commands.AddImageToLayerCommand;
 import controller.commands.ProjectCommand;
-import controller.commands.SaveProjectCommand;
 import model.colors.RGBAColor;
 import model.pixels.Pixel;
 import model.projects.CollageProject;

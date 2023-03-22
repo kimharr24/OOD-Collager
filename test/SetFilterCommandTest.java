@@ -1,7 +1,6 @@
 import org.junit.Test;
 
 import controller.commands.ProjectCommand;
-import controller.commands.SaveProjectCommand;
 import controller.commands.SetFilterCommand;
 import model.colors.RGBAColor;
 import model.pixels.Pixel;

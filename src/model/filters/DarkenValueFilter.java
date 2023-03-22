@@ -1,6 +1,7 @@
 package model.filters;
 
-import model.colors.ColorModel;
+import model.images.ImageModel;
+import model.pixels.Pixel;
 
 /**
  * Represents the filter that darkens the given layer by subtracting the minimum value across all
@@ -16,15 +17,8 @@ public class DarkenValueFilter extends AbstractFilter {
     super("Darken Value Filter");
   }
 
-  /**
-   * Applies the darkenValueColor() filter to a given layer
-   * @param color the color to apply the filter to.
-   * @return the new color of the pixel
-   * @throws IllegalArgumentException if the color is null.
-   */
   @Override
-  public ColorModel apply(ColorModel color) throws IllegalArgumentException {
-    this.checkNullColor(color);
-    return color.darkenValueColor();
+  public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {
+
   }
 }

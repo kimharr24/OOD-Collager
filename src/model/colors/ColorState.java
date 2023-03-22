@@ -3,7 +3,6 @@ package model.colors;
 /**
  * Represents an observable, generic color. This color cannot be modified by any of the methods
  * in this interface.
- *
  * Assumes that all implementations of colors have red, green, blue, and alpha components.
  * Every color also has a finite number of bits used for representation, implying that the color
  * has a corresponding maximum integer value.

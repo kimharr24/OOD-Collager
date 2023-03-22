@@ -1,12 +1,12 @@
 package model.filters;
 
-import model.colors.ColorModel;
+import model.images.ImageModel;
 
 /**
  * Represents a generic filter operation that can be applied to a layer
  * in an image. All filters have a name and a method for execution.
  */
-public interface Filter {
+public interface Filter<T> {
   /**
    * Retrieves the name of the filter operation.
    * @return the name of the filter operation.
@@ -14,9 +14,12 @@ public interface Filter {
   String getName();
 
   /**
-   * Given a color, applies the filter to the color.
-   * @param color the color to apply the filter to.
-   * @throws IllegalArgumentException if the given color is null.
+   * Given an image to apply a filter to, applies the filter to the image using information
+   * from the composite image if necessary.
+   * @param image the image to apply a filter to.
+   * @param compositeImage the composite image of all layers below the given image.
+   * @throws IllegalArgumentException if either image is null or the images do not have
+   * the same dimensions.
    */
-  ColorModel apply(ColorModel color) throws IllegalArgumentException;
+  void apply(ImageModel<T> image, ImageModel<T> compositeImage);
 }

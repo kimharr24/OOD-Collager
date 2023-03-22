@@ -16,7 +16,7 @@ public interface ProjectModel<T> extends ProjectState<T> {
    * @param filter    the filter to give to the layer.
    * @throws IllegalArgumentException if the given layer does not exist or the filter is null.
    */
-  void setLayerFilter(String layerName, Filter filter) throws IllegalArgumentException;
+  void setLayerFilter(String layerName, Filter<T> filter) throws IllegalArgumentException;
 
   /**
    * Given a layer's name, places the image at the provided filepath, where the top-left corner

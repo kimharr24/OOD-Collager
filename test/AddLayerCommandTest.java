@@ -2,7 +2,6 @@ import org.junit.Test;
 
 import controller.commands.AddLayerCommand;
 import controller.commands.ProjectCommand;
-import controller.commands.SaveProjectCommand;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
 import model.projects.ProjectModel;

@@ -137,23 +137,23 @@ public class RGBAColorTest {
     assertEquals(200, updatedColor.getGreenComponent(), 0.0001);
   }
 
-    @Test
-    public void testDarkenIntensity() {
-      RGBAColor model = new RGBAColor(100.0, 100, 100, 100);
-      ColorModel updatedColor = model.darkenIntensityColor();
-      assertEquals(0, updatedColor.getRedComponent(), 0.0001);
-      assertEquals(0, updatedColor.getBlueComponent(), 0.0001);
-      assertEquals(0, updatedColor.getGreenComponent(), 0.0001);
+  @Test
+  public void testDarkenIntensity() {
+    RGBAColor model = new RGBAColor(100.0, 100, 100, 100);
+    ColorModel updatedColor = model.darkenIntensityColor();
+    assertEquals(0, updatedColor.getRedComponent(), 0.0001);
+    assertEquals(0, updatedColor.getBlueComponent(), 0.0001);
+    assertEquals(0, updatedColor.getGreenComponent(), 0.0001);
   }
 
   @Test
   public void testBrightenLuma() {
-      RGBAColor model = new RGBAColor(100.0, 100, 100, 100);
-      ColorModel updatedColor = model.brightenLumaColor();
-      assertEquals(200, updatedColor.getRedComponent(), 0.0001);
-      assertEquals(200, updatedColor.getBlueComponent(), 0.0001);
-      assertEquals(200, updatedColor.getGreenComponent(), 0.0001);
-      assertEquals(100, updatedColor.getAlphaComponent(), 0.0001);
+    RGBAColor model = new RGBAColor(100.0, 100, 100, 100);
+    ColorModel updatedColor = model.brightenLumaColor();
+    assertEquals(200, updatedColor.getRedComponent(), 0.0001);
+    assertEquals(200, updatedColor.getBlueComponent(), 0.0001);
+    assertEquals(200, updatedColor.getGreenComponent(), 0.0001);
+    assertEquals(100, updatedColor.getAlphaComponent(), 0.0001);
   }
 
   @Test
