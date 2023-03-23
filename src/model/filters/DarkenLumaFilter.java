@@ -19,6 +19,12 @@ public class DarkenLumaFilter extends AbstractFilter {
 
   @Override
   public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {
-
+    this.checkImageValidity(image, compositeImage);
+    for (int i = 0; i < image.getImageHeight(); i++) {
+      for (int j = 0; j < image.getImageWidth(); j++) {
+        Pixel currentPixel = image.getPixelAtCoord(i, j);
+        currentPixel.setColor(currentPixel.getOriginalColor().darkenLumaColor());
+      }
+    }
   }
 }
