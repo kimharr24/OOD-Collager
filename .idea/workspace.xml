@@ -5,62 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/colors/HSLAColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/filters/DarkeningBlendingFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/filters/InversionBlendingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/cat.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/ProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/ProjectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/ColorModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/ColorModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/ColorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/ColorState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BlueComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BlueComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenValueFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenValueFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/ImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/ImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/ImageState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/ImageState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/file_input_commands/AbstractFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/fileinputcommands/AbstractFileInputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/file_input_commands/FileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/fileinputcommands/FileInputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/file_input_commands/PPMInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/fileinputcommands/PPMInputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/file_output_commands/FileOutputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/fileoutputcommands/FileOutputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/file_output_commands/PPMFileOutputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/fileoutputcommands/PPMFileOutputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/layers/LayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/LayerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/layers/LayerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/LayerState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/pixels/ImagePixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/pixels/ImagePixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/pixels/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/pixels/Pixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/AddImageToLayerCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AddImageToLayerCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/AddLayerCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AddLayerCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/CollageProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/LayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/LayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PPMFileOutputCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PPMFileOutputCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PPMInputCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PPMInputCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PixelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PixelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Position2DTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Position2DTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/RGBAColorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/RGBAColorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/SaveImageCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveImageCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/SaveProjectCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveProjectCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/SetFilterCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SetFilterCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/extracted-cat.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/rainbow-cat.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/tako.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/test-save-command.ppm" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +133,8 @@
       <workItem from="1679085008549" duration="37180000" />
       <workItem from="1679411363042" duration="1350000" />
       <workItem from="1679429558063" duration="2200000" />
-      <workItem from="1679502403620" duration="15332000" />
+      <workItem from="1679502403620" duration="15586000" />
+      <workItem from="1679595229590" duration="6456000" />
     </task>
     <servers />
   </component>

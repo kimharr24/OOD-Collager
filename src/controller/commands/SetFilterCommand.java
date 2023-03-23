@@ -7,6 +7,8 @@ import model.filters.BrightenLumaFilter;
 import model.filters.DarkenIntensityFilter;
 import model.filters.DarkenLumaFilter;
 import model.filters.DarkenValueFilter;
+import model.filters.DarkeningBlendingFilter;
+import model.filters.InversionBlendingFilter;
 import model.pixels.Pixel;
 import model.filters.BlueComponentFilter;
 import model.filters.BrightenValueFilter;
@@ -69,6 +71,12 @@ public class SetFilterCommand extends AbstractProjectCommand {
           break;
         case "darken-luma":
           filter = new DarkenLumaFilter();
+          break;
+        case "inversion-blending":
+          filter = new InversionBlendingFilter();
+          break;
+        case "darkening-blending":
+          filter = new DarkeningBlendingFilter();
           break;
         default:
           System.out.println("Unknown command");
