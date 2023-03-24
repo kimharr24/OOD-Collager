@@ -103,7 +103,7 @@ public class CollageProject implements ProjectModel<Pixel> {
    * of the image is placed at the coordinate (row, col) of the layer.
    *
    * @param layerName the name of the layer.
-   * @param filePath  the path to the image.
+   * @param image     the image to add to the layer.
    * @param row       the row coordinate of the starting position.
    * @param col       the column coordinate of the starting position.
    * @throws IllegalArgumentException if the given layer does not exist, the given filepath is
@@ -113,11 +113,11 @@ public class CollageProject implements ProjectModel<Pixel> {
    *                                  out-of-bounds of the given layer.
    */
   @Override
-  public void addImageToLayer(String layerName, String filePath, int row, int col) {
+  public void addImageToLayer(String layerName, ImageModel<Pixel> image, int row, int col) {
     for (LayerModel<Pixel> layer : this.layers) {
       if (layer.getLayerName().equals(layerName)) {
         ImageModel<Pixel> existingImage = layer.getImage();
-        existingImage.overlayImage(filePath, row, col);
+        existingImage.overlayImage(image, row, col);
       }
     }
   }

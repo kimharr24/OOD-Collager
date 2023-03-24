@@ -3,8 +3,6 @@ package model.images;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.images.fileinputcommands.FileInputCommand;
-import model.images.fileinputcommands.PPMInputCommand;
 import model.pixels.ImagePixel;
 import model.pixels.Pixel;
 import utils.Position2D;
@@ -97,27 +95,11 @@ public class Image implements ImageModel<Pixel> {
   }
 
   @Override
-  public void overlayImage(String filePath, int row, int col) throws IllegalArgumentException {
+  public void overlayImage(ImageModel<Pixel> image, int row, int col) throws IllegalArgumentException {
     this.validateCoordinate(row, col);
 
-    FileInputCommand<Pixel> command = null;
-    switch (Util.getFileExtension(filePath)) {
-      case "ppm":
-        command = new PPMInputCommand(filePath);
-        break;
-      case "png":
-        break;
-      default:
-        throw new IllegalArgumentException("Unsupported file extension!");
-    }
-
-    if (command == null) {
-      throw new IllegalArgumentException(String.format("%s is an unsupported file extension",
-              Util.getFileExtension(filePath)));
-    }
-    ImageModel<Pixel> extractedImage = command.extractImage(filePath);
-    int extractedImageHeight = command.getImageHeight(filePath);
-    int extractedImageWidth = command.getImageWidth(filePath);
+    int extractedImageHeight = image.getImageHeight();
+    int extractedImageWidth = image.getImageWidth();
 
     if (row + extractedImageHeight > this.height || col + extractedImageWidth > this.width) {
       throw new IllegalArgumentException("Placing the image at the provided coordinate causes it " +
@@ -125,7 +107,7 @@ public class Image implements ImageModel<Pixel> {
     }
     for (int i = 0; i < extractedImageHeight; i++) {
       for (int j = 0; j < extractedImageWidth; j++) {
-        ColorModel updatedColor = extractedImage.getPixelAtCoord(i, j).getColor().getUpdatedColor(
+        ColorModel updatedColor = image.getPixelAtCoord(i, j).getColor().getUpdatedColor(
                 this.getPixelAtCoord(row + i, col + j).getColor());
         this.setImagePixelAtCoord(new ImagePixel(new Position2D(row + i, col + j),
                 updatedColor), row + i, col + j);

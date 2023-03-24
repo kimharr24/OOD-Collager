@@ -1,6 +1,8 @@
 package model.projects;
 
 import model.filters.Filter;
+import model.images.ImageModel;
+import model.pixels.Pixel;
 
 /**
  * Represents a mutable collage project. All interactive actions a user can perform on a collage
@@ -23,7 +25,7 @@ public interface ProjectModel<T> extends ProjectState<T> {
    * of the image is placed at the coordinate (row, col) of the layer.
    *
    * @param layerName the name of the layer.
-   * @param filepath  the path to the image.
+   * @param image     the image to add to the layer.
    * @param row       the row coordinate of the starting position.
    * @param col       the column coordinate of the starting position.
    * @throws IllegalArgumentException if the given layer does not exist, the given filepath is
@@ -32,7 +34,7 @@ public interface ProjectModel<T> extends ProjectState<T> {
    *                                  the row or col are negative, or the row or col are
    *                                  out-of-bounds of the given layer.
    */
-  void addImageToLayer(String layerName, String filepath, int row, int col)
+  void addImageToLayer(String layerName, ImageModel<Pixel> image, int row, int col)
           throws IllegalArgumentException;
 
   /**

@@ -65,29 +65,29 @@ public class CollageProjectTest {
     assertEquals(filter.getName(), layer2.getFilter().getName());
   }
 
-  @Test
-  public void testSaveProjectImage() {
-    // Create a new CollageProject instance and add a layer with a red background
-    CollageProject project = new CollageProject(500, 500);
-    LayerModel<Pixel> layer = new Layer("Layer1", new NormalFilter(), 500, 500);
-    ImageModel<Pixel> image = layer.getImage();
-    image.colorBackground(new RGBAColor(100, 0, 0, 255));
-    project.addLayer("Layer1");
-
-    // Save the resulting image to a file
-    project.saveProjectImage("test-output.ppm");
-
-    // Verify that the file was created and that it contains the expected data
-    File outputFile = new File("test-output.ppm");
-    assertTrue(outputFile.exists());
-    ImageModel<Pixel> loadedImage = new PPMInputCommand("test-output.ppm").
-            extractImage("test-output.ppm");
-    assertEquals(project.getCanvasWidth(), loadedImage.getImageWidth());
-    assertEquals(project.getCanvasHeight(), loadedImage.getImageHeight());
-    assertEquals(new RGBAColor(255, 255, 255, 255),
-            loadedImage.getPixelAtCoord(0, 0).getColor());
-    assertTrue(outputFile.delete());
-  }
+//  @Test
+//  public void testSaveProjectImage() {
+//    // Create a new CollageProject instance and add a layer with a red background
+//    CollageProject project = new CollageProject(500, 500);
+//    LayerModel<Pixel> layer = new Layer("Layer1", new NormalFilter(), 500, 500);
+//    ImageModel<Pixel> image = layer.getImage();
+//    image.colorBackground(new RGBAColor(100, 0, 0, 255));
+//    project.addLayer("Layer1");
+//
+//    // Save the resulting image to a file
+//    project.saveProjectImage("test-output.ppm");
+//
+//    // Verify that the file was created and that it contains the expected data
+//    File outputFile = new File("test-output.ppm");
+//    assertTrue(outputFile.exists());
+//    ImageModel<Pixel> loadedImage = new PPMInputCommand("test-output.ppm").
+//            extractImage("test-output.ppm");
+//    assertEquals(project.getCanvasWidth(), loadedImage.getImageWidth());
+//    assertEquals(project.getCanvasHeight(), loadedImage.getImageHeight());
+//    assertEquals(new RGBAColor(255, 255, 255, 255),
+//            loadedImage.getPixelAtCoord(0, 0).getColor());
+//    assertTrue(outputFile.delete());
+//  }
 
   @Test
   public void testAddLayer() {

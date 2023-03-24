@@ -1,7 +1,6 @@
 package model.images;
 
 import model.colors.ColorModel;
-import model.filters.Filter;
 import model.pixels.Pixel;
 
 /**
@@ -14,7 +13,7 @@ public interface ImageModel<T> extends ImageState<T> {
    * Overlays an image onto the current image, updating the current image based
    * on the given image. The given image's top left corner is placed at (row, col).
    *
-   * @param filePath the file path to the image to overlay onto the current image.
+   * @param image the image to add to the layer.
    * @param row      the row coordinate of the position to place the given image's top left corner.
    * @param col      the col coordinate of the position to place the given image's top left corner.
    * @throws IllegalArgumentException if row or column are negative, or
@@ -25,7 +24,7 @@ public interface ImageModel<T> extends ImageState<T> {
    *                                  of the image spilling out-of-bounds of the current image's
    *                                  boundaries.
    */
-  void overlayImage(String filePath, int row, int col) throws IllegalArgumentException;
+  void overlayImage(ImageModel<T> image, int row, int col) throws IllegalArgumentException;
 
   /**
    * Sets the pixel at the given coordinate (row, col) to the provided pixel.

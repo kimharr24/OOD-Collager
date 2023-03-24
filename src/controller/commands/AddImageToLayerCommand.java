@@ -1,7 +1,11 @@
 package controller.commands;
 
+import controller.fileio.fileinputcommands.ImageFileInputCommand;
+import controller.fileio.fileinputcommands.PPMFileInputCommand;
+import model.images.ImageModel;
 import model.pixels.Pixel;
 import model.projects.ProjectModel;
+import utils.Util;
 
 /**
  * Represents a command that allows a user to add an image to a given layer.
@@ -30,8 +34,28 @@ public class AddImageToLayerCommand extends AbstractProjectCommand {
     this.col = col;
   }
 
-  public void executeCommand(ProjectModel<Pixel> project) {
+  /**
+   * Adds an image to a layer in the collage project.
+   * @param project the project to add an image to.
+   * @throws IllegalArgumentException if the file does not exist.
+   */
+  public void executeCommand(ProjectModel<Pixel> project) throws IllegalArgumentException {
     this.checkNullProject(project);
-    project.addImageToLayer(this.layerName, this.filePath, this.row, this.col);
+    ImageFileInputCommand<Pixel> command = null;
+
+    switch (Util.getFileExtension(filePath)) {
+      case "ppm":
+        command = new PPMFileInputCommand();
+        break;
+      case "png":
+        break;
+      default:
+        throw new IllegalArgumentException("Unsupported file extension!");
+    }
+
+    if (command != null) {
+      ImageModel<Pixel> extractedImage = command.extractImage(this.filePath);
+      project.addImageToLayer(this.layerName, extractedImage, this.row, this.col);
+    }
   }
 }

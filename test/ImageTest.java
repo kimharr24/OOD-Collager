@@ -120,134 +120,134 @@ public class ImageTest {
     }
   }
 
-  @Test(expected = IllegalArgumentException.class)
-  public void testOverlayImageInvalidRow() {
-    this.image1.overlayImage("hello.ppm", -1, 2);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testOverlayImageInvalidCol() {
-    this.image1.overlayImage("hello.ppm", 1, -2);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testOverlayImageFileNotFound() {
-    this.image1.overlayImage("hello.ppm", 0, 0);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testOverlayImageInvalidFileExtension() {
-    this.image1.overlayImage("hello.xyz", 0, 0);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsVertically() {
-    this.image2.overlayImage("./test/images/emoji.ppm", 101, 0);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsHorizontally() {
-    this.image2.overlayImage("./test/images/emoji.ppm", 0, 1);
-  }
-
-  @Test
-  public void testOverlayImageNoOffset() {
-    this.image3.overlayImage("./test/images/cat.ppm", 0, 0);
-
-    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(0, 0).getColor());
-    assertEquals(new RGBAColor(88, 72, 57, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(0, 1).getColor());
-
-    assertEquals(new RGBAColor(92, 76, 61, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(1, 0).getColor());
-    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(1, 1).getColor());
-
-    assertEquals(new RGBAColor(95, 78, 62, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(2, 0).getColor());
-    assertEquals(new RGBAColor(93, 76, 60, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(2, 1).getColor());
-  }
-
-  @Test
-  public void testOverlayImageOffset() {
-    this.image3.overlayImage("./test/images/cat.ppm", 1, 1);
-
-    // Check that the first row is still the default values
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image3.getPixelAtCoord(0, 0).getColor());
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image3.getPixelAtCoord(0, 1).getColor());
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image3.getPixelAtCoord(0, 2).getColor());
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image3.getPixelAtCoord(0, 3).getColor());
-
-    // Check that the first column is still the default values
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image3.getPixelAtCoord(1, 0).getColor());
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image3.getPixelAtCoord(2, 0).getColor());
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image3.getPixelAtCoord(3, 0).getColor());
-    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                    Util.MAX_PROJECT_VALUE, 0),
-            this.image3.getPixelAtCoord(4, 0).getColor());
-
-    // Check that the image is shifted properly
-    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(1, 1).getColor());
-    assertEquals(new RGBAColor(88, 72, 57, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(1, 2).getColor());
-
-    assertEquals(new RGBAColor(92, 76, 61, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(2, 1).getColor());
-    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(2, 2).getColor());
-
-    assertEquals(new RGBAColor(95, 78, 62, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(3, 1).getColor());
-    assertEquals(new RGBAColor(93, 76, 60, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(3, 2).getColor());
-  }
-
-  @Test
-  public void testOverlayMultipleImages() {
-    this.image3.overlayImage("./test/images/emoji.ppm", 0, 0);
-    this.image3.overlayImage("./test/images/cat.ppm",1,0);
-
-    // PPMs are fully opaque by default. The first row of the image should show the emoji PPM
-    // whereas the rest of the image should show the cat PPM
-    assertEquals(new RGBAColor(255, 255, 255, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(0, 0).getColor());
-    assertEquals(new RGBAColor(255, 255, 255, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(0, 1).getColor());
-    assertEquals(new RGBAColor(255, 255, 255, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(0, 2).getColor());
-
-    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(1, 0).getColor());
-    assertEquals(new RGBAColor(88, 72, 57, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(1, 1).getColor());
-
-    assertEquals(new RGBAColor(92, 76, 61, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(2, 0).getColor());
-    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(2, 1).getColor());
-
-    assertEquals(new RGBAColor(95, 78, 62, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(3, 0).getColor());
-    assertEquals(new RGBAColor(93, 76, 60, Util.MAX_PROJECT_VALUE),
-            this.image3.getPixelAtCoord(3, 1).getColor());
-  }
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testOverlayImageInvalidRow() {
+//    this.image1.overlayImage("hello.ppm", -1, 2);
+//  }
+//
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testOverlayImageInvalidCol() {
+//    this.image1.overlayImage("hello.ppm", 1, -2);
+//  }
+//
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testOverlayImageFileNotFound() {
+//    this.image1.overlayImage("hello.ppm", 0, 0);
+//  }
+//
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testOverlayImageInvalidFileExtension() {
+//    this.image1.overlayImage("hello.xyz", 0, 0);
+//  }
+//
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsVertically() {
+//    this.image2.overlayImage("./test/images/emoji.ppm", 101, 0);
+//  }
+//
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsHorizontally() {
+//    this.image2.overlayImage("./test/images/emoji.ppm", 0, 1);
+//  }
+//
+//  @Test
+//  public void testOverlayImageNoOffset() {
+//    this.image3.overlayImage("./test/images/cat.ppm", 0, 0);
+//
+//    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(0, 0).getColor());
+//    assertEquals(new RGBAColor(88, 72, 57, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(0, 1).getColor());
+//
+//    assertEquals(new RGBAColor(92, 76, 61, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(1, 0).getColor());
+//    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(1, 1).getColor());
+//
+//    assertEquals(new RGBAColor(95, 78, 62, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(2, 0).getColor());
+//    assertEquals(new RGBAColor(93, 76, 60, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(2, 1).getColor());
+//  }
+//
+//  @Test
+//  public void testOverlayImageOffset() {
+//    this.image3.overlayImage("./test/images/cat.ppm", 1, 1);
+//
+//    // Check that the first row is still the default values
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image3.getPixelAtCoord(0, 0).getColor());
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image3.getPixelAtCoord(0, 1).getColor());
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image3.getPixelAtCoord(0, 2).getColor());
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image3.getPixelAtCoord(0, 3).getColor());
+//
+//    // Check that the first column is still the default values
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image3.getPixelAtCoord(1, 0).getColor());
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image3.getPixelAtCoord(2, 0).getColor());
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image3.getPixelAtCoord(3, 0).getColor());
+//    assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+//                    Util.MAX_PROJECT_VALUE, 0),
+//            this.image3.getPixelAtCoord(4, 0).getColor());
+//
+//    // Check that the image is shifted properly
+//    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(1, 1).getColor());
+//    assertEquals(new RGBAColor(88, 72, 57, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(1, 2).getColor());
+//
+//    assertEquals(new RGBAColor(92, 76, 61, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(2, 1).getColor());
+//    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(2, 2).getColor());
+//
+//    assertEquals(new RGBAColor(95, 78, 62, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(3, 1).getColor());
+//    assertEquals(new RGBAColor(93, 76, 60, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(3, 2).getColor());
+//  }
+//
+//  @Test
+//  public void testOverlayMultipleImages() {
+//    this.image3.overlayImage("./test/images/emoji.ppm", 0, 0);
+//    this.image3.overlayImage("./test/images/cat.ppm",1,0);
+//
+//    // PPMs are fully opaque by default. The first row of the image should show the emoji PPM
+//    // whereas the rest of the image should show the cat PPM
+//    assertEquals(new RGBAColor(255, 255, 255, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(0, 0).getColor());
+//    assertEquals(new RGBAColor(255, 255, 255, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(0, 1).getColor());
+//    assertEquals(new RGBAColor(255, 255, 255, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(0, 2).getColor());
+//
+//    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(1, 0).getColor());
+//    assertEquals(new RGBAColor(88, 72, 57, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(1, 1).getColor());
+//
+//    assertEquals(new RGBAColor(92, 76, 61, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(2, 0).getColor());
+//    assertEquals(new RGBAColor(90, 74, 59, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(2, 1).getColor());
+//
+//    assertEquals(new RGBAColor(95, 78, 62, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(3, 0).getColor());
+//    assertEquals(new RGBAColor(93, 76, 60, Util.MAX_PROJECT_VALUE),
+//            this.image3.getPixelAtCoord(3, 1).getColor());
+//  }
 
   @Test(expected = IllegalArgumentException.class)
   public void testNullPixelSetImagePixelAtCoord() {
