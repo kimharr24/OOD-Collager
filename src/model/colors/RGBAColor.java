@@ -16,30 +16,90 @@ public class RGBAColor implements ColorModel {
   private double alpha;
 
   /**
-   * Validates the inputs to the RGBA constructor.
+   * If the inputted RGBA component is close enough to a known boundary condition, snaps
+   * the RGBA component to that boundary condition.
+   * @param parameter the RGBA component.
+   * @return the potentially snapped RGBA component.
+   */
+  private double snapRGBAParameter(double parameter) {
+    double epsilon = 0.00001;
+    if (Math.abs(parameter) < epsilon) {
+      return 0.0;
+    }
+    if (Math.abs(parameter - Util.MAX_PROJECT_VALUE) < epsilon) {
+      return Util.MAX_PROJECT_VALUE;
+    }
+    return parameter;
+  }
+
+  /**
+   * Validates whether the red, green, blue, and alpha parameters are valid inputs to an RGBA color.
    *
    * @param red   the red component of the color.
    * @param green the green component of the color.
    * @param blue  the blue component of the color.
    * @param alpha the alpha component of the color.
-   * @throws IllegalArgumentException if red, green, blue, or alpha are less than 0, the number
-   *                                  of bits is less than or equal to 0, or RGBA uses an invalid
-   *                                  integer given the number of bits.
+   * @throws IllegalArgumentException if red, green, blue, or alpha are less than 0 or greater than
+   * the maximum allowed value.
    */
-  private void validateConstructor(double red, double green, double blue, double alpha) {
+  private void validateRGBAParameters(double red, double green, double blue, double alpha)
+          throws IllegalArgumentException {
     if (red < 0 || green < 0 || blue < 0 || alpha < 0) {
       throw new IllegalArgumentException("Negative values of RGBA not allowed.");
     }
-    int maxValue = Util.MAX_PROJECT_VALUE;
-    if (red > maxValue || green > maxValue || blue > maxValue || alpha > maxValue) {
+    if (red > Util.MAX_PROJECT_VALUE || green > Util.MAX_PROJECT_VALUE ||
+            blue > Util.MAX_PROJECT_VALUE || alpha > Util.MAX_PROJECT_VALUE) {
       throw new IllegalArgumentException(String.format("RGBA cannot have a value greater than %d",
-              maxValue));
+              Util.MAX_PROJECT_VALUE));
     }
   }
 
   /**
-   * Constructor for an RGBA color. The number of bits used to represent a color
-   * can be specified by a client.
+   * Converts an RGBAColor to an HSLAColor.
+   * @param r the red component.
+   * @param g the green component.
+   * @param b the blue component.
+   * @param a the alpha component.
+   * @return the converted HSLA color.
+   * @throws IllegalArgumentException if r, g, b, or a are less than 0 or r, g, b, or a are
+   * greater than the maximum project value.
+   */
+  public static HSLAColor convertRGBAtoHSLA(double r, double g, double b, double a)
+          throws IllegalArgumentException {
+
+    double componentMax = Math.max(r, Math.max(g, b));
+    double componentMin = Math.min(r, Math.min(g, b));
+    double delta = componentMax - componentMin;
+    double lightness = (componentMax + componentMin)/2;
+    double hue, saturation;
+
+    if (delta == 0) {
+      hue = 0;
+      saturation = 0;
+    } else {
+      saturation = delta / (1 - Math.abs(2*lightness - 1));
+      hue = 0;
+      if (componentMax == r) {
+        hue = (g - b)/delta;
+        while (hue < 0) {
+          hue += 6;
+        }
+        hue = hue % 6;
+      } else if (componentMax == g) {
+        hue = (b - r)/delta;
+        hue += 2;
+      } else if (componentMax == b) {
+        hue = (r - g)/delta;
+        hue += 4;
+      }
+      hue = hue * 60;
+    }
+//    System.out.println("Hue: " + hue + " saturation: " + saturation + " lightness: " + lightness);
+    return new HSLAColor(hue, saturation, lightness, a);
+  }
+
+  /**
+   * Constructor for an RGBA color.
    *
    * @param red   the red component of the color.
    * @param green the green component of the color.
@@ -51,7 +111,11 @@ public class RGBAColor implements ColorModel {
    */
   public RGBAColor(double red, double green, double blue, double alpha)
           throws IllegalArgumentException {
-    this.validateConstructor(red, green, blue, alpha);
+    red = this.snapRGBAParameter(red);
+    green = this.snapRGBAParameter(green);
+    blue = this.snapRGBAParameter(blue);
+    alpha = this.snapRGBAParameter(alpha);
+    this.validateRGBAParameters(red, green, blue, alpha);
     this.red = red;
     this.green = green;
     this.blue = blue;

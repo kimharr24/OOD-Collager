@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/colors/HSLAColor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/filters/DarkeningBlendingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/filters/InversionBlendingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/colors/HSLAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/HSLAColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkeningBlendingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkeningBlendingFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/UtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/UtilTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,19 +89,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RGBAColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ImageTest" />
+      <option name="MAIN_CLASS_NAME" value="RGBAColorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PixelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PixelTest" />
+      <option name="MAIN_CLASS_NAME" value="UtilTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -110,10 +110,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RGBAColorTest" />
+        <item itemvalue="JUnit.UtilTest" />
         <item itemvalue="JUnit.CollageProjectTest" />
         <item itemvalue="JUnit.CollageProjectTest.testSaveProjectImage" />
-        <item itemvalue="JUnit.ImageTest" />
-        <item itemvalue="JUnit.PixelTest" />
       </list>
     </recent_temporary>
   </component>
@@ -134,7 +134,7 @@
       <workItem from="1679411363042" duration="1350000" />
       <workItem from="1679429558063" duration="2200000" />
       <workItem from="1679502403620" duration="15586000" />
-      <workItem from="1679595229590" duration="6456000" />
+      <workItem from="1679595229590" duration="19186000" />
     </task>
     <servers />
   </component>

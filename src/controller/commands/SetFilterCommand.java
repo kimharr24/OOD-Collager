@@ -81,6 +81,7 @@ public class SetFilterCommand extends AbstractProjectCommand {
           break;
         case "brightening-blending":
           filter = new BrighteningBlendingFilter();
+          break;
         default:
           System.out.println("Unknown command");
           break;

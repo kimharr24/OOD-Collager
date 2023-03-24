@@ -2,6 +2,7 @@ package model.filters;
 
 import model.colors.ColorModel;
 import model.colors.HSLAColor;
+import model.colors.RGBAColor;
 import model.images.ImageModel;
 import model.pixels.Pixel;
 import utils.Util;
@@ -29,13 +30,13 @@ public class BrighteningBlendingFilter extends AbstractFilter {
         ColorModel currentPixelColor = currentPixel.getColor();
         ColorModel compositePixelColor = compositePixel.getColor();
 
-        HSLAColor currentPixelHSLA = Util.convertRGBAtoHSLA(
+        HSLAColor currentPixelHSLA = RGBAColor.convertRGBAtoHSLA(
                 currentPixelColor.getRedComponent() / Util.MAX_PROJECT_VALUE,
                 currentPixelColor.getGreenComponent() / Util.MAX_PROJECT_VALUE,
                 currentPixelColor.getBlueComponent() / Util.MAX_PROJECT_VALUE,
                 currentPixelColor.getAlphaComponent() / Util.MAX_PROJECT_VALUE);
 
-        HSLAColor compositePixelHSLA = Util.convertRGBAtoHSLA(
+        HSLAColor compositePixelHSLA = RGBAColor.convertRGBAtoHSLA(
                 compositePixelColor.getRedComponent() / Util.MAX_PROJECT_VALUE,
                 compositePixelColor.getGreenComponent() / Util.MAX_PROJECT_VALUE,
                 compositePixelColor.getBlueComponent() / Util.MAX_PROJECT_VALUE,
@@ -46,7 +47,7 @@ public class BrighteningBlendingFilter extends AbstractFilter {
                 currentPixelHSLA.getLightness()) * (1 - compositePixelHSLA.getLightness())),
                 currentPixelHSLA.getAlpha());
 
-        ColorModel updatedCurrentPixelRGBA = Util.convertHSLAtoRGBA(
+        ColorModel updatedCurrentPixelRGBA = HSLAColor.convertHSLAtoRGBA(
                 updatedCurrentPixelHSLA.getHue(),
                 updatedCurrentPixelHSLA.getSaturation(),
                 updatedCurrentPixelHSLA.getLightness(),
