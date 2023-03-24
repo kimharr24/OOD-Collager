@@ -22,7 +22,7 @@ public class AddLayerCommandTest {
 
   @Test
   public void testExecuteCommand() {
-    ProjectModel<Pixel> project = new CollageProject("my-project", 300, 300);
+    ProjectModel<Pixel> project = new CollageProject( 300, 300);
     ProjectCommand command = new AddLayerCommand("first-layer");
     assertTrue(project.containsLayer("default-layer"));
     assertFalse(project.containsLayer("first-layer"));

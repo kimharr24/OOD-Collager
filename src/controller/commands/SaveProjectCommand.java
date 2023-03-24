@@ -14,13 +14,22 @@ import model.projects.ProjectModel;
  * the formatting specifications of a .collage file.
  */
 public class SaveProjectCommand extends AbstractProjectCommand {
+  private final String filePath;
+
+  /**
+   * Constructor for a save project command.
+   * @param filePath the filepath to save the project collage to.
+   */
+  public SaveProjectCommand(String filePath) {
+    this.filePath = filePath;
+  }
   @Override
   public void executeCommand(ProjectModel<Pixel> project) {
     this.checkNullProject(project);
     FileWriter writer = null;
 
     try {
-      writer = new FileWriter(project.getName() + ".collage");
+      writer = new FileWriter(this.filePath);
       writer.write("C1\n");
       writer.write(String.format("%d %d\n", project.getCanvasWidth(), project.getCanvasHeight()));
       writer.write(project.getMaxValue() + "\n");

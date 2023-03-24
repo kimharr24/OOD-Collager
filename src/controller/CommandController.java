@@ -47,13 +47,13 @@ public class CommandController implements Controller {
           case "quit":
             return;
           case "new-project":
-            model = new CollageProject(scanner.next(), scanner.nextInt(), scanner.nextInt());
+            model = new CollageProject(scanner.nextInt(), scanner.nextInt());
             break;
           case "save-project":
             if (model == null) {
               this.view.renderMessage("No project was found! Try creating a project first.");
             } else {
-              command = new SaveProjectCommand();
+              command = new SaveProjectCommand(scanner.next());
             }
             break;
           case "add-layer":

@@ -22,7 +22,7 @@ public class SetFilterCommandTest {
 
   @Test
   public void testExecuteCommand() {
-    ProjectModel<Pixel> project = new CollageProject("my-project", 300, 300);
+    ProjectModel<Pixel> project = new CollageProject( 300, 300);
     ProjectCommand command = new SetFilterCommand("default-layer", "red-component");
     for (int i = 0; i < project.getCanvasHeight(); i++) {
       for (int j = 0; j < project.getCanvasWidth(); j++) {

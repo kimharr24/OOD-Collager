@@ -15,18 +15,18 @@ import static org.junit.Assert.fail;
 public class SaveProjectCommandTest {
   @Test(expected = IllegalArgumentException.class)
   public void testExecuteCommandNullProject() {
-    ProjectCommand command = new SaveProjectCommand();
+    ProjectCommand command = new SaveProjectCommand("my-project.collage");
     command.executeCommand(null);
   }
 
   @Test
   public void testSaveProjectCommand() {
     try {
-      ProjectModel<Pixel> project = new CollageProject("my-project", 100, 100);
+      ProjectModel<Pixel> project = new CollageProject(100, 100);
       project.addLayer("first-layer");
       project.setLayerFilter("first-layer", new RedComponentFilter());
 
-      ProjectCommand command = new SaveProjectCommand();
+      ProjectCommand command = new SaveProjectCommand("my-project.collage");
       command.executeCommand(project);
     } catch (RuntimeException e) {
       fail("Expected project saving to work!");

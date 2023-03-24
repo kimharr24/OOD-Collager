@@ -6,11 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/HSLAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/HSLAColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkeningBlendingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkeningBlendingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/UtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/UtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CommandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/AddImageToLayerCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AddImageToLayerCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/AddLayerCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AddLayerCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CollageProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SaveImageCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveImageCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SaveProjectCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveProjectCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SetFilterCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SetFilterCommandTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +139,7 @@
       <workItem from="1679411363042" duration="1350000" />
       <workItem from="1679429558063" duration="2200000" />
       <workItem from="1679502403620" duration="15586000" />
-      <workItem from="1679595229590" duration="19186000" />
+      <workItem from="1679595229590" duration="19891000" />
     </task>
     <servers />
   </component>

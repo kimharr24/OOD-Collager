@@ -23,22 +23,19 @@ import utils.Util;
 public class CollageProject implements ProjectModel<Pixel> {
   private final int canvasWidth;
   private final int canvasHeight;
-  private final String projectName;
   private final List<LayerModel<Pixel>> layers;
 
   /**
    * Represents the constructor for the collage project.
-   * @param projectName the name of the project
    * @param canvasHeight the height of the project's canvas
    * @param canvasWidth the width of the project's canvas
    * @throws IllegalArgumentException if the canvas width or height are less than or equal to 0.
    */
-  public CollageProject(String projectName, int canvasHeight, int canvasWidth)
+  public CollageProject(int canvasHeight, int canvasWidth)
           throws IllegalArgumentException {
     if (canvasHeight <= 0 || canvasWidth <= 0) {
       throw new IllegalArgumentException("Canvas width and height must be at least 1 pixel");
     }
-    this.projectName = projectName;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
     LayerModel<Pixel> defaultLayer = new Layer("default-layer", new NormalFilter(),
@@ -133,11 +130,6 @@ public class CollageProject implements ProjectModel<Pixel> {
   @Override
   public int getMaxValue() {
     return Util.MAX_PROJECT_VALUE;
-  }
-
-  @Override
-  public String getName() {
-    return this.projectName;
   }
 
   @Override

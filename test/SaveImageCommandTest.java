@@ -25,7 +25,7 @@ public class SaveImageCommandTest {
 
   @Test
   public void testExecuteCommand() {
-    ProjectModel<Pixel> project = new CollageProject("my-project", 500, 500);
+    ProjectModel<Pixel> project = new CollageProject(500, 500);
     ProjectCommand command = new SaveImageCommand("./test/images/test-save-command.ppm");
     project.addLayer("first-layer");
     project.addImageToLayer("first-layer", "./test/images/cat.ppm",0, 0);

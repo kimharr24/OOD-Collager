@@ -26,15 +26,13 @@ public class CollageProjectTest {
   @Test
   public void testCollageProjectConstructor() {
     // Test input values
-    String projectName = "My Project";
     int canvasHeight = 500;
     int canvasWidth = 500;
 
     // Create a new CollageProject instance
-    CollageProject collageProject = new CollageProject(projectName, canvasHeight, canvasWidth);
+    CollageProject collageProject = new CollageProject(canvasHeight, canvasWidth);
 
     // Verify the instance variables are correctly set
-    assertEquals(projectName, collageProject.getName());
     assertEquals(canvasHeight, collageProject.getCanvasHeight());
     assertEquals(canvasWidth, collageProject.getCanvasWidth());
 
@@ -55,7 +53,7 @@ public class CollageProjectTest {
 
   @Test
   public void testSetLayerFilter() {
-    CollageProject collageProject = new CollageProject("My Project", 500, 500);
+    CollageProject collageProject = new CollageProject( 500, 500);
     collageProject.addLayer("layer1");
     collageProject.addLayer("layer2");
     Filter filter = new NormalFilter();
@@ -70,7 +68,7 @@ public class CollageProjectTest {
   @Test
   public void testSaveProjectImage() {
     // Create a new CollageProject instance and add a layer with a red background
-    CollageProject project = new CollageProject("MyProject", 500, 500);
+    CollageProject project = new CollageProject(500, 500);
     LayerModel<Pixel> layer = new Layer("Layer1", new NormalFilter(), 500, 500);
     ImageModel<Pixel> image = layer.getImage();
     image.colorBackground(new RGBAColor(100, 0, 0, 255));
@@ -93,7 +91,7 @@ public class CollageProjectTest {
 
   @Test
   public void testAddLayer() {
-    CollageProject project = new CollageProject("My Project", 500, 500);
+    CollageProject project = new CollageProject( 500, 500);
 
     assertEquals(1, project.getLayerCount());
 
@@ -108,23 +106,15 @@ public class CollageProjectTest {
 
   @Test
   public void testGetMaxValue() {
-    CollageProject project = new CollageProject("Max Project", 500, 500);
+    CollageProject project = new CollageProject( 500, 500);
     int maxValue = project.getMaxValue();
 
     assertEquals(Util.MAX_PROJECT_VALUE, maxValue);
   }
 
   @Test
-  public void testGetName() {
-    CollageProject project = new CollageProject("Named Project", 500, 500);
-    String projectName = "Named Project";
-
-    assertEquals(projectName, project.getName());
-  }
-
-  @Test
   public void testGetCanvasWidth() {
-    CollageProject project = new CollageProject("Named Project", 500, 500);
+    CollageProject project = new CollageProject( 500, 500);
     int canvasWidth = 500;
 
     assertEquals(canvasWidth, project.getCanvasWidth());
@@ -132,7 +122,7 @@ public class CollageProjectTest {
 
   @Test
   public void testGetCanvasHeight() {
-    CollageProject project = new CollageProject("Named Project", 500, 500);
+    CollageProject project = new CollageProject( 500, 500);
     int canvasHeight = 500;
 
     assertEquals(canvasHeight, project.getCanvasHeight());
@@ -140,7 +130,7 @@ public class CollageProjectTest {
 
   @Test
   public void testGetLayerCount() {
-    CollageProject project = new CollageProject("MyProject", 500, 500);
+    CollageProject project = new CollageProject( 500, 500);
     project.addLayer("Layer1");
     assertEquals(2, project.getLayerCount());
 
@@ -153,7 +143,7 @@ public class CollageProjectTest {
 
   @Test
   public void testGetLayerAtPosition() {
-    CollageProject project = new CollageProject("test-project", 100, 100);
+    CollageProject project = new CollageProject(100, 100);
     LayerModel<Pixel> layer1 = new Layer("layer1", new NormalFilter(), 100, 100);
     LayerModel<Pixel> layer2 = new Layer("layer2", new NormalFilter(), 100, 100);
     LayerModel<Pixel> layer3 = new Layer("layer3", new NormalFilter(), 100, 100);
@@ -175,7 +165,7 @@ public class CollageProjectTest {
 
   @Test
   public void testContainsLayer() {
-    CollageProject project = new CollageProject("MyProject", 500, 500);
+    CollageProject project = new CollageProject(500, 500);
     project.addLayer("Layer1");
     project.addLayer("Layer2");
     project.addLayer("Layer3");

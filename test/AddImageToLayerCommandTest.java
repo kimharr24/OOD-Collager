@@ -46,7 +46,7 @@ public class AddImageToLayerCommandTest {
 
   @Test
   public void testExecuteCommand() {
-    ProjectModel<Pixel> project = new CollageProject("my-project", 300, 300);
+    ProjectModel<Pixel> project = new CollageProject(300, 300);
     ProjectCommand command = new AddImageToLayerCommand("default-layer",
             "./test/images/cat.ppm", 0, 0);
     for (int i = 0; i < project.getCanvasHeight(); i++) {

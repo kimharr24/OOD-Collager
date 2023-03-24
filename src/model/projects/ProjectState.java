@@ -16,13 +16,6 @@ public interface ProjectState<T> {
   int getMaxValue();
 
   /**
-   * Returns the name of this project.
-   *
-   * @return the name of the project.
-   */
-  String getName();
-
-  /**
    * Returns the height of the canvas in the collage project.
    *
    * @return the height of the canvas.
