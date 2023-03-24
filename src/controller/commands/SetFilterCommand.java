@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 
 import model.filters.BrightenIntensityFilter;
 import model.filters.BrightenLumaFilter;
+import model.filters.BrighteningBlendingFilter;
 import model.filters.DarkenIntensityFilter;
 import model.filters.DarkenLumaFilter;
 import model.filters.DarkenValueFilter;
@@ -78,6 +79,8 @@ public class SetFilterCommand extends AbstractProjectCommand {
         case "darkening-blending":
           filter = new DarkeningBlendingFilter();
           break;
+        case "brightening-blending":
+          filter = new BrighteningBlendingFilter();
         default:
           System.out.println("Unknown command");
           break;
