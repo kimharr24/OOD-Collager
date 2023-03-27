@@ -1,5 +1,6 @@
 package model.projects;
 
+import model.images.ImageModel;
 import model.layers.LayerModel;
 
 /**
@@ -60,4 +61,6 @@ public interface ProjectState<T> {
    * @param filePath the file path to save the image.
    */
   void saveProjectImage(String filePath);
+
+  ImageModel<T> getCompositeImage();
 }

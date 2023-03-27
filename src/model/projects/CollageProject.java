@@ -41,8 +41,8 @@ public class CollageProject implements ProjectModel<Pixel> {
     LayerModel<Pixel> defaultLayer = new Layer("default-layer", new NormalFilter(),
             canvasWidth, canvasHeight);
     ImageModel<Pixel> image = defaultLayer.getImage();
-    image.colorBackground(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-            Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE));
+    image.colorBackground(new RGBAColor(Util.MAX_PROJECT_VALUE, 0,
+            0, Util.MAX_PROJECT_VALUE));
     this.layers = new ArrayList<>(List.of(defaultLayer));
   }
 
@@ -96,6 +96,40 @@ public class CollageProject implements ProjectModel<Pixel> {
     bottomLayer.setFilter(new NormalFilter());
     bottomLayer.applyFilter(dummyCompositeImage);
     bottomLayer.setFilter(originalBottomLayerFilter);
+  }
+
+  @Override
+  public ImageModel<Pixel> getCompositeImage() {
+    LayerModel<Pixel> bottomLayer = this.layers.get(0);
+    ImageModel<Pixel> dummyCompositeImage = bottomLayer.getImage();
+
+    // Apply the filter on the bottom layer to the bottom layer
+    bottomLayer.applyFilter(dummyCompositeImage);
+    // Get the filtered bottom layer image
+    ImageModel<Pixel> resultingImage = bottomLayer.getImage();
+
+    for (LayerModel<Pixel> layer: this.layers.subList(1, this.layers.size())) {
+      // Apply the filter to the current layer
+      layer.applyFilter(resultingImage);
+      // Update the collapsed image by passing in the filtered layer image
+      resultingImage = resultingImage.collapseImage(layer.getImage());
+      // Temporarily keep track of the original layer filter
+      Filter<Pixel> originalFilter = layer.getFilter();
+      // Update the layer to use the normal filter
+      layer.setFilter(new NormalFilter());
+      // Apply the normal filter (passing in the composite image does not do anything useful)
+      layer.applyFilter(resultingImage);
+      // Reset the layer back to the original filter
+      layer.setFilter(originalFilter);
+    }
+
+    // Reset the bottom layer image to its original image
+    Filter<Pixel> originalBottomLayerFilter = bottomLayer.getFilter();
+    bottomLayer.setFilter(new NormalFilter());
+    bottomLayer.applyFilter(dummyCompositeImage);
+    bottomLayer.setFilter(originalBottomLayerFilter);
+
+    return resultingImage;
   }
 
   /**

@@ -5,26 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/AbstractFileInputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/FileInputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/ImageFileInputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/PPMFileInputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/ProjectFileInputCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/ControllerFeatures.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/CollageGUIView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/ImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/ImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/fileinputcommands/AbstractFileInputCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/fileinputcommands/FileInputCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/fileinputcommands/PPMInputCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/CollageProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PPMFileOutputCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PPMFileOutputCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PPMInputCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PPMInputCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/SaveImageCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveImageCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectState.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hkimr/Desktop/OOD Group Work/Collager",
+    "last_opened_file_path": "C:/Users/hkimr/Desktop/CS 3500/Lab 8",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -149,7 +138,8 @@
       <workItem from="1679429558063" duration="2200000" />
       <workItem from="1679502403620" duration="15586000" />
       <workItem from="1679595229590" duration="23581000" />
-      <workItem from="1679692438008" duration="4678000" />
+      <workItem from="1679692438008" duration="4915000" />
+      <workItem from="1679859613420" duration="16761000" />
     </task>
     <servers />
   </component>

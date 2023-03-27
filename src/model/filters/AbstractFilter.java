@@ -60,7 +60,7 @@ public abstract class AbstractFilter implements Filter<Pixel> {
   private void checkImageSizeEquality(ImageModel<Pixel> image1, ImageModel<Pixel> image2)
           throws IllegalArgumentException {
     if (image1.getImageWidth() != image2.getImageWidth() ||
-            image1.getImageHeight() != image2.getImageWidth()) {
+            image1.getImageHeight() != image2.getImageHeight()) {
       throw new IllegalArgumentException("Current layer image and composite image must be " +
               "of the same size.");
     }
