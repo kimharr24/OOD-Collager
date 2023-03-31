@@ -5,8 +5,6 @@ import controller.commands.SaveImageCommand;
 import model.filters.BlueComponentFilter;
 import model.filters.RedComponentFilter;
 import model.images.ImageModel;
-import model.images.fileinputcommands.ImageFileInputCommand;
-import model.images.fileinputcommands.PPMInputCommand;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
 import model.projects.ProjectModel;

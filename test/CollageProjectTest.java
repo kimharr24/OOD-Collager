@@ -1,17 +1,23 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
 
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
+import model.filters.BlueComponentFilter;
 import model.filters.Filter;
 import model.filters.NormalFilter;
+import model.filters.RedComponentFilter;
+import model.images.Image;
 import model.images.ImageModel;
-import model.images.fileinputcommands.PPMInputCommand;
 import model.layers.Layer;
 import model.layers.LayerModel;
+import model.pixels.ImagePixel;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
+import model.projects.ProjectModel;
+import utils.Position2D;
 import utils.Util;
 
 import static org.junit.Assert.assertEquals;
@@ -22,6 +28,102 @@ import static org.junit.Assert.assertFalse;
  * Testing class for a collage project.
  */
 public class CollageProjectTest {
+  private ProjectModel<Pixel> project;
+  private int canvasWidth;
+  private int canvasHeight;
+
+  @Before
+  public void init() {
+    this.canvasHeight = 500;
+    this.canvasWidth = 800;
+    this.project = new CollageProject(this.canvasHeight, this.canvasWidth);
+  }
+
+  /**
+   * Creates a copy of the given image. Used for testing purposes.
+   * @param image the image to copy.
+   * @return the copied image.
+   */
+  private ImageModel<Pixel> createImageCopy(ImageModel<Pixel> image) {
+    ImageModel<Pixel> copy = new Image(image.getImageWidth(), image.getImageHeight());
+
+    for (int i = 0; i < image.getImageHeight(); i++) {
+      for (int j = 0; j < image.getImageWidth(); j++) {
+        ColorModel currentColor = image.getPixelAtCoord(i, j).getColor();
+        copy.setImagePixelAtCoord(new ImagePixel(new Position2D(i, j),
+                new RGBAColor(currentColor.getRedComponent(), currentColor.getGreenComponent(),
+                      currentColor.getBlueComponent(), currentColor.getAlphaComponent())), i, j);
+      }
+    }
+    return copy;
+  }
+
+  /**
+   * Method for quickly testing if two images are equal.
+   * @param image1 the first image.
+   * @param image2 the second image.
+   * @return true if the images are equal, false otherwise.
+   */
+  private boolean areImagesEqual(ImageModel<Pixel> image1, ImageModel<Pixel> image2) {
+    if (image1.getImageWidth() != image2.getImageWidth() ||
+            image1.getImageHeight() != image2.getImageHeight()) {
+      return false;
+    }
+    boolean result = true;
+    for (int i = 0; i < image1.getImageHeight(); i++) {
+      for (int j = 0; j < image2.getImageWidth(); j++) {
+        result = result && image1.getPixelAtCoord(i, j).getColor().equals(
+                image2.getPixelAtCoord(i, j).getColor());
+      }
+    }
+    return result;
+  }
+
+  @Test
+  public void testGetCompositeImageInvariant() {
+    assertEquals("Normal Filter", this.project.getLayerAtPosition(0).getFilterName());
+    assertEquals(1, this.project.getLayerCount());
+
+    this.project.addLayer("layer one");
+    assertEquals("Normal Filter", this.project.getLayerAtPosition(0).getFilterName());
+    assertEquals(2, this.project.getLayerCount());
+
+    this.project.setLayerFilter("layer one", new BlueComponentFilter());
+    assertEquals("Blue Component Filter",
+            this.project.getLayerAtPosition(1).getFilterName());
+
+    this.project.addLayer("layer two");
+    this.project.setLayerFilter("layer two", new RedComponentFilter());
+    assertEquals("Red Component Filter",
+            this.project.getLayerAtPosition(2).getFilterName());
+    assertEquals(3, this.project.getLayerCount());
+
+    // Get copies of the original, unmodified images in each of the layers
+    ImageModel<Pixel> unmodifiedDefaultLayerImage = this.createImageCopy(
+            this.project.getLayerAtPosition(0).getImage());
+    ImageModel<Pixel> unmodifiedLayerOneImage = this.createImageCopy(
+            this.project.getLayerAtPosition(1).getImage());
+    ImageModel<Pixel> unmodifiedLayerTwoImage = this.createImageCopy(
+            this.project.getLayerAtPosition(2).getImage());
+
+    // Apply filters to the unmodified images to get a collapsed image
+    this.project.getCompositeImage();
+
+    // Ensure that the layers are still storing the unmodified images after applying filters
+    assertTrue(this.areImagesEqual(unmodifiedDefaultLayerImage,
+            this.project.getLayerAtPosition(0).getImage()));
+    assertTrue(this.areImagesEqual(unmodifiedLayerOneImage,
+            this.project.getLayerAtPosition(1).getImage()));
+    assertTrue(this.areImagesEqual(unmodifiedLayerTwoImage,
+            this.project.getLayerAtPosition(2).getImage()));
+
+    // Ensure that the layers have the correct filter fields
+    assertEquals("Normal Filter", this.project.getLayerAtPosition(0).getFilterName());
+    assertEquals("Blue Component Filter",
+            this.project.getLayerAtPosition(1).getFilterName());
+    assertEquals("Red Component Filter",
+            this.project.getLayerAtPosition(2).getFilterName());
+  }
 
   @Test
   public void testCollageProjectConstructor() {

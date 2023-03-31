@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/ControllerFeatures.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/CollageGUIView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/AbstractFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ControllerFeatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerFeatures.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CollageGUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CollageGUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CollageProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SaveImageCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveImageCommandTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,11 +81,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CollageProjectTest.testSaveProjectImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CollageProjectTest.testGetCompositeImageInvariant" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CollageProjectTest" />
-      <option name="METHOD_NAME" value="testSaveProjectImage" />
+      <option name="METHOD_NAME" value="testGetCompositeImageInvariant" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,10 +112,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.CollageProjectTest.testGetCompositeImageInvariant" />
         <item itemvalue="JUnit.RGBAColorTest" />
         <item itemvalue="JUnit.UtilTest" />
         <item itemvalue="JUnit.CollageProjectTest" />
-        <item itemvalue="JUnit.CollageProjectTest.testSaveProjectImage" />
       </list>
     </recent_temporary>
   </component>
@@ -139,7 +138,7 @@
       <workItem from="1679502403620" duration="15586000" />
       <workItem from="1679595229590" duration="23581000" />
       <workItem from="1679692438008" duration="4915000" />
-      <workItem from="1679859613420" duration="16761000" />
+      <workItem from="1679859613420" duration="32317000" />
     </task>
     <servers />
   </component>

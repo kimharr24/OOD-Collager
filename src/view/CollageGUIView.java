@@ -1,5 +1,7 @@
 package view;
 
+import java.util.Map;
+
 import controller.ControllerFeatures;
 import model.images.ImageModel;
 import model.pixels.Pixel;
@@ -25,5 +27,5 @@ public interface CollageGUIView<T> {
 
   void addFeatures(ControllerFeatures features);
 
-  void refresh(ImageModel<T> compositeImage);
+  void refresh(ImageModel<T> compositeImage, Map<String, String> layerNameToFilterName);
 }

@@ -2,8 +2,11 @@ package view;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Map;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import controller.ControllerFeatures;
 import model.colors.ColorModel;
@@ -12,10 +15,14 @@ import model.pixels.Pixel;
 
 public class GUIView extends JFrame implements CollageGUIView<Pixel> {
   private JScrollPane compositeImage;
-  private JPanel mainPanel, imagePanel;
-  private JButton newProjectButton;
-  private JTextField widthField, heightField;
-  private JLabel errorMessage;
+  private JPanel mainPanel, imagePanel, layerDropdownContainer, layerDropdownPanel;
+  private JButton newProjectButton, showLayerFilterButton, openFileButton, confirmImageUploadButton;
+  private JTextField widthField, heightField, imageRowDisplacementField, imageColDisplacementField;
+  private JLabel errorMessage, layerDropdownMessage, layerFilterMessage, selectedFileMessage;
+  private JComboBox<String> layerDropdown;
+  private Map<String, String> layerNameToFilterName;
+  private String selectedLayer, imageFilePath;
+  private int imageRowDisplacement, imageColDisplacement;
 
   public GUIView() {
     this.setSize(new Dimension(1000, 1000));
@@ -35,6 +42,26 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     this.errorMessage.setForeground(Color.RED);
     this.mainPanel.add(this.errorMessage);
 
+    this.showLayerFilterButton = new JButton("Show Layer Filter");
+    this.layerFilterMessage = new JLabel("Selected Filter: ");
+
+    this.layerDropdownContainer = new JPanel();
+
+    this.layerDropdownContainer.setLayout(new FlowLayout());
+    this.layerDropdownContainer.add(this.showLayerFilterButton);
+    this.layerDropdownContainer.add(this.layerFilterMessage);
+
+    this.layerDropdownPanel = new JPanel();
+    this.layerDropdown = new JComboBox<>();
+
+    this.mainPanel.add(this.layerDropdownContainer);
+    this.renderAddImageComponent();
+
+    this.selectedLayer = "default-layer";
+    this.imageFilePath = "";
+    this.imageRowDisplacement = 0;
+    this.imageColDisplacement = 0;
+
     this.add(this.mainPanel);
 
     this.pack();
@@ -43,30 +70,65 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
 
   private void renderNewProjectComponent() {
     JPanel newProjectPanel = new JPanel();
-    newProjectPanel.setLayout(new BoxLayout(newProjectPanel, BoxLayout.PAGE_AXIS));
+    newProjectPanel.setLayout(new FlowLayout());
 
     JLabel createProjectLabel = new JLabel("Create New Project?");
-
-    JPanel fieldPanel = new JPanel();
-    fieldPanel.setLayout(new FlowLayout());
 
     JLabel width = new JLabel("Width:");
     JLabel height = new JLabel("Height:");
     this.widthField = new JTextField(5);
     this.heightField = new JTextField(5);
 
-    fieldPanel.add(width);
-    fieldPanel.add(widthField);
-    fieldPanel.add(height);
-    fieldPanel.add(heightField);
+    newProjectPanel.add(createProjectLabel);
+    newProjectPanel.add(width);
+    newProjectPanel.add(this.widthField);
+    newProjectPanel.add(height);
+    newProjectPanel.add(this.heightField);
 
     this.newProjectButton = new JButton("Create Project");
 
-    newProjectPanel.add(createProjectLabel);
-    newProjectPanel.add(fieldPanel);
-    newProjectPanel.add(newProjectButton);
+    newProjectPanel.add(this.newProjectButton);
 
     this.mainPanel.add(newProjectPanel);
+  }
+
+  private void renderLayerDropdown() {
+    this.layerDropdownContainer.remove(this.layerDropdownPanel);
+    this.layerDropdownPanel = new JPanel();
+
+    this.layerDropdownPanel.setBorder(BorderFactory.createTitledBorder("Layer Menu"));
+    this.layerDropdownPanel.setLayout(new BoxLayout(this.layerDropdownPanel, BoxLayout.PAGE_AXIS));
+
+    this.layerDropdownMessage = new JLabel("Select a Layer");
+    this.layerDropdownPanel.add(this.layerDropdownMessage);
+
+    this.layerDropdown.removeAllItems();
+
+    for (String layerName : this.layerNameToFilterName.keySet()) {
+      this.layerDropdown.addItem(layerName);
+    }
+
+    this.layerDropdownPanel.add(layerDropdown);
+    this.layerDropdownContainer.add(this.layerDropdownPanel);
+  }
+
+  private void renderAddImageComponent() {
+    JPanel addImagePanel = new JPanel();
+    addImagePanel.setLayout(new FlowLayout());
+
+    this.openFileButton = new JButton("Select Image");
+    this.selectedFileMessage = new JLabel("Selected Image: ");
+    this.imageRowDisplacementField = new JTextField(5);
+    this.imageColDisplacementField = new JTextField(5);
+    this.confirmImageUploadButton = new JButton("Confirm Upload");
+
+    addImagePanel.add(this.openFileButton);
+    addImagePanel.add(this.selectedFileMessage);
+    addImagePanel.add(this.imageRowDisplacementField);
+    addImagePanel.add(this.imageColDisplacementField);
+    addImagePanel.add(this.confirmImageUploadButton);
+
+    this.mainPanel.add(addImagePanel);
   }
 
   @Override
@@ -121,14 +183,46 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
         this.renderErrorMessage("Please enter a number greater than zero.");
       }
     });
+    this.layerDropdown.addActionListener(evt -> {
+      JComboBox<String> box = (JComboBox<String>) evt.getSource();
+      this.layerDropdownMessage.setText("Selected Layer: " + (String) box.getSelectedItem());
+    });
+    this.showLayerFilterButton.addActionListener(evt -> {
+      this.layerFilterMessage.setText("Selected Filter: " +
+              this.layerNameToFilterName.get(this.selectedLayer));
+    });
+    this.openFileButton.addActionListener(evt -> {
+      final JFileChooser fileChooser = new JFileChooser(".");
+      FileNameExtensionFilter filter = new FileNameExtensionFilter("PPM Images", "ppm");
+      fileChooser.setFileFilter(filter);
+
+      int returnValue = fileChooser.showOpenDialog(this);
+      if (returnValue == JFileChooser.APPROVE_OPTION) {
+        File f = fileChooser.getSelectedFile();
+        this.imageFilePath = f.getAbsolutePath();
+      }
+    });
+    this.confirmImageUploadButton.addActionListener(evt -> {
+      try {
+        int rowDisplacement = Integer.parseInt(this.imageRowDisplacementField.getText(), 10);
+        int colDisplacement = Integer.parseInt(this.imageColDisplacementField.getText(), 10);
+        features.addImageToLayer(this.imageFilePath, this.selectedLayer, rowDisplacement,
+                colDisplacement);
+      } catch (NumberFormatException e) {
+        this.renderErrorMessage("Row and column displacement must be numbers.");
+      }
+    });
   }
 
   @Override
-  public void refresh(ImageModel<Pixel> compositeImage) {
+  public void refresh(ImageModel<Pixel> compositeImage, Map<String, String> layerNameToFilterName) {
+    this.layerNameToFilterName = layerNameToFilterName;
     this.renderErrorMessage("");
     this.renderImage(compositeImage);
+    this.renderLayerDropdown();
+
     this.setVisible(true);
-//    this.repaint();
+
     // Update the list of layers being displayed
     // Update the image being displayed
     // Get rid of error messages (when they perform any operation successfully, remove the message)
