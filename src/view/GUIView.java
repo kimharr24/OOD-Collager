@@ -18,12 +18,13 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
   private JScrollPane compositeImage;
   private JPanel mainPanel, imagePanel, layerDropdownContainer, layerDropdownPanel;
   private JButton newProjectButton, showLayerFilterButton, openFileButton,
-          confirmImageUploadButton, confirmSetLayerFilterButton;
-  private JTextField widthField, heightField, imageRowDisplacementField, imageColDisplacementField;
+          confirmImageUploadButton, confirmSetLayerFilterButton, addLayerButton;
+  private JTextField widthField, heightField, imageRowDisplacementField, imageColDisplacementField,
+          layerNameField;
   private JLabel errorMessage, layerDropdownMessage, layerFilterMessage, selectedFileMessage;
   private JComboBox<String> layerDropdown, filterDropdown;
   private Map<String, String> layerNameToFilterName;
-  private String selectedLayer, selectedFilter, imageFilePath;
+  private String selectedLayer, selectedFilter, imageFilePath, newLayerName;
   private int imageRowDisplacement, imageColDisplacement;
 
   public GUIView() {
@@ -43,6 +44,8 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     this.errorMessage = new JLabel("");
     this.errorMessage.setForeground(Color.RED);
     this.mainPanel.add(this.errorMessage);
+
+    this.renderAddLayer();
 
     this.showLayerFilterButton = new JButton("Show Layer Filter");
     this.layerFilterMessage = new JLabel("Selected Filter: ");
@@ -174,6 +177,18 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     this.imagePanel.add(this.compositeImage);
   }
 
+  private void renderAddLayer() {
+    JPanel addLayerPanel = new JPanel();
+    addLayerPanel.setLayout(new FlowLayout());
+    JLabel addLayerName = new JLabel("Layer Name:");
+    addLayerPanel.add(addLayerName);
+    this.layerNameField = new JTextField(5);
+    addLayerPanel.add(this.layerNameField);
+    this.addLayerButton = new JButton("Add Layer");
+    addLayerPanel.add(this.addLayerButton);
+    this.mainPanel.add(addLayerPanel);
+  }
+
   private Image createImageFromScratch(ImageModel<Pixel> compositeImage) {
     BufferedImage bufferedImage = new BufferedImage(compositeImage.getImageWidth(),
             compositeImage.getImageHeight(),
@@ -250,6 +265,9 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     });
     this.confirmSetLayerFilterButton.addActionListener(evt -> {
       features.applyFilter(this.selectedLayer, this.selectedFilter);
+    });
+    this.addLayerButton.addActionListener(evt -> {
+      features.addLayer(this.layerNameField.getText());
     });
   }
 
