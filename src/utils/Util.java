@@ -1,14 +1,15 @@
 package utils;
 
-import model.colors.HSLAColor;
-import model.colors.RGBAColor;
-
 /**
  * Utility class for any common methods used by the model, controller, or
  * view in the image collage project.
  */
 public class Util {
   public static int MAX_PROJECT_VALUE = 255;
+  public static String[] FILTER_OPTIONS = {"normal", "red-component", "blue-component",
+          "green-component", "brighten-value", "darken-value", "brighten-intensity",
+          "darken-intensity", "brighten-luma", "darken-luma", "inversion-blending",
+          "darkening-blending", "brightening-blending"};
 
   public void setMaxValue(int maxValue) {
     Util.MAX_PROJECT_VALUE = maxValue;

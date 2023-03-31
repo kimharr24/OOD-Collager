@@ -6,4 +6,6 @@ public interface ControllerFeatures {
   void makeNewProject(int canvasWidth, int canvasHeight);
 
   void addImageToLayer(String filepath, String selectedLayerName, int row, int col);
+
+  void addLayer(String layerName);
 }

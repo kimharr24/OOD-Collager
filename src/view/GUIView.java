@@ -12,16 +12,18 @@ import controller.ControllerFeatures;
 import model.colors.ColorModel;
 import model.images.ImageModel;
 import model.pixels.Pixel;
+import utils.Util;
 
 public class GUIView extends JFrame implements CollageGUIView<Pixel> {
   private JScrollPane compositeImage;
   private JPanel mainPanel, imagePanel, layerDropdownContainer, layerDropdownPanel;
-  private JButton newProjectButton, showLayerFilterButton, openFileButton, confirmImageUploadButton;
+  private JButton newProjectButton, showLayerFilterButton, openFileButton,
+          confirmImageUploadButton, confirmSetLayerFilterButton;
   private JTextField widthField, heightField, imageRowDisplacementField, imageColDisplacementField;
   private JLabel errorMessage, layerDropdownMessage, layerFilterMessage, selectedFileMessage;
-  private JComboBox<String> layerDropdown;
+  private JComboBox<String> layerDropdown, filterDropdown;
   private Map<String, String> layerNameToFilterName;
-  private String selectedLayer, imageFilePath;
+  private String selectedLayer, selectedFilter, imageFilePath;
   private int imageRowDisplacement, imageColDisplacement;
 
   public GUIView() {
@@ -54,10 +56,14 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     this.layerDropdownPanel = new JPanel();
     this.layerDropdown = new JComboBox<>();
 
+    this.filterDropdown = new JComboBox<>();
+    this.renderFilterDropdown();
+
     this.mainPanel.add(this.layerDropdownContainer);
     this.renderAddImageComponent();
 
     this.selectedLayer = "default-layer";
+    this.selectedFilter = "normal";
     this.imageFilePath = "";
     this.imageRowDisplacement = 0;
     this.imageColDisplacement = 0;
@@ -112,6 +118,25 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     this.layerDropdownContainer.add(this.layerDropdownPanel);
   }
 
+  private void renderFilterDropdown() {
+    JPanel filterDropdownPanel = new JPanel();
+    filterDropdownPanel.setBorder(BorderFactory.createTitledBorder("Filter Menu"));
+    filterDropdownPanel.setLayout(new BoxLayout(filterDropdownPanel, BoxLayout.PAGE_AXIS));
+
+    JLabel filterDropdownMessage = new JLabel("Select a Filter");
+    filterDropdownPanel.add(filterDropdownMessage);
+
+    for (String filterName : Util.FILTER_OPTIONS) {
+      this.filterDropdown.addItem(filterName);
+    }
+
+    filterDropdownPanel.add(this.filterDropdown);
+
+    this.layerDropdownContainer.add(filterDropdownPanel);
+    this.confirmSetLayerFilterButton = new JButton("Apply Filter To Layer");
+    this.layerDropdownContainer.add(this.confirmSetLayerFilterButton);
+  }
+
   private void renderAddImageComponent() {
     JPanel addImagePanel = new JPanel();
     addImagePanel.setLayout(new FlowLayout());
@@ -122,9 +147,14 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     this.imageColDisplacementField = new JTextField(5);
     this.confirmImageUploadButton = new JButton("Confirm Upload");
 
+    JLabel rowLabel = new JLabel("Row:");
+    JLabel colLabel = new JLabel("Column:");
+
     addImagePanel.add(this.openFileButton);
     addImagePanel.add(this.selectedFileMessage);
+    addImagePanel.add(rowLabel);
     addImagePanel.add(this.imageRowDisplacementField);
+    addImagePanel.add(colLabel);
     addImagePanel.add(this.imageColDisplacementField);
     addImagePanel.add(this.confirmImageUploadButton);
 
@@ -186,6 +216,11 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     this.layerDropdown.addActionListener(evt -> {
       JComboBox<String> box = (JComboBox<String>) evt.getSource();
       this.layerDropdownMessage.setText("Selected Layer: " + (String) box.getSelectedItem());
+      this.selectedLayer = (String) box.getSelectedItem();
+    });
+    this.filterDropdown.addActionListener(evt -> {
+      JComboBox<String> box = (JComboBox<String>) evt.getSource();
+      this.selectedFilter = (String) box.getSelectedItem();
     });
     this.showLayerFilterButton.addActionListener(evt -> {
       this.layerFilterMessage.setText("Selected Filter: " +
@@ -200,6 +235,7 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
       if (returnValue == JFileChooser.APPROVE_OPTION) {
         File f = fileChooser.getSelectedFile();
         this.imageFilePath = f.getAbsolutePath();
+        this.selectedFileMessage.setText("Selected Image: " + f.getName());
       }
     });
     this.confirmImageUploadButton.addActionListener(evt -> {
@@ -211,6 +247,9 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
       } catch (NumberFormatException e) {
         this.renderErrorMessage("Row and column displacement must be numbers.");
       }
+    });
+    this.confirmSetLayerFilterButton.addActionListener(evt -> {
+      features.applyFilter(this.selectedLayer, this.selectedFilter);
     });
   }
 

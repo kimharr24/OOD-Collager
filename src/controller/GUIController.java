@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import controller.commands.AddImageToLayerCommand;
+import controller.commands.AddLayerCommand;
 import controller.commands.ProjectCommand;
+import controller.commands.SetFilterCommand;
 import controller.fileio.fileinputcommands.FileInputCommand;
 import controller.fileio.fileinputcommands.ImageFileInputCommand;
 import controller.fileio.fileinputcommands.PPMFileInputCommand;
@@ -29,7 +31,13 @@ public class GUIController implements ControllerFeatures {
 
   @Override
   public void applyFilter(String layerName, String filterName) {
-
+    ProjectCommand command = new SetFilterCommand(layerName, filterName);
+    try {
+      command.executeCommand(this.model);
+      this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
+    } catch (IllegalArgumentException e) {
+      this.view.renderErrorMessage("Selected layer does not exist.");
+    }
   }
 
   private Map<String, String> createLayerToFilterMap() {
@@ -65,5 +73,12 @@ public class GUIController implements ControllerFeatures {
     } catch (IllegalArgumentException e) {
       this.view.renderErrorMessage("Please enter non-negative numbers for the displacement.");
     }
+  }
+
+  @Override
+  public void addLayer(String layerName) {
+    ProjectCommand command = new AddLayerCommand(layerName);
+    command.executeCommand(this.model);
+    this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
   }
 }

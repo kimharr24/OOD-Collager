@@ -6,6 +6,7 @@ import java.util.List;
 import model.colors.RGBAColor;
 import model.filters.Filter;
 import model.filters.NormalFilter;
+import model.images.Image;
 import model.images.ImageModel;
 import model.images.fileoutputcommands.FileOutputCommand;
 import model.images.fileoutputcommands.PPMFileOutputCommand;
@@ -41,8 +42,8 @@ public class CollageProject implements ProjectModel<Pixel> {
     LayerModel<Pixel> defaultLayer = new Layer("default-layer", new NormalFilter(),
             canvasWidth, canvasHeight);
     ImageModel<Pixel> image = defaultLayer.getImage();
-    image.colorBackground(new RGBAColor(Util.MAX_PROJECT_VALUE, 0,
-            0, Util.MAX_PROJECT_VALUE));
+    image.colorBackground(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
+            Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE));
     this.layers = new ArrayList<>(List.of(defaultLayer));
   }
 
@@ -105,8 +106,9 @@ public class CollageProject implements ProjectModel<Pixel> {
 
     // Apply the filter on the bottom layer to the bottom layer
     bottomLayer.applyFilter(dummyCompositeImage);
-    // Get the filtered bottom layer image
-    ImageModel<Pixel> resultingImage = bottomLayer.getImage();
+
+    ImageModel<Pixel> resultingImage = new Image(this.canvasWidth, this.canvasHeight);
+    resultingImage = resultingImage.collapseImage(bottomLayer.getImage());
 
     for (LayerModel<Pixel> layer: this.layers.subList(1, this.layers.size())) {
       // Apply the filter to the current layer
@@ -128,6 +130,10 @@ public class CollageProject implements ProjectModel<Pixel> {
     bottomLayer.setFilter(new NormalFilter());
     bottomLayer.applyFilter(dummyCompositeImage);
     bottomLayer.setFilter(originalBottomLayerFilter);
+
+    System.out.println(resultingImage.getPixelAtCoord(0,0).getColor().getRedComponent());
+    System.out.println(resultingImage.getPixelAtCoord(0,0).getColor().getGreenComponent());
+    System.out.println(resultingImage.getPixelAtCoord(0,0).getColor().getBlueComponent());
 
     return resultingImage;
   }

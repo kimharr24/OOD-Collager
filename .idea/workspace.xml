@@ -9,10 +9,8 @@
       <change beforePath="$PROJECT_DIR$/src/controller/ControllerFeatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerFeatures.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/CollageGUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CollageGUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/CollageProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/SaveImageCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveImageCommandTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hkimr/Desktop/CS 3500/Lab 8",
+    "last_opened_file_path": "C:/Users/hkimr/Desktop/OOD Group Work/SwingDemo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -139,6 +137,7 @@
       <workItem from="1679595229590" duration="23581000" />
       <workItem from="1679692438008" duration="4915000" />
       <workItem from="1679859613420" duration="32317000" />
+      <workItem from="1680281818076" duration="4533000" />
     </task>
     <servers />
   </component>
