@@ -6,6 +6,8 @@ import java.util.Map;
 import controller.commands.AddImageToLayerCommand;
 import controller.commands.AddLayerCommand;
 import controller.commands.ProjectCommand;
+import controller.commands.SaveImageCommand;
+import controller.commands.SaveProjectCommand;
 import controller.commands.SetFilterCommand;
 import controller.fileio.fileinputcommands.FileInputCommand;
 import controller.fileio.fileinputcommands.ImageFileInputCommand;
@@ -80,5 +82,22 @@ public class GUIController implements ControllerFeatures {
     ProjectCommand command = new AddLayerCommand(layerName);
     command.executeCommand(this.model);
     this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
+  }
+
+  @Override
+  public void saveProject(String filepath) {
+    ProjectCommand command = new SaveProjectCommand(filepath);
+    command.executeCommand(this.model);
+  }
+
+  @Override
+  public void saveImage(String filepath) {
+    ProjectCommand command = new SaveImageCommand(filepath);
+    command.executeCommand(this.model);
+  }
+
+  @Override
+  public void loadProject(String filepath) {
+
   }
 }

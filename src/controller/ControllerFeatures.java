@@ -8,4 +8,10 @@ public interface ControllerFeatures {
   void addImageToLayer(String filepath, String selectedLayerName, int row, int col);
 
   void addLayer(String layerName);
+
+  void saveProject(String filepath);
+
+  void saveImage(String filepath);
+
+  void loadProject(String filepath);
 }

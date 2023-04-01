@@ -18,7 +18,8 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
   private JScrollPane compositeImage;
   private JPanel mainPanel, imagePanel, layerDropdownContainer, layerDropdownPanel;
   private JButton newProjectButton, showLayerFilterButton, openFileButton,
-          confirmImageUploadButton, confirmSetLayerFilterButton, addLayerButton;
+          confirmImageUploadButton, confirmSetLayerFilterButton, addLayerButton,
+          uploadProjectButton, saveProjectButton, saveImageButton;
   private JTextField widthField, heightField, imageRowDisplacementField, imageColDisplacementField,
           layerNameField;
   private JLabel errorMessage, layerDropdownMessage, layerFilterMessage, selectedFileMessage;
@@ -64,6 +65,8 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
 
     this.mainPanel.add(this.layerDropdownContainer);
     this.renderAddImageComponent();
+
+    this.renderProjectCommands();
 
     this.selectedLayer = "default-layer";
     this.selectedFilter = "normal";
@@ -189,6 +192,21 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     this.mainPanel.add(addLayerPanel);
   }
 
+  private void renderProjectCommands() {
+    JPanel commandPanel = new JPanel();
+    commandPanel.setLayout(new FlowLayout());
+
+    this.uploadProjectButton = new JButton("Upload Project");
+    this.saveProjectButton = new JButton("Save Project");
+    this.saveImageButton = new JButton("Save Image");
+
+    commandPanel.add(this.uploadProjectButton);
+    commandPanel.add(this.saveProjectButton);
+    commandPanel.add(this.saveImageButton);
+
+    this.mainPanel.add(commandPanel);
+  }
+
   private Image createImageFromScratch(ImageModel<Pixel> compositeImage) {
     BufferedImage bufferedImage = new BufferedImage(compositeImage.getImageWidth(),
             compositeImage.getImageHeight(),
@@ -268,6 +286,22 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     });
     this.addLayerButton.addActionListener(evt -> {
       features.addLayer(this.layerNameField.getText());
+    });
+    this.saveProjectButton.addActionListener(evt -> {
+      final JFileChooser fileChooser = new JFileChooser(".");
+      int returnValue = fileChooser.showSaveDialog(this);
+      if (returnValue == JFileChooser.APPROVE_OPTION) {
+        File f = fileChooser.getSelectedFile();
+        features.saveProject(f.getAbsolutePath());
+      }
+    });
+    this.saveImageButton.addActionListener(evt -> {
+      final JFileChooser fileChooser = new JFileChooser(".");
+      int returnValue = fileChooser.showSaveDialog(this);
+      if (returnValue == JFileChooser.APPROVE_OPTION) {
+        File f = fileChooser.getSelectedFile();
+        features.saveImage(f.getAbsolutePath());
+      }
     });
   }
 

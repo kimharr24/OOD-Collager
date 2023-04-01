@@ -11,7 +11,7 @@ public class Util {
           "darken-intensity", "brighten-luma", "darken-luma", "inversion-blending",
           "darkening-blending", "brightening-blending"};
 
-  public void setMaxValue(int maxValue) {
+  public static void setMaxValue(int maxValue) {
     Util.MAX_PROJECT_VALUE = maxValue;
   }
 

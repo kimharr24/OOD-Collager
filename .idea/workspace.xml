@@ -8,7 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ControllerFeatures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ControllerFeatures.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
     </list>
@@ -137,7 +137,7 @@
       <workItem from="1679595229590" duration="23581000" />
       <workItem from="1679692438008" duration="4915000" />
       <workItem from="1679859613420" duration="32317000" />
-      <workItem from="1680281818076" duration="4533000" />
+      <workItem from="1680281818076" duration="8563000" />
     </task>
     <servers />
   </component>
