@@ -38,10 +38,10 @@ public interface ProjectState<T> {
   int getLayerCount();
 
   /**
-   * Returns the layer at the given position in the stack. For example, a position of 0 would get
-   * the layer at the bottom of the stack.
+   * Returns the layer at the given position in the stack. For this project, it is assumed that
+   * index 0 of the layer stack represents the bottom of the stack.
    *
-   * @param position the position counting from the bottom of the stack.
+   * @param position the position of the layer to retrieve from the layer stack.
    * @return the layer at the given position.
    * @throws IllegalArgumentException if the given position is negative or if the given position
    *                                  is out-of-bounds based on the number of layers in the project.
@@ -57,10 +57,12 @@ public interface ProjectState<T> {
   boolean containsLayer(String layerName);
 
   /**
-   * Saves the image contained in the project.
-   * @param filePath the file path to save the image.
+   * Builds the composite image generated from applying all filters in the current project
+   * and collapsing them into a single image. This method ensures that all stored images
+   * in the project maintain their original, unfiltered form before and after the
+   * method is called by a client.
+   *
+   * @return the composite image of the project.
    */
-  void saveProjectImage(String filePath);
-
   ImageModel<T> getCompositeImage();
 }

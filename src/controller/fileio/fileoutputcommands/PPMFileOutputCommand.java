@@ -1,4 +1,4 @@
-package model.images.fileoutputcommands;
+package controller.fileio.fileoutputcommands;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -49,3 +49,4 @@ public class PPMFileOutputCommand implements FileOutputCommand<Pixel> {
     }
   }
 }
+

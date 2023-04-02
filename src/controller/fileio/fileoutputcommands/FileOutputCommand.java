@@ -1,4 +1,4 @@
-package model.images.fileoutputcommands;
+package controller.fileio.fileoutputcommands;
 
 import model.images.ImageModel;
 

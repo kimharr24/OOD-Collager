@@ -1,5 +1,8 @@
 package controller.commands;
 
+import controller.fileio.fileoutputcommands.FileOutputCommand;
+import controller.fileio.fileoutputcommands.PPMFileOutputCommand;
+import model.images.ImageModel;
 import model.pixels.Pixel;
 import model.projects.ProjectModel;
 
@@ -21,6 +24,9 @@ public class SaveImageCommand extends AbstractProjectCommand {
   @Override
   public void executeCommand(ProjectModel<Pixel> project) {
     this.checkNullProject(project);
-    project.saveProjectImage(filePath);
+    ImageModel<Pixel> compositeImage = project.getCompositeImage();
+
+    FileOutputCommand<Pixel> command = new PPMFileOutputCommand();
+    command.saveCollageImage(compositeImage, this.filePath);
   }
 }

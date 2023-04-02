@@ -8,8 +8,6 @@ import model.filters.Filter;
 import model.filters.NormalFilter;
 import model.images.Image;
 import model.images.ImageModel;
-import model.images.fileoutputcommands.FileOutputCommand;
-import model.images.fileoutputcommands.PPMFileOutputCommand;
 import model.layers.Layer;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
@@ -62,43 +60,6 @@ public class CollageProject implements ProjectModel<Pixel> {
     }
   }
 
-  /**
-   * Saves the image contained in the project.
-   * @param filePath the file path to save the image.
-   */
-  public void saveProjectImage(String filePath) {
-    LayerModel<Pixel> bottomLayer = this.layers.get(0);
-    ImageModel<Pixel> dummyCompositeImage = bottomLayer.getImage();
-
-    // Apply the filter on the bottom layer to the bottom layer
-    bottomLayer.applyFilter(dummyCompositeImage);
-    // Get the filtered bottom layer image
-    ImageModel<Pixel> resultingImage = bottomLayer.getImage();
-
-    for (LayerModel<Pixel> layer: this.layers.subList(1, this.layers.size())) {
-      // Apply the filter to the current layer
-      layer.applyFilter(resultingImage);
-      // Update the collapsed image by passing in the filtered layer image
-      resultingImage = resultingImage.collapseImage(layer.getImage());
-      // Temporarily keep track of the original layer filter
-      Filter<Pixel> originalFilter = layer.getFilter();
-      // Update the layer to use the normal filter
-      layer.setFilter(new NormalFilter());
-      // Apply the normal filter (passing in the composite image does not do anything useful)
-      layer.applyFilter(resultingImage);
-      // Reset the layer back to the original filter
-      layer.setFilter(originalFilter);
-    }
-    FileOutputCommand<Pixel> saveCommand = new PPMFileOutputCommand();
-    saveCommand.saveCollageImage(resultingImage, filePath);
-
-    // Reset the bottom layer image to its original image
-    Filter<Pixel> originalBottomLayerFilter = bottomLayer.getFilter();
-    bottomLayer.setFilter(new NormalFilter());
-    bottomLayer.applyFilter(dummyCompositeImage);
-    bottomLayer.setFilter(originalBottomLayerFilter);
-  }
-
   @Override
   public ImageModel<Pixel> getCompositeImage() {
     LayerModel<Pixel> bottomLayer = this.layers.get(0);
@@ -130,10 +91,6 @@ public class CollageProject implements ProjectModel<Pixel> {
     bottomLayer.setFilter(new NormalFilter());
     bottomLayer.applyFilter(dummyCompositeImage);
     bottomLayer.setFilter(originalBottomLayerFilter);
-
-    System.out.println(resultingImage.getPixelAtCoord(0,0).getColor().getRedComponent());
-    System.out.println(resultingImage.getPixelAtCoord(0,0).getColor().getGreenComponent());
-    System.out.println(resultingImage.getPixelAtCoord(0,0).getColor().getBlueComponent());
 
     return resultingImage;
   }
