@@ -76,8 +76,12 @@ public class GUIController implements ControllerFeatures {
   @Override
   public void addLayer(String layerName) {
     ProjectCommand command = new AddLayerCommand(layerName);
-    command.executeCommand(this.model);
-    this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
+    try {
+      command.executeCommand(this.model);
+      this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
+    } catch (IllegalArgumentException e) {
+      this.view.renderErrorMessage(String.format("Layer %s already exists!", layerName));
+    }
   }
 
   @Override

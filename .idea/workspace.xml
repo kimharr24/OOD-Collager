@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/FileOutputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/PPMFileOutputCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SaveImageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SaveImageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/fileoutputcommands/FileOutputCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/fileoutputcommands/PPMFileOutputCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CollageProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,25 +56,42 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controller.Main" />
-      <module name="Collager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.CollageProjectTest">
     <configuration name="CollageProjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CollageProjectTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollageProjectTest.testAddImageToLayerSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CollageProjectTest" />
+      <option name="METHOD_NAME" value="testAddImageToLayerSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollageProjectTest.testAddLayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CollageProjectTest" />
+      <option name="METHOD_NAME" value="testAddLayer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollageProjectTest.testGetCompositeImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CollageProjectTest" />
+      <option name="METHOD_NAME" value="testGetCompositeImage" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -92,31 +106,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RGBAColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Collager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RGBAColorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Collager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UtilTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.CollageProjectTest.testGetCompositeImageInvariant" />
-        <item itemvalue="JUnit.RGBAColorTest" />
-        <item itemvalue="JUnit.UtilTest" />
         <item itemvalue="JUnit.CollageProjectTest" />
+        <item itemvalue="JUnit.CollageProjectTest.testGetCompositeImage" />
+        <item itemvalue="JUnit.CollageProjectTest.testGetCompositeImageInvariant" />
+        <item itemvalue="JUnit.CollageProjectTest.testAddLayer" />
+        <item itemvalue="JUnit.CollageProjectTest.testAddImageToLayerSuccess" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +137,7 @@
       <workItem from="1679692438008" duration="4915000" />
       <workItem from="1679859613420" duration="32317000" />
       <workItem from="1680281818076" duration="9751000" />
-      <workItem from="1680464811811" duration="918000" />
+      <workItem from="1680464811811" duration="6081000" />
     </task>
     <servers />
   </component>

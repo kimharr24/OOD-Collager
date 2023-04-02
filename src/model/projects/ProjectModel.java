@@ -32,8 +32,8 @@ public interface ProjectModel<T> extends ProjectState<T> {
    * @param image     the image to add to the layer.
    * @param row       the row coordinate of the starting position.
    * @param col       the column coordinate of the starting position.
-   * @throws IllegalArgumentException if the given layer does not exist, the given filepath is
-   *                                  invalid, the image placed at (row, col) results in portions
+   * @throws IllegalArgumentException if the given layer does not exist, the image is null,
+   *                                  the image placed at (row, col) results in portions
    *                                  of the image spilling out of the dimensions of the layer,
    *                                  the row or col are negative, or the row or col are
    *                                  out-of-bounds of the given layer.

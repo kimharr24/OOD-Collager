@@ -2,6 +2,7 @@ package model.images;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import model.pixels.ImagePixel;
 import model.pixels.Pixel;
@@ -139,5 +140,34 @@ public class Image implements ImageModel<Pixel> {
   @Override
   public int getImageWidth() {
     return this.width;
+  }
+
+  @Override
+  public boolean equals(Object other) {
+    if (this == other) {
+      return true;
+    }
+    if (!(other instanceof ImageModel)) {
+      return false;
+    }
+    ImageModel<Pixel> otherImage = (Image) other;
+    if (otherImage.getImageWidth() != this.getImageWidth()
+            || otherImage.getImageHeight() != this.getImageHeight()) {
+      return false;
+    }
+
+    boolean result = true;
+    for (int i = 0; i < this.getImageHeight(); i++) {
+      for (int j = 0; j < this.getImageWidth(); j++) {
+        result = result && this.getPixelAtCoord(i, j).getColor().equals(
+                otherImage.getPixelAtCoord(i, j).getColor());
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(this);
   }
 }
