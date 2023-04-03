@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/AbstractFileInputCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/PPMFileInputCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PPMInputCommandTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,60 +53,63 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.AbstractFileInputCommandTest">
-    <configuration name="AbstractFileInputCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ImageTest">
+    <configuration name="ImageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AbstractFileInputCommandTest" />
+      <option name="MAIN_CLASS_NAME" value="ImageTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CollageProjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ImageTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CollageProjectTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PPMFileInputCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Collager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PPMFileInputCommandTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PPMFileInputCommandTest.testExtractImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Collager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PPMFileInputCommandTest" />
-      <option name="METHOD_NAME" value="testExtractImage" />
+      <option name="MAIN_CLASS_NAME" value="ImageTest" />
+      <option name="METHOD_NAME" value="testEquals" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PPMFileOutputCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ImageTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PPMFileOutputCommandTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="ImageTest" />
+      <option name="METHOD_NAME" value="testHashCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImageTest.testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsHorizontally" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ImageTest" />
+      <option name="METHOD_NAME" value="testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsHorizontally" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImageTest.testOverlayImageNoOffset" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ImageTest" />
+      <option name="METHOD_NAME" value="testOverlayImageNoOffset" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AbstractFileInputCommandTest" />
-        <item itemvalue="JUnit.PPMFileInputCommandTest" />
-        <item itemvalue="JUnit.PPMFileInputCommandTest.testExtractImage" />
-        <item itemvalue="JUnit.PPMFileOutputCommandTest" />
-        <item itemvalue="JUnit.CollageProjectTest" />
+        <item itemvalue="JUnit.ImageTest" />
+        <item itemvalue="JUnit.ImageTest.testHashCode" />
+        <item itemvalue="JUnit.ImageTest.testEquals" />
+        <item itemvalue="JUnit.ImageTest.testOverlayImageNoOffset" />
+        <item itemvalue="JUnit.ImageTest.testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsHorizontally" />
       </list>
     </recent_temporary>
   </component>
@@ -134,7 +135,7 @@
       <workItem from="1679859613420" duration="32317000" />
       <workItem from="1680281818076" duration="9751000" />
       <workItem from="1680464811811" duration="8281000" />
-      <workItem from="1680527936378" duration="1127000" />
+      <workItem from="1680527936378" duration="2545000" />
     </task>
     <servers />
   </component>

@@ -12,7 +12,8 @@ import model.colors.RGBAColor;
 import utils.Util;
 
 /**
- * Represents an image in the image collage project.
+ * Represents an image in the image collage project. This image class uses a 2-dimensional list
+ * as its underlying data representation.
  */
 public class Image implements ImageModel<Pixel> {
   private final int width;
@@ -168,6 +169,6 @@ public class Image implements ImageModel<Pixel> {
 
   @Override
   public int hashCode() {
-    return Objects.hash(this);
+    return Objects.hash(this.width, this.height);
   }
 }
