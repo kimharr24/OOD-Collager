@@ -4,7 +4,6 @@ import controller.commands.ProjectCommand;
 import controller.commands.SetFilterCommand;
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
-import model.layers.Layer;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
