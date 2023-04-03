@@ -1,10 +1,12 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import model.colors.RGBAColor;
 import model.filters.BrightenIntensityFilter;
 import model.filters.DarkenLumaFilter;
 import model.filters.NormalFilter;
 import model.filters.RedComponentFilter;
+import model.images.Image;
 import model.layers.Layer;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
@@ -95,5 +97,18 @@ public class LayerTest {
   public void testGetFilter() {
     assertEquals("Red Component Filter", this.layer1.getFilter().getName());
     assertEquals("Brighten Intensity Filter", this.layer2.getFilter().getName());
+  }
+
+  @Test
+  public void testApplyFilter() {
+    this.layer1.applyFilter(new Image(this.layer1.getImage().getImageWidth(),
+            this.layer1.getImage().getImageHeight()));
+
+    for (int i = 0; i < this.layer1.getImage().getImageHeight(); i++) {
+      for (int j = 0; j < this.layer1.getImage().getImageWidth(); j++) {
+        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, 0, 0, 0),
+                this.layer1.getImage().getPixelAtCoord(i, j).getColor());
+      }
+    }
   }
 }

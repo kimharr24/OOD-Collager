@@ -47,53 +47,11 @@ public class UtilTest {
     assertEquals(42.5, Util.convertColorScale(Util.MAX_PROJECT_VALUE, 60, 10), 0.001);
   }
 
-//  @Test
-//  public void testValidateRGBAParametersPass() {
-//    try {
-//      Util.validateRGBAParameters(Util.MAX_PROJECT_VALUE + 0.000000001,
-//              Util.MAX_PROJECT_VALUE + 0.000000001,
-//              Util.MAX_PROJECT_VALUE + 0.000000001,
-//              Util.MAX_PROJECT_VALUE + 0.000000001);
-//    } catch (IllegalArgumentException e) {
-//      fail("Expected RGBA parameters to pass validation.");
-//    }
-//    try {
-//      Util.validateRGBAParameters(Util.MAX_PROJECT_VALUE,
-//              Util.MAX_PROJECT_VALUE,
-//              Util.MAX_PROJECT_VALUE,
-//              Util.MAX_PROJECT_VALUE);
-//    } catch (IllegalArgumentException e) {
-//      fail("Expected RGBA parameters to pass validation.");
-//    }
-//    try {
-//      Util.validateRGBAParameters(0.0000001, Util.MAX_PROJECT_VALUE / 2.0,
-//              Util.MAX_PROJECT_VALUE / 3.0, Util.MAX_PROJECT_VALUE / 4.0);
-//    } catch (IllegalArgumentException e) {
-//      fail("Expected RGBA parameters to pass validation.");
-//    }
-//  }
-//
-//  @Test
-//  public void testValidateRGBAParametersFail() {
-//    try {
-//      Util.validateRGBAParameters(-0.00000000001, 0, 0, Util.MAX_PROJECT_VALUE);
-//      fail("Expected RGBA parameters to fail validation.");
-//    } catch (RuntimeException ignored) {
-//    }
-//    try {
-//      Util.validateRGBAParameters(0, 0, 0, Util.MAX_PROJECT_VALUE + 0.2);
-//      fail("Expected RGBA parameters to fail validation.");
-//    } catch (RuntimeException ignored) {
-//    }
-//    try {
-//      Util.validateRGBAParameters(-10, -20, -30, Util.MAX_PROJECT_VALUE);
-//      fail("Expected RGBA parameters to fail validation.");
-//    } catch (RuntimeException ignored) {
-//    }
-//    try {
-//      Util.validateRGBAParameters(Util.MAX_PROJECT_VALUE * 2, 0, 0, Util.MAX_PROJECT_VALUE);
-//      fail("Expected RGBA parameters to fail validation.");
-//    } catch (RuntimeException ignored) {
-//    }
-//  }
+  @Test
+  public void testSetMaxValue() {
+    int originalMax = Util.MAX_PROJECT_VALUE;
+    Util.setMaxValue(Util.MAX_PROJECT_VALUE + 5);
+    assertEquals(originalMax + 5, Util.MAX_PROJECT_VALUE);
+  }
 }
+

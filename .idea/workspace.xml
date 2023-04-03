@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/LayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PixelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PixelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/UtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/UtilTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +55,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ImageTest">
+  <component name="RunManager" selected="JUnit.UtilTest">
     <configuration name="ImageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
@@ -63,41 +65,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImageTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LayerTest.testApplyFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ImageTest" />
-      <option name="METHOD_NAME" value="testEquals" />
+      <option name="MAIN_CLASS_NAME" value="LayerTest" />
+      <option name="METHOD_NAME" value="testApplyFilter" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImageTest.testHashCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PixelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ImageTest" />
-      <option name="METHOD_NAME" value="testHashCode" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="PixelTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImageTest.testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsHorizontally" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ImageTest" />
-      <option name="METHOD_NAME" value="testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsHorizontally" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="UtilTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImageTest.testOverlayImageNoOffset" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UtilTest.testSetMaxValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ImageTest" />
-      <option name="METHOD_NAME" value="testOverlayImageNoOffset" />
+      <option name="MAIN_CLASS_NAME" value="UtilTest" />
+      <option name="METHOD_NAME" value="testSetMaxValue" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,11 +105,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UtilTest" />
+        <item itemvalue="JUnit.UtilTest.testSetMaxValue" />
+        <item itemvalue="JUnit.PixelTest" />
+        <item itemvalue="JUnit.LayerTest.testApplyFilter" />
         <item itemvalue="JUnit.ImageTest" />
-        <item itemvalue="JUnit.ImageTest.testHashCode" />
-        <item itemvalue="JUnit.ImageTest.testEquals" />
-        <item itemvalue="JUnit.ImageTest.testOverlayImageNoOffset" />
-        <item itemvalue="JUnit.ImageTest.testOverlayImageInvalidCoordinateDueToImageSpillingOutOfBoundsHorizontally" />
       </list>
     </recent_temporary>
   </component>
@@ -135,7 +135,8 @@
       <workItem from="1679859613420" duration="32317000" />
       <workItem from="1680281818076" duration="9751000" />
       <workItem from="1680464811811" duration="8281000" />
-      <workItem from="1680527936378" duration="2545000" />
+      <workItem from="1680527936378" duration="3655000" />
+      <workItem from="1680560957459" duration="1309000" />
     </task>
     <servers />
   </component>

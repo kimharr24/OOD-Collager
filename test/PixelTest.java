@@ -65,4 +65,10 @@ public class PixelTest {
     assertEquals(10, pixel1Copy.getPosition().getRow());
     assertEquals(20, pixel1Copy.getPosition().getCol());
   }
+
+  @Test
+  public void testGetOriginalColor() {
+    assertEquals(new RGBAColor(1, 2, 3, 4), this.pixel1.getOriginalColor());
+    assertEquals(new RGBAColor(100, 25, 65, 120), this.pixel2.getOriginalColor());
+  }
 }

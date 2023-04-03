@@ -13,7 +13,7 @@ import utils.Util;
 public class Layer implements LayerModel<Pixel> {
   private String layerName;
   private Filter<Pixel> filter;
-  private ImageModel<Pixel> image;
+  private final ImageModel<Pixel> image;
 
   /**
    * Constructor for a layer in the image collage application. By default, when a layer is
@@ -27,7 +27,7 @@ public class Layer implements LayerModel<Pixel> {
    * @throws IllegalArgumentException if filter is null or the width and height are less than
    *                                  or equal to zero.
    */
-  public Layer(String layerName, Filter filter, int width, int height)
+  public Layer(String layerName, Filter<Pixel> filter, int width, int height)
           throws IllegalArgumentException {
     Util.anyNull(new IllegalArgumentException("Filter given to layer cannot be null!"), filter);
     if (width <= 0 || height <= 0) {
