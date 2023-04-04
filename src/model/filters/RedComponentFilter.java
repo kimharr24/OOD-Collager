@@ -13,7 +13,7 @@ public class RedComponentFilter extends AbstractFilter {
    * "Red Component Filter."
    */
   public RedComponentFilter() {
-    super("Red Component Filter");
+    super("red-component");
   }
 
   @Override

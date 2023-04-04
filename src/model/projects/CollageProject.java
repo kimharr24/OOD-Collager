@@ -101,6 +101,11 @@ public class CollageProject implements ProjectModel<Pixel> {
   }
 
   @Override
+  public void deleteLayer(String layerName) throws IllegalArgumentException {
+    this.layers.removeIf(layer -> layer.getLayerName().equals(layerName));
+  }
+
+  @Override
   public int getMaxValue() {
     return Util.MAX_PROJECT_VALUE;
   }

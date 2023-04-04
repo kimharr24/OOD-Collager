@@ -5,9 +5,11 @@ import controller.commands.SetFilterCommand;
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
 import model.layers.LayerModel;
+import model.pixels.ImagePixel;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
 import model.projects.ProjectModel;
+import utils.Position2D;
 import utils.Util;
 
 /**
@@ -29,31 +31,32 @@ public class CollageProjectFileInputCommand extends AbstractFileInputCommand
     int height = Integer.parseInt(this.scanner.next(), 10);
 
     ProjectModel<Pixel> project = new CollageProject(height, width);
+    project.deleteLayer("default-layer");
     Util.setMaxValue(Integer.parseInt(this.scanner.next(), 10));
-
-    ProjectCommand command = null;
 
     int currentLayerPosition = 0;
 
     while (this.scanner.hasNext()) {
       String currentLayerName = this.scanner.next();
       project.addLayer(currentLayerName);
-      command = new SetFilterCommand(currentLayerName, this.scanner.next());
+      ProjectCommand command = new SetFilterCommand(currentLayerName, this.scanner.next());
       command.executeCommand(project);
 
-      for (int i = 0; i < width * height; i++) {
-        double red = Double.parseDouble(this.scanner.next());
-        double green = Double.parseDouble(this.scanner.next());
-        double blue = Double.parseDouble(this.scanner.next());
-        double alpha = Double.parseDouble(this.scanner.next());
+      for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+          double red = Double.parseDouble(this.scanner.next());
+          double green = Double.parseDouble(this.scanner.next());
+          double blue = Double.parseDouble(this.scanner.next());
+          double alpha = Double.parseDouble(this.scanner.next());
 
-        ColorModel color = new RGBAColor(red, green, blue, alpha);
-        LayerModel<Pixel> currentLayer = project.getLayerAtPosition(currentLayerPosition);
+          ColorModel color = new RGBAColor(red, green, blue, alpha);
+          LayerModel<Pixel> currentLayer = project.getLayerAtPosition(currentLayerPosition);
+          currentLayer.getImage().setImagePixelAtCoord(new ImagePixel(new Position2D(i, j),
+                  color), i, j);
+        }
       }
-
       currentLayerPosition += 1;
     }
-
-    return null;
+    return project;
   }
 }

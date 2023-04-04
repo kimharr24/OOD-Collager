@@ -14,7 +14,7 @@ public class DarkenValueFilter extends AbstractFilter {
    * filter to "Darken Value Filter."
    */
   public DarkenValueFilter() {
-    super("Darken Value Filter");
+    super("darken-value");
   }
 
   @Override

@@ -18,7 +18,7 @@ public class BrighteningBlendingFilter extends AbstractFilter {
    * to "Brightening Blending Filter" by default.
    */
   public BrighteningBlendingFilter() {
-    super("Brightening Blending Filter");
+    super("brightening-blending");
   }
 
   public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {

@@ -14,7 +14,7 @@ public class DarkenIntensityFilter extends AbstractFilter {
    * filter to "Darken Intensity Filter."
    */
   public DarkenIntensityFilter() {
-    super("Darken Intensity Filter");
+    super("darken-intensity");
   }
 
   @Override
