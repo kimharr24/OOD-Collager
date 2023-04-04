@@ -36,6 +36,7 @@ public class GUIController implements ControllerFeatures {
     this.model = model;
     this.view = view;
     this.view.addFeatures(this);
+    this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
   }
 
   @Override
