@@ -76,7 +76,7 @@ public class CollageProjectTest {
     assertEquals("default-layer", project.getLayerAtPosition(0).getLayerName());
 
     // It should have the normal filter
-    assertEquals("Normal Filter", project.getLayerAtPosition(0).getFilterName());
+    assertEquals("normal", project.getLayerAtPosition(0).getFilterName());
 
     // It should store a fully white, opaque image
     for (int i = 0; i < project.getCanvasHeight(); i++) {
@@ -109,9 +109,9 @@ public class CollageProjectTest {
 
     // Check that the layers start off with the default normal filters
     assertEquals("layer1", this.project.getLayerAtPosition(1).getLayerName());
-    assertEquals("Normal Filter", this.project.getLayerAtPosition(1).getFilterName());
+    assertEquals("normal", this.project.getLayerAtPosition(1).getFilterName());
     assertEquals("layer2", this.project.getLayerAtPosition(2).getLayerName());
-    assertEquals("Normal Filter", this.project.getLayerAtPosition(2).getFilterName());
+    assertEquals("normal", this.project.getLayerAtPosition(2).getFilterName());
 
     ImageModel<Pixel> originalLayer1Image = this.createImageCopy(
             this.project.getLayerAtPosition(1).getImage());
@@ -120,10 +120,10 @@ public class CollageProjectTest {
 
     // Check that setting the layer filter changes the filter stored in the layer
     this.project.setLayerFilter("layer1", new DarkeningBlendingFilter());
-    assertEquals("Darkening Blending Filter", this.project.getLayerAtPosition(1).getFilterName());
+    assertEquals("darkening-blending", this.project.getLayerAtPosition(1).getFilterName());
 
     this.project.setLayerFilter("layer2", new BlueComponentFilter());
-    assertEquals("Blue Component Filter", this.project.getLayerAtPosition(2).getFilterName());
+    assertEquals("blue-component", this.project.getLayerAtPosition(2).getFilterName());
 
     // Check that setting the layer filter DOES NOT mutate the image stored in the layer
     assertEquals(originalLayer1Image, this.project.getLayerAtPosition(1).getImage());
@@ -131,7 +131,7 @@ public class CollageProjectTest {
 
     // Check that a layer's filter can be reset multiple times
     this.project.setLayerFilter("layer2", new BrightenLumaFilter());
-    assertEquals("Brighten Luma Filter", this.project.getLayerAtPosition(2).getFilterName());
+    assertEquals("brighten-luma", this.project.getLayerAtPosition(2).getFilterName());
     assertEquals(originalLayer2Image, this.project.getLayerAtPosition(2).getImage());
   }
 
@@ -300,7 +300,7 @@ public class CollageProjectTest {
 
   @Test
   public void testGetCompositeImageInvariant() {
-    assertEquals("Normal Filter", this.project.getLayerAtPosition(0).getFilterName());
+    assertEquals("normal", this.project.getLayerAtPosition(0).getFilterName());
     assertEquals(1, this.project.getLayerCount());
 
     this.project.addLayer("layer one");
@@ -315,14 +315,14 @@ public class CollageProjectTest {
     ImageModel<Pixel> unmodifiedLayerTwoImage = this.createImageCopy(
             this.project.getLayerAtPosition(2).getImage());
 
-    assertEquals("Normal Filter", this.project.getLayerAtPosition(0).getFilterName());
+    assertEquals("normal", this.project.getLayerAtPosition(0).getFilterName());
 
     this.project.setLayerFilter("layer one", new BlueComponentFilter());
-    assertEquals("Blue Component Filter",
+    assertEquals("blue-component",
             this.project.getLayerAtPosition(1).getFilterName());
 
     this.project.setLayerFilter("layer two", new RedComponentFilter());
-    assertEquals("Red Component Filter",
+    assertEquals("red-component",
             this.project.getLayerAtPosition(2).getFilterName());
 
     // Apply filters to the unmodified images to get a collapsed image
@@ -334,10 +334,10 @@ public class CollageProjectTest {
     assertEquals(unmodifiedLayerTwoImage, this.project.getLayerAtPosition(2).getImage());
 
     // Ensure that the layers have the correct filter fields
-    assertEquals("Normal Filter", this.project.getLayerAtPosition(0).getFilterName());
-    assertEquals("Blue Component Filter",
+    assertEquals("normal", this.project.getLayerAtPosition(0).getFilterName());
+    assertEquals("blue-component",
             this.project.getLayerAtPosition(1).getFilterName());
-    assertEquals("Red Component Filter",
+    assertEquals("red-component",
             this.project.getLayerAtPosition(2).getFilterName());
   }
 
@@ -378,6 +378,18 @@ public class CollageProjectTest {
                 compositeImage.getPixelAtCoord(i, j).getColor());
       }
     }
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testDeleteLayerNonexistentLayer() {
+    this.project.deleteLayer("foo");
+  }
+
+  @Test
+  public void testDeleteLayer() {
+    assertTrue(this.project.containsLayer("default-layer"));
+    this.project.deleteLayer("default-layer");
+    assertFalse(this.project.containsLayer("default-layer"));
   }
 }
 
