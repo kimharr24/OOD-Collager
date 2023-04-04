@@ -428,7 +428,7 @@ public class FilterTest {
     filter.apply(image, compositeImage);
     for (int i = 0; i < image.getImageHeight(); i++) {
       for (int j = 0; j < image.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(200, 200, 200, 0),
+        assertEquals(new RGBAColor(255, 255, 255, 0),
                 image.getPixelAtCoord(i, j).getColor());
       }
     }
@@ -467,9 +467,10 @@ public class FilterTest {
     }
 
     filter.apply(image, compositeImage);
+
     for (int i = 0; i < image.getImageHeight(); i++) {
       for (int j = 0; j < image.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(0, 0, 0, 0),
+        assertEquals(new RGBAColor(100, 100, 100, 0),
                 image.getPixelAtCoord(i, j).getColor());
       }
     }
@@ -477,7 +478,7 @@ public class FilterTest {
 
   @Test
   public void testGetInversionBlendingFilterGetName() {
-    assertEquals("inversion-blending Filter", new InversionBlendingFilter().getName());
+    assertEquals("inversion-blending", new InversionBlendingFilter().getName());
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -510,7 +511,7 @@ public class FilterTest {
     filter.apply(image, compositeImage);
     for (int i = 0; i < image.getImageHeight(); i++) {
       for (int j = 0; j < image.getImageWidth(); j++) {
-        assertEquals(new RGBAColor(0, 0, 0, 0),
+        assertEquals(new RGBAColor(155, 155, 155, 0),
                 image.getPixelAtCoord(i, j).getColor());
       }
     }

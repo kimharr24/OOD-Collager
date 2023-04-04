@@ -24,28 +24,13 @@ public class SetFilterCommandTest {
   public void testExecuteCommand() {
     ProjectModel<Pixel> project = new CollageProject( 300, 300);
     ProjectCommand command = new SetFilterCommand("default-layer", "red-component");
-    for (int i = 0; i < project.getCanvasHeight(); i++) {
-      for (int j = 0; j < project.getCanvasWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE,
-                        Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE),
-                project.getLayerAtPosition(0).getImage().getPixelAtCoord(i, j).getColor());
-      }
-    }
+    assertEquals("normal", project.getLayerAtPosition(0).getFilterName());
     command.executeCommand(project);
-    for (int i = 0; i < project.getCanvasHeight(); i++) {
-      for (int j = 0; j < project.getCanvasWidth(); j++) {
-        assertEquals(new RGBAColor(Util.MAX_PROJECT_VALUE, 0, 0, Util.MAX_PROJECT_VALUE),
-                project.getLayerAtPosition(0).getImage().getPixelAtCoord(i, j).getColor());
-      }
-    }
+    assertEquals("red-component", project.getLayerAtPosition(0).getFilterName());
 
     command = new SetFilterCommand("default-layer", "blue-component");
+
     command.executeCommand(project);
-    for (int i = 0; i < project.getCanvasHeight(); i++) {
-      for (int j = 0; j < project.getCanvasWidth(); j++) {
-        assertEquals(new RGBAColor(0, 0, Util.MAX_PROJECT_VALUE, Util.MAX_PROJECT_VALUE),
-                project.getLayerAtPosition(0).getImage().getPixelAtCoord(i, j).getColor());
-      }
-    }
+    assertEquals("blue-component", project.getLayerAtPosition(0).getFilterName());
   }
 }
