@@ -13,14 +13,6 @@ import model.pixels.Pixel;
  */
 public interface CollageGUIView<T> {
   /**
-   * Renders the composite image that the user is currently working on in the project.
-   *
-   * @param image the composite image after all filters are applied.
-   * @throws IllegalArgumentException if the image is null or the image has a size of 0.
-   */
-  void renderImage(ImageModel<Pixel> image);
-
-  /**
    * Renders an error message to the user in case something goes wrong.
    *
    * @param message the message to render.

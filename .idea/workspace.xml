@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/FilterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FilterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CollageGUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CollageGUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +53,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.FilterTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controller.Main" />
       <module name="Collager" />
@@ -106,9 +107,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.FilterTest" />
         <item itemvalue="JUnit.FilterTest.testRedComponentFilter" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.RGBAColorTest" />
         <item itemvalue="JUnit.RGBAColorTest.testConvertRGBAToHSLA" />
       </list>
@@ -138,7 +139,7 @@
       <workItem from="1680464811811" duration="8281000" />
       <workItem from="1680527936378" duration="3655000" />
       <workItem from="1680560957459" duration="2576000" />
-      <workItem from="1680620123082" duration="4934000" />
+      <workItem from="1680620123082" duration="8165000" />
     </task>
     <servers />
   </component>
