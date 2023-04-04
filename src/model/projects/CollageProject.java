@@ -102,6 +102,9 @@ public class CollageProject implements ProjectModel<Pixel> {
 
   @Override
   public void deleteLayer(String layerName) throws IllegalArgumentException {
+    if (!this.containsLayer(layerName)) {
+      throw new IllegalArgumentException("Layer does not exist");
+    }
     this.layers.removeIf(layer -> layer.getLayerName().equals(layerName));
   }
 

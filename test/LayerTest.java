@@ -50,16 +50,16 @@ public class LayerTest {
 
   @Test
   public void testGetFilterName() {
-    assertEquals("Red Component Filter", this.layer1.getFilterName());
-    assertEquals("Brighten Intensity Filter", this.layer2.getFilterName());
+    assertEquals("red-component", this.layer1.getFilterName());
+    assertEquals("brighten-intensity", this.layer2.getFilterName());
   }
 
   @Test
   public void testSetFilter() {
     this.layer1.setFilter(new DarkenLumaFilter());
-    assertEquals("Darken Luma Filter", this.layer1.getFilterName());
+    assertEquals("darken-luma", this.layer1.getFilterName());
     this.layer1.setFilter(new NormalFilter());
-    assertEquals("Normal Filter", this.layer1.getFilterName());
+    assertEquals("normal", this.layer1.getFilterName());
   }
 
   @Test
@@ -95,8 +95,8 @@ public class LayerTest {
 
   @Test
   public void testGetFilter() {
-    assertEquals("Red Component Filter", this.layer1.getFilter().getName());
-    assertEquals("Brighten Intensity Filter", this.layer2.getFilter().getName());
+    assertEquals("red-component", this.layer1.getFilter().getName());
+    assertEquals("brighten-intensity", this.layer2.getFilter().getName());
   }
 
   @Test

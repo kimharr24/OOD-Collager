@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/CollageProjectFileInputCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BlueComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BlueComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenIntensityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenLumaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrightenValueFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrightenValueFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/BrighteningBlendingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrighteningBlendingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenIntensityFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenLumaFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkenValueFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/DarkeningBlendingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/DarkeningBlendingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/GreenComponentFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/InversionBlendingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/InversionBlendingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/NormalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/RedComponentFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CollageProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/LayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/LayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SaveProjectCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveProjectCommandTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,35 +56,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controller.Main" />
-      <module name="Collager" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CollageProjectFileInputCommandTest">
+    <configuration name="CollageProjectFileInputCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FilterTest" />
+      <option name="MAIN_CLASS_NAME" value="CollageProjectFileInputCommandTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FilterTest.testRedComponentFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Collager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FilterTest" />
-      <option name="METHOD_NAME" value="testRedComponentFilter" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,23 +75,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RGBAColorTest.testConvertRGBAToHSLA" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SaveProjectCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RGBAColorTest" />
-      <option name="METHOD_NAME" value="testConvertRGBAToHSLA" />
+      <option name="MAIN_CLASS_NAME" value="SaveProjectCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SaveProjectCommandTest.testSaveProjectCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SaveProjectCommandTest" />
+      <option name="METHOD_NAME" value="testSaveProjectCommand" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SetFilterCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SetFilterCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.FilterTest" />
-        <item itemvalue="JUnit.FilterTest.testRedComponentFilter" />
+        <item itemvalue="JUnit.CollageProjectFileInputCommandTest" />
+        <item itemvalue="JUnit.SaveProjectCommandTest" />
+        <item itemvalue="JUnit.SaveProjectCommandTest.testSaveProjectCommand" />
+        <item itemvalue="JUnit.SetFilterCommandTest" />
         <item itemvalue="JUnit.RGBAColorTest" />
-        <item itemvalue="JUnit.RGBAColorTest.testConvertRGBAToHSLA" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +137,7 @@
       <workItem from="1680464811811" duration="8281000" />
       <workItem from="1680527936378" duration="3655000" />
       <workItem from="1680560957459" duration="2576000" />
-      <workItem from="1680620123082" duration="10056000" />
+      <workItem from="1680620123082" duration="12933000" />
     </task>
     <servers />
   </component>
