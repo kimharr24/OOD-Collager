@@ -16,7 +16,7 @@ public class InversionBlendingFilter extends AbstractFilter {
    * filter to "Inversion Blending Filter."
    */
   public InversionBlendingFilter() {
-    super("Inversion Blending Filter");
+    super("inversion-blending");
   }
 
   @Override

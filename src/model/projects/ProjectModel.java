@@ -48,4 +48,12 @@ public interface ProjectModel<T> extends ProjectState<T> {
    * @param layerName the name of the new layer.
    */
   void addLayer(String layerName);
+
+  /**
+   * Given the name of a layer to delete, deletes the layer from the collage project.
+   *
+   * @param layerName the name of the layer to delete.
+   * @throws IllegalArgumentException if the layer does not exist.
+   */
+  void deleteLayer(String layerName) throws IllegalArgumentException;
 }

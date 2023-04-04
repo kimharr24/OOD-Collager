@@ -14,7 +14,7 @@ public class BrightenLumaFilter extends AbstractFilter {
    * filter to "Brighten Luma Filter."
    */
   public BrightenLumaFilter() {
-    super("Brighten Luma Filter");
+    super("brighten-luma");
   }
 
   @Override

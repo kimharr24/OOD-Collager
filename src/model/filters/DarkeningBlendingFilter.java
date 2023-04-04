@@ -17,7 +17,7 @@ public class DarkeningBlendingFilter extends AbstractFilter {
    * to "Darkening Blending Filter" by default.
    */
   public DarkeningBlendingFilter() {
-    super("Darkening Blending Filter");
+    super("darkening-blending");
   }
 
   @Override

@@ -13,7 +13,7 @@ public class NormalFilter extends AbstractFilter {
    * names this filter "Normal Filter."
    */
   public NormalFilter() {
-    super("Normal Filter");
+    super("normal");
   }
 
   @Override

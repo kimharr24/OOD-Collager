@@ -40,7 +40,7 @@ public class SetFilterCommand extends AbstractProjectCommand {
   @Override
   public void executeCommand(ProjectModel<Pixel> project) {
     this.checkNullProject(project);
-    Filter filter = null;
+    Filter<Pixel> filter = null;
     try {
       switch (this.filterOption) {
         case "normal":

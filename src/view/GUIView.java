@@ -364,7 +364,10 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
 
     this.uploadProjectButton.addActionListener(evt -> {
       final JFileChooser fileChooser = new JFileChooser(".");
-      int returnValue = fileChooser.showSaveDialog(this);
+      FileNameExtensionFilter filter = new FileNameExtensionFilter("Project Files", "collage");
+      fileChooser.setFileFilter(filter);
+
+      int returnValue = fileChooser.showOpenDialog(this);
       if (returnValue == JFileChooser.APPROVE_OPTION) {
         File f = fileChooser.getSelectedFile();
         features.loadProject(f.getAbsolutePath());

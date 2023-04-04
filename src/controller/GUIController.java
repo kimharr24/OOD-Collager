@@ -9,6 +9,8 @@ import controller.commands.ProjectCommand;
 import controller.commands.SaveImageCommand;
 import controller.commands.SaveProjectCommand;
 import controller.commands.SetFilterCommand;
+import controller.fileio.fileinputcommands.CollageProjectFileInputCommand;
+import controller.fileio.fileinputcommands.ProjectFileInputCommand;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
@@ -116,6 +118,8 @@ public class GUIController implements ControllerFeatures {
 
   @Override
   public void loadProject(String filepath) {
-
+    ProjectFileInputCommand<Pixel> command = new CollageProjectFileInputCommand();
+    this.model = command.extractProject(filepath);
+    this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
   }
 }
