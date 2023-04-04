@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import model.colors.ColorModel;
+import model.colors.HSLAColor;
 import model.colors.RGBAColor;
 
 import static org.junit.Assert.assertEquals;
@@ -11,16 +12,13 @@ import static org.junit.Assert.assertNotNull;
  * Testing class for an RGBA color to ensure that all methods work as expected.
  */
 public class RGBAColorTest {
-  ColorModel color1;
-  ColorModel color2;
-
-  ColorModel color3;
+  private ColorModel color1;
+  private ColorModel color2;
 
   @Before
   public void init() {
     this.color1 = new RGBAColor(100, 150, 65, 99);
     this.color2 = new RGBAColor(140, 50, 50, 155);
-    this.color3 = new RGBAColor(1, 1, 1, 20);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -191,5 +189,28 @@ public class RGBAColorTest {
     assertEquals(new RGBAColor(119.56904400606982, 101.07738998482552,
                     57.661608497723826, 193.8235294117647),
             this.color1.getUpdatedColor(this.color2));
+  }
+
+  @Test
+  public void testEquals() {
+    assertEquals(new RGBAColor(1, 2, 3, 4.5000000001),
+            new RGBAColor(1, 2, 3, 4.5));
+    assertEquals(new RGBAColor(5, 6, 10, 12),
+            new RGBAColor(5, 6, 10, 12));
+  }
+
+  @Test
+  public void testHashCode() {
+    assertEquals(-1365026943, this.color1.hashCode());
+    assertEquals(1837102977, this.color2.hashCode());
+  }
+
+  @Test
+  public void testConvertRGBAToHSLA() {
+    HSLAColor convertedColor = RGBAColor.convertRGBAtoHSLA(0.1, 0.2, 0.3, 0.15);
+    assertEquals(210, convertedColor.getHue(), 0.000001);
+    assertEquals(0.499999, convertedColor.getSaturation(), 0.000001);
+    assertEquals(0.2, convertedColor.getLightness(), 0.000001);
+    assertEquals(0.15, convertedColor.getAlpha(), 0.000001);
   }
 }

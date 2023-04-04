@@ -10,10 +10,10 @@ import utils.Util;
  * inferring the value of alpha.
  */
 public class RGBAColor implements ColorModel {
-  private double red;
-  private double green;
-  private double blue;
-  private double alpha;
+  private final double red;
+  private final double green;
+  private final double blue;
+  private final double alpha;
 
   /**
    * If the inputted RGBA component is close enough to a known boundary condition, snaps
@@ -94,7 +94,6 @@ public class RGBAColor implements ColorModel {
       }
       hue = hue * 60;
     }
-//    System.out.println("Hue: " + hue + " saturation: " + saturation + " lightness: " + lightness);
     return new HSLAColor(hue, saturation, lightness, a);
   }
 
@@ -306,11 +305,12 @@ public class RGBAColor implements ColorModel {
     if (!(other instanceof ColorModel)) {
       return false;
     }
+    double epsilon = 0.000001;
     ColorModel otherColor = (ColorModel) other;
-    return (this.red == otherColor.getRedComponent()) &&
-            this.blue == otherColor.getBlueComponent() &&
-            this.green == otherColor.getGreenComponent() &&
-            this.alpha == otherColor.getAlphaComponent();
+    return Math.abs(this.red - otherColor.getRedComponent()) < epsilon &&
+            Math.abs(this.green - otherColor.getGreenComponent()) < epsilon &&
+            Math.abs(this.blue - otherColor.getBlueComponent()) < epsilon &&
+            Math.abs(this.alpha - otherColor.getAlphaComponent()) < epsilon;
   }
 
   @Override

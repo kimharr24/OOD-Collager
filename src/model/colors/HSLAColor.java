@@ -12,6 +12,29 @@ public final class HSLAColor {
   private final double alpha;
 
   /**
+   * Constructor for an HSLA color.
+   * @param hue the hue of the color.
+   * @param saturation the saturation of the color.
+   * @param lightness the lightness of the color.
+   * @param alpha the transparency of the color.
+   * @throws IllegalArgumentException if hue is not in the range [0, 360) or saturation is not
+   * in the range [0, 1] or lightness is not in the range [0, 1] or alpha is less than 0.
+   */
+  public HSLAColor(double hue, double saturation, double lightness, double alpha)
+          throws IllegalArgumentException {
+    hue = this.snapHSLAParameter(hue);
+    saturation = this.snapHSLAParameter(saturation);
+    lightness = this.snapHSLAParameter(lightness);
+    alpha = this.snapHSLAParameter(alpha);
+    this.validateHSLAParameters(hue, saturation, lightness, alpha);
+
+    this.hue = hue;
+    this.saturation = saturation;
+    this.lightness = lightness;
+    this.alpha = alpha;
+  }
+
+  /**
    * If the inputted HSLA component is close enough to a known boundary condition, snaps
    * the HSLA component to that boundary condition.
    * @param parameter the HSLA component.
@@ -75,29 +98,6 @@ public final class HSLAColor {
     double a  = saturation * Math.min(lightness, 1 - lightness);
 
     return lightness - a * Math.max(-1, Math.min(k - 3, Math.min(9 - k, 1)));
-  }
-
-  /**
-   * Constructor for an HSLA color.
-   * @param hue the hue of the color.
-   * @param saturation the saturation of the color.
-   * @param lightness the lightness of the color.
-   * @param alpha the transparency of the color.
-   * @throws IllegalArgumentException if hue is not in the range [0, 360) or saturation is not
-   * in the range [0, 1] or lightness is not in the range [0, 1] or alpha is less than 0.
-   */
-  public HSLAColor(double hue, double saturation, double lightness, double alpha)
-          throws IllegalArgumentException {
-    hue = this.snapHSLAParameter(hue);
-    saturation = this.snapHSLAParameter(saturation);
-    lightness = this.snapHSLAParameter(lightness);
-    alpha = this.snapHSLAParameter(alpha);
-    this.validateHSLAParameters(hue, saturation, lightness, alpha);
-
-    this.hue = hue;
-    this.saturation = saturation;
-    this.lightness = lightness;
-    this.alpha = alpha;
   }
 
   /**
