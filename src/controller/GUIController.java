@@ -16,11 +16,22 @@ import model.projects.ProjectModel;
 import utils.Util;
 import view.CollageGUIView;
 
+/**
+ * Represents a controller that interacts with a GUI view. The controller can receive input
+ * from the GUI by following the general callback design pattern.
+ */
 public class GUIController implements ControllerFeatures {
   private ProjectModel<Pixel> model;
-  private CollageGUIView view;
+  private final CollageGUIView<Pixel> view;
 
-  public GUIController(ProjectModel<Pixel> model, CollageGUIView view) {
+  /**
+   * Constructor for a controller that interacts with a GUI controller expects the
+   * view to be a GUI implementation.
+   *
+   * @param model a model representing a collage project.
+   * @param view  the GUI view the controller interacts with.
+   */
+  public GUIController(ProjectModel<Pixel> model, CollageGUIView<Pixel> view) {
     Util.anyNull(new IllegalArgumentException("Model cannot be null."), model);
     this.model = model;
     this.view = view;
@@ -38,6 +49,12 @@ public class GUIController implements ControllerFeatures {
     }
   }
 
+  /**
+   * Creates a mapping between layers in the current collage project to their
+   * corresponding filters.
+   *
+   * @return the map between the layer name and the filter name.
+   */
   private Map<String, String> createLayerToFilterMap() {
     Map<String, String> map = new HashMap<>();
     for (int i = 0; i < this.model.getLayerCount(); i++) {

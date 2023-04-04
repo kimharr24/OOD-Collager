@@ -11,8 +11,6 @@ import java.io.InputStreamReader;
  */
 public class Main {
   public static void main(String[] args) {
-//    Controller controller = new CommandController(new InputStreamReader(System.in), new TextView());
-//    controller.executeProgram();
     ControllerFeatures controller = new GUIController(new CollageProject(500,500),
             new GUIView());
   }

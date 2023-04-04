@@ -237,6 +237,7 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
 
   @Override
   public void addFeatures(ControllerFeatures features) {
+    Util.anyNull(new IllegalArgumentException("Controller features is null"), features);
     this.newProjectButton.addActionListener(evt -> {
       try {
         int canvasWidth = Integer.parseInt(this.widthField.getText(), 10);
@@ -307,15 +308,13 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
 
   @Override
   public void refresh(ImageModel<Pixel> compositeImage, Map<String, String> layerNameToFilterName) {
+    Util.anyNull(new IllegalArgumentException("Composite image or mapping is null"),
+            compositeImage, layerNameToFilterName);
     this.layerNameToFilterName = layerNameToFilterName;
     this.renderErrorMessage("");
     this.renderImage(compositeImage);
     this.renderLayerDropdown();
 
     this.setVisible(true);
-
-    // Update the list of layers being displayed
-    // Update the image being displayed
-    // Get rid of error messages (when they perform any operation successfully, remove the message)
   }
 }
