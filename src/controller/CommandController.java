@@ -16,9 +16,10 @@ import utils.Util;
 import view.CollageView;
 
 /**
- * Represents a controller for the collage project.
+ * Represents a text-based command controller for a collage project. The user of this controller
+ * needs to input text commands in order to interact with the controller's features.
  */
-public class CommandController implements Controller {
+public class CommandController implements TextController {
   private final Scanner scanner;
   private final CollageView view;
 

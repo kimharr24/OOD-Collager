@@ -1,7 +1,8 @@
 package view;
 
 /**
- * Simple text-based view for a collage project.
+ * Simple text-based view for a collage project. The text view fully relies on System.Out
+ * to render messages to the user of the collage project.
  */
 public class TextView implements CollageView {
   @Override
