@@ -1,0 +1,12 @@
+new-project 500 500
+add-layer first-layer
+add-layer second-layer
+add-layer third-layer
+add-image-to-layer first-layer ../test/images/cat.ppm 0 0
+add-image-to-layer second-layer ../test/images/cat.ppm 100 100
+add-image-to-layer third-layer ../test/images/cat.ppm 50 50
+set-filter first-layer red-component
+set-filter second-layer green-component
+set-filter third-layer blue-component
+save-image ../test/images/result.ppm
+quit

@@ -1,15 +1,12 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
 
-import controller.Controller;
+import controller.TextController;
 import controller.CommandController;
-import model.projects.CollageProject;
 import view.CollageView;
 
 import static org.junit.Assert.assertEquals;
@@ -17,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 public class CommandControllerTest {
 
-  private Controller controller;
+  private TextController controller;
 
   private Appendable log;
 
@@ -62,7 +59,7 @@ public class CommandControllerTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testConstructorNullModel() {
-    Controller controller = new CommandController(null,
+    TextController controller = new CommandController(null,
             new CommandControllerTest.TextViewMock(new StringBuilder()));
   }
 
