@@ -48,7 +48,7 @@ public class GUIController implements ControllerFeatures {
       command.executeCommand(this.model);
       this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
     } catch (IllegalArgumentException e) {
-      this.view.renderErrorMessage("Selected layer does not exist.");
+      this.view.renderErrorMessage("Selected layer or filter does not exist.");
     }
   }
 

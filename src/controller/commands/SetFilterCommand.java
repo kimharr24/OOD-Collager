@@ -87,7 +87,7 @@ public class SetFilterCommand extends AbstractProjectCommand {
           break;
       }
     } catch (InputMismatchException ignored) {
-      System.out.println("Unknown filter option!");
+      throw new IllegalArgumentException("Unknown filter");
     }
     project.setLayerFilter(this.layerName, filter);
   }
