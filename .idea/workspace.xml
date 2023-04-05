@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/GUIControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/GUIControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GUIControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,15 +55,6 @@
   }
 }</component>
   <component name="RunManager" selected="JUnit.GUIControllerTest">
-    <configuration name="CollageProjectFileInputCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Collager" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CollageProjectFileInputCommandTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GUIControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
@@ -72,30 +64,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUIControllerTest.testApplyFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GUIControllerTest.testAddLayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GUIControllerTest" />
-      <option name="METHOD_NAME" value="testApplyFilter" />
+      <option name="METHOD_NAME" value="testAddLayer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SaveProjectCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GUIControllerTest.testAddLayerAlreadyExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SaveProjectCommandTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="GUIControllerTest" />
+      <option name="METHOD_NAME" value="testAddLayerAlreadyExists" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SaveProjectCommandTest.testSaveProjectCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GUIControllerTest.testSaveImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SaveProjectCommandTest" />
-      <option name="METHOD_NAME" value="testSaveProjectCommand" />
+      <option name="MAIN_CLASS_NAME" value="GUIControllerTest" />
+      <option name="METHOD_NAME" value="testSaveImage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GUIControllerTest.testSaveProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Collager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GUIControllerTest" />
+      <option name="METHOD_NAME" value="testSaveProject" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,10 +107,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GUIControllerTest" />
-        <item itemvalue="JUnit.GUIControllerTest.testApplyFilter" />
-        <item itemvalue="JUnit.CollageProjectFileInputCommandTest" />
-        <item itemvalue="JUnit.SaveProjectCommandTest" />
-        <item itemvalue="JUnit.SaveProjectCommandTest.testSaveProjectCommand" />
+        <item itemvalue="JUnit.GUIControllerTest.testSaveImage" />
+        <item itemvalue="JUnit.GUIControllerTest.testSaveProject" />
+        <item itemvalue="JUnit.GUIControllerTest.testAddLayer" />
+        <item itemvalue="JUnit.GUIControllerTest.testAddLayerAlreadyExists" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +139,7 @@
       <workItem from="1680527936378" duration="3655000" />
       <workItem from="1680560957459" duration="2576000" />
       <workItem from="1680620123082" duration="15219000" />
-      <workItem from="1680721214660" duration="1167000" />
+      <workItem from="1680721214660" duration="2692000" />
     </task>
     <servers />
   </component>
