@@ -62,7 +62,8 @@ public class GUIControllerTest {
     }
 
     @Override
-    public void refresh(ImageModel<Pixel> compositeImage, Map<String, String> layerNameToFilterName) {
+    public void refresh(ImageModel<Pixel> compositeImage,
+                        Map<String, String> layerNameToFilterName) {
       try {
         this.log.append("Layer->Filter Mapping:\n");
         for (Map.Entry<String, String> entry : layerNameToFilterName.entrySet()) {
@@ -160,7 +161,8 @@ public class GUIControllerTest {
             -3, 5);
     assertEquals("Controller features added to the view\n" +
             "Layer->Filter Mapping:\ndefault-layer normal\n" +
-            "Error: Please enter non-negative numbers for the displacement.\n", this.log.toString());
+            "Error: Please enter non-negative numbers for the displacement.\n",
+            this.log.toString());
   }
 
   @Test
@@ -232,6 +234,6 @@ public class GUIControllerTest {
   @Test
   public void testLoadProject() {
     assertEquals("Controller features added to the view\n" +
-            "Layer->Filter Mapping:\ndefault-layer normal\n", this.log.toString());;
+            "Layer->Filter Mapping:\ndefault-layer normal\n", this.log.toString());
   }
 }

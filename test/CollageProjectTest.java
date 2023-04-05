@@ -147,7 +147,7 @@ public class CollageProjectTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testAddImageToLayerNegativeRow() {
-   this.project.addImageToLayer("default-layer", new Image(10, 10), -3, 0);
+    this.project.addImageToLayer("default-layer", new Image(10, 10), -3, 0);
   }
 
   @Test(expected = IllegalArgumentException.class)

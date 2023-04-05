@@ -9,6 +9,7 @@ import model.images.ImageModel;
 public interface Filter<T> {
   /**
    * Retrieves the name of the filter operation.
+   *
    * @return the name of the filter operation.
    */
   String getName();
@@ -16,10 +17,11 @@ public interface Filter<T> {
   /**
    * Given an image to apply a filter to, applies the filter to the image using information
    * from the composite image if necessary.
-   * @param image the image to apply a filter to.
+   *
+   * @param image          the image to apply a filter to.
    * @param compositeImage the composite image of all layers below the given image.
    * @throws IllegalArgumentException if either image is null or the images do not have
-   * the same dimensions.
+   *                                  the same dimensions.
    */
   void apply(ImageModel<T> image, ImageModel<T> compositeImage);
 }

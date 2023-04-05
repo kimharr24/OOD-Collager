@@ -23,7 +23,6 @@ public interface ProjectModel<T> extends ProjectState<T> {
   /**
    * Given a layer's name, places the image at the provided filepath, where the top-left corner
    * of the image is placed at the coordinate (row, col) of the layer.
-   *
    * For any arbitrary project, it is assumed that placing an image at a location such that
    * portions of the image are out-of-bounds of the project's canvas
    * is considered an invalid operation.

@@ -2,11 +2,9 @@ import org.junit.Test;
 
 import controller.commands.ProjectCommand;
 import controller.commands.SetFilterCommand;
-import model.colors.RGBAColor;
 import model.pixels.Pixel;
 import model.projects.CollageProject;
 import model.projects.ProjectModel;
-import utils.Util;
 
 import static org.junit.Assert.assertEquals;
 

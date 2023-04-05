@@ -12,6 +12,9 @@ import view.CollageView;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Tests that the text-based controller works as expected.
+ */
 public class CommandControllerTest {
 
   private TextController controller;
@@ -35,7 +38,7 @@ public class CommandControllerTest {
     public void renderMessage(String message) {
       try {
         this.log.append(message + "\n");
-      } catch(IOException ignored) {
+      } catch (IOException ignored) {
 
       }
     }
@@ -44,7 +47,7 @@ public class CommandControllerTest {
     public void renderCommandOptions() {
       try {
         this.log.append("rendered command options\n");
-      } catch(IOException ignored) {
+      } catch (IOException ignored) {
       }
     }
 
@@ -52,7 +55,7 @@ public class CommandControllerTest {
     public void renderFilterOptions() {
       try {
         this.log.append("rendered filter options\n");
-      } catch(IOException ignored) {
+      } catch (IOException ignored) {
       }
     }
   }

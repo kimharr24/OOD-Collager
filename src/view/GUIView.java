@@ -1,11 +1,26 @@
 package view;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Color;
+import java.awt.Image;
+
 import java.io.File;
 import java.util.Map;
 
-import javax.swing.*;
+import javax.swing.JScrollPane;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
+import javax.swing.BoxLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JFileChooser;
+
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import controller.ControllerFeatures;
@@ -21,16 +36,33 @@ import utils.Util;
 public class GUIView extends JFrame implements CollageGUIView<Pixel> {
   private JScrollPane compositeImage;
   private final JPanel mainPanel;
-  private JPanel layerDropdownContainer, layerDropdownPanel, imagePanel;
-  private JButton newProjectButton, showLayerFilterButton, openFileButton,
-          confirmImageUploadButton, confirmSetLayerFilterButton, addLayerButton,
-          uploadProjectButton, saveProjectButton, saveImageButton;
-  private JTextField widthField, heightField, imageRowDisplacementField, imageColDisplacementField,
-          layerNameField;
-  private JLabel errorMessage, layerDropdownMessage, layerFilterMessage, selectedFileMessage;
-  private JComboBox<String> layerDropdown, filterDropdown;
+  private JPanel layerDropdownContainer;
+  private JPanel layerDropdownPanel;
+  private JPanel imagePanel;
+  private JButton newProjectButton;
+  private JButton showLayerFilterButton;
+  private JButton openFileButton;
+  private JButton confirmImageUploadButton;
+  private JButton confirmSetLayerFilterButton;
+  private JButton addLayerButton;
+  private JButton uploadProjectButton;
+  private JButton saveProjectButton;
+  private JButton saveImageButton;
+  private JTextField widthField;
+  private JTextField heightField;
+  private JTextField imageRowDisplacementField;
+  private JTextField imageColDisplacementField;
+  private JTextField layerNameField;
+  private JLabel errorMessage;
+  private JLabel layerDropdownMessage;
+  private JLabel layerFilterMessage;
+  private JLabel selectedFileMessage;
+  private JComboBox<String> layerDropdown;
+  private JComboBox<String> filterDropdown;
   private Map<String, String> layerNameToFilterName;
-  private String selectedLayer, selectedFilter, imageFilePath;
+  private String selectedFilter;
+  private String imageFilePath;
+  private String selectedLayer;
 
   /**
    * Constructor for a GUI view shows the composite image that the user is working on, as

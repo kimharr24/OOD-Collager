@@ -97,7 +97,8 @@ public class Image implements ImageModel<Pixel> {
   }
 
   @Override
-  public void overlayImage(ImageModel<Pixel> image, int row, int col) throws IllegalArgumentException {
+  public void overlayImage(ImageModel<Pixel> image, int row, int col)
+          throws IllegalArgumentException {
     this.validateCoordinate(row, col);
 
     int extractedImageHeight = image.getImageHeight();

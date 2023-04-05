@@ -7,6 +7,7 @@ To run this program, there are 3 options that a user can specify from their run 
 
 Make sure to create a run configuration for the Main method inside of the controller package.
 ** The JAR must be run from inside of the res/ directory (i.e., the working directory should be res/)
+** Make sure that res is on the same directory level as src/ and test/
 
 Design Changes
 - Refactored the Filter interface so that it operates on an entire image rather than a single pixel. A filter should take in the image that

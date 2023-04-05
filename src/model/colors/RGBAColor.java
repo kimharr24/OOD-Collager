@@ -18,6 +18,7 @@ public class RGBAColor implements ColorModel {
   /**
    * If the inputted RGBA component is close enough to a known boundary condition, snaps
    * the RGBA component to that boundary condition.
+   *
    * @param parameter the RGBA component.
    * @return the potentially snapped RGBA component.
    */
@@ -40,7 +41,7 @@ public class RGBAColor implements ColorModel {
    * @param blue  the blue component of the color.
    * @param alpha the alpha component of the color.
    * @throws IllegalArgumentException if red, green, blue, or alpha are less than 0 or greater than
-   * the maximum allowed value.
+   *                                  the maximum allowed value.
    */
   private void validateRGBAParameters(double red, double green, double blue, double alpha)
           throws IllegalArgumentException {
@@ -56,13 +57,14 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Converts an RGBAColor to an HSLAColor.
+   *
    * @param r the red component.
    * @param g the green component.
    * @param b the blue component.
    * @param a the alpha component.
    * @return the converted HSLA color.
    * @throws IllegalArgumentException if r, g, b, or a are less than 0 or r, g, b, or a are
-   * greater than the maximum project value.
+   *                                  greater than the maximum project value.
    */
   public static HSLAColor convertRGBAtoHSLA(double r, double g, double b, double a)
           throws IllegalArgumentException {
@@ -70,26 +72,27 @@ public class RGBAColor implements ColorModel {
     double componentMax = Math.max(r, Math.max(g, b));
     double componentMin = Math.min(r, Math.min(g, b));
     double delta = componentMax - componentMin;
-    double lightness = (componentMax + componentMin)/2;
-    double hue, saturation;
+    double lightness = (componentMax + componentMin) / 2;
+    double hue;
+    double saturation;
 
     if (delta == 0) {
       hue = 0;
       saturation = 0;
     } else {
-      saturation = delta / (1 - Math.abs(2*lightness - 1));
+      saturation = delta / (1 - Math.abs(2 * lightness - 1));
       hue = 0;
       if (componentMax == r) {
-        hue = (g - b)/delta;
+        hue = (g - b) / delta;
         while (hue < 0) {
           hue += 6;
         }
         hue = hue % 6;
       } else if (componentMax == g) {
-        hue = (b - r)/delta;
+        hue = (b - r) / delta;
         hue += 2;
       } else if (componentMax == b) {
-        hue = (r - g)/delta;
+        hue = (r - g) / delta;
         hue += 4;
       }
       hue = hue * 60;
@@ -123,6 +126,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Gets the red component of this color.
+   *
    * @return the red component.
    */
   @Override
@@ -132,6 +136,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Gets the green component of this color.
+   *
    * @return the green component.
    */
   @Override
@@ -141,6 +146,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Gets the blue component from this color.
+   *
    * @return the blue component.
    */
   @Override
@@ -150,6 +156,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Gets the alpha component of this color.
+   *
    * @return the alpha component.
    */
   @Override
@@ -159,6 +166,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Creates a copy of a given color.
+   *
    * @return a new Color with the same color components as the specified color.
    */
   @Override
@@ -168,8 +176,9 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Creates a new color based purely off of the red color component of the specific color.
+   *
    * @return a new color identical to the given color, but with the green and blue components
-   *       set to zero.
+   *         set to zero.
    */
   @Override
   public ColorModel filterRedChannel() {
@@ -178,8 +187,9 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Creates a new color based purely off of the blue color component of the specific color.
+   *
    * @return a new color identical to the given color, but with the green and red components
-   *       set to zero.
+   *         set to zero.
    */
   @Override
   public ColorModel filterGreenChannel() {
@@ -188,8 +198,9 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Creates a new color based purely off of the green color component of the specific color.
+   *
    * @return a new color identical to the given color, but with the red and blue components
-   *       set to zero.
+   *         set to zero.
    */
   @Override
   public ColorModel filterBlueChannel() {
@@ -198,6 +209,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * brightens the layer by increasing the value of each of the pixel's color components.
+   *
    * @return a new color for each pixel in the given layer.
    */
   @Override
@@ -212,6 +224,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Darkens the layer by decreasing the value of each of the pixel's color components.
+   *
    * @return a new color for each pixel in the given layer.
    */
   @Override
@@ -226,6 +239,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Increases the intensity of the color.
+   *
    * @return the updated color after the brightening operation is applied.
    */
   public ColorModel brightenIntensityColor() {
@@ -239,6 +253,7 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Decreases the intensity of the color.
+   *
    * @return the updated color after the darkening operation is applied.
    */
   public ColorModel darkenIntensityColor() {
@@ -252,7 +267,8 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Brightens the color of each pixel in a layer using luma by increasing the luma value of each
-   *       color component.
+   * color component.
+   *
    * @return the updated color after the brightening operation is applied.
    */
   public ColorModel brightenLumaColor() {
@@ -266,7 +282,8 @@ public class RGBAColor implements ColorModel {
 
   /**
    * Darkens the color of each pixel in a layer using luma by decreasing the luma value of each
-   *       color component.
+   * color component.
+   *
    * @return the updated color after the darkening operation is applied.
    */
   public ColorModel darkenLumaColor() {

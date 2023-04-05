@@ -4,7 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="" />
+    <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SaveProjectCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/colors/HSLAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/HSLAColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/colors/RGBAColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/BrighteningBlendingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/BrighteningBlendingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/filters/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/images/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/images/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/layers/LayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/layers/LayerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/CollageGUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/CollageGUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CollageProjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CommandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CommandControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/GUIControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GUIControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PPMFileOutputCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PPMFileOutputCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SetFilterCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SetFilterCommandTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

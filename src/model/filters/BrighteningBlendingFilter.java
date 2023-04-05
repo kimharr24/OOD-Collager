@@ -21,6 +21,7 @@ public class BrighteningBlendingFilter extends AbstractFilter {
     super("brightening-blending");
   }
 
+  @Override
   public void apply(ImageModel<Pixel> image, ImageModel<Pixel> compositeImage) {
     this.checkImageValidity(image, compositeImage);
     for (int i = 0; i < image.getImageHeight(); i++) {

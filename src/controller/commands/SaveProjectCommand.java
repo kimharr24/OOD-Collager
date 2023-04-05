@@ -23,6 +23,7 @@ public class SaveProjectCommand extends AbstractProjectCommand {
   public SaveProjectCommand(String filePath) {
     this.filePath = filePath;
   }
+
   @Override
   public void executeCommand(ProjectModel<Pixel> project) {
     this.checkNullProject(project);

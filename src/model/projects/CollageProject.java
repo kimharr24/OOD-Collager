@@ -15,12 +15,10 @@ import utils.Util;
 
 /**
  * Represents a collage project for the image processing application.
- * <p>
  * It is assumed that multiple filters cannot be applied to the same layer. Furthermore, when a
  * project is created, by default, it creates a layer called "default-layer" with a fully opaque
  * white background. When new layers are added to the project, the layers have a fully
  * transparent white background by default.
- * <p>
  * Class Invariant (1): All layers in the project contain images with the same dimensions.
  * Class Invariant (2): All layers store original, unfiltered images at all times.
  */
@@ -59,7 +57,8 @@ public class CollageProject implements ProjectModel<Pixel> {
    * @throws IllegalArgumentException if the filter is null or the layer does not exist.
    */
   @Override
-  public void setLayerFilter(String layerName, Filter<Pixel> filter) throws IllegalArgumentException {
+  public void setLayerFilter(String layerName, Filter<Pixel> filter)
+          throws IllegalArgumentException {
     Util.anyNull(new IllegalArgumentException("Filter is null"), filter);
     if (!this.containsLayer(layerName)) {
       throw new IllegalArgumentException(String.format("Layer %s does not exist!", layerName));

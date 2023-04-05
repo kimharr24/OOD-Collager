@@ -4,7 +4,6 @@ import java.util.Map;
 
 import controller.ControllerFeatures;
 import model.images.ImageModel;
-import model.pixels.Pixel;
 
 /**
  * Represents all the operations that should be supported by a GUI in the collage project.

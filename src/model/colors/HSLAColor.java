@@ -13,12 +13,14 @@ public final class HSLAColor {
 
   /**
    * Constructor for an HSLA color.
-   * @param hue the hue of the color.
+   *
+   * @param hue        the hue of the color.
    * @param saturation the saturation of the color.
-   * @param lightness the lightness of the color.
-   * @param alpha the transparency of the color.
+   * @param lightness  the lightness of the color.
+   * @param alpha      the transparency of the color.
    * @throws IllegalArgumentException if hue is not in the range [0, 360) or saturation is not
-   * in the range [0, 1] or lightness is not in the range [0, 1] or alpha is less than 0.
+   *                                  in the range [0, 1] or lightness is not in the range [0, 1]
+   *                                  or alpha is less than 0.
    */
   public HSLAColor(double hue, double saturation, double lightness, double alpha)
           throws IllegalArgumentException {
@@ -37,6 +39,7 @@ public final class HSLAColor {
   /**
    * If the inputted HSLA component is close enough to a known boundary condition, snaps
    * the HSLA component to that boundary condition.
+   *
    * @param parameter the HSLA component.
    * @return the potentially snapped HSLA component.
    */
@@ -66,13 +69,15 @@ public final class HSLAColor {
 
   /**
    * Converts an RGBAColor to an HSLAColor.
-   * @param hue the hue of the color.
+   *
+   * @param hue        the hue of the color.
    * @param saturation the saturation of the color.
-   * @param lightness the lightness of the color.
-   * @param alpha the transparency of the color.
+   * @param lightness  the lightness of the color.
+   * @param alpha      the transparency of the color.
    * @return the RGBAColor conversion.
    * @throws IllegalArgumentException if the hue is not in the range [0, 360) or the saturation/
-   * lightness is not in the range [0, 1], or the alpha is negative.
+   *                                  lightness is not in the range [0, 1], or the alpha is
+   *                                  negative.
    */
   public static RGBAColor convertHSLAtoRGBA(double hue, double saturation, double lightness,
                                             double alpha) throws IllegalArgumentException {
@@ -86,22 +91,24 @@ public final class HSLAColor {
 
   /**
    * Helper method that performs the translation from the HSL polygonal
-   * model to the more familiar RGB model
-   * @param hue the hue of the color.
+   * model to the more familiar RGB model.
+   *
+   * @param hue        the hue of the color.
    * @param saturation the saturation of the color.
-   * @param lightness the lightness of the color.
-   * @param n number of sides.
+   * @param lightness  the lightness of the color.
+   * @param n          number of sides.
    * @return the updated RGB value.
    */
   private static double convertFn(double hue, double saturation, double lightness, int n) {
-    double k = (n + (hue/30)) % 12;
-    double a  = saturation * Math.min(lightness, 1 - lightness);
+    double k = (n + (hue / 30)) % 12;
+    double a = saturation * Math.min(lightness, 1 - lightness);
 
     return lightness - a * Math.max(-1, Math.min(k - 3, Math.min(9 - k, 1)));
   }
 
   /**
    * Returns the hue of the color.
+   *
    * @return the hue of the color.
    */
   public double getHue() {
@@ -110,6 +117,7 @@ public final class HSLAColor {
 
   /**
    * Returns the saturation of the color.
+   *
    * @return the saturation of the color.
    */
   public double getSaturation() {
@@ -118,6 +126,7 @@ public final class HSLAColor {
 
   /**
    * Returns the lightness of the color.
+   *
    * @return the lightness of the color.
    */
   public double getLightness() {
@@ -126,6 +135,7 @@ public final class HSLAColor {
 
   /**
    * Returns the alpha of the color.
+   *
    * @return the alpha of the color.
    */
   public double getAlpha() {

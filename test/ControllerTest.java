@@ -3,7 +3,6 @@ import org.junit.Test;
 import controller.CommandController;
 import java.io.StringReader;
 import controller.TextController;
-import controller.TextController;
 import view.CollageView;
 import view.TextView;
 
