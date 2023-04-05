@@ -1,0 +1,22 @@
+﻿USEME
+
+- To create a new project, enter a non-zero value into the text boxes next to “Width:” and “Height:” to set the boundaries of your project, then click the button labeled “Create Project”
+
+- To add a layer to your project, type in the name you wish to call your new layer in the text box next to “Layer Name:”, then click the button labeled “Add Layer”
+
+- To add an image to a given layer, first make sure your desired layer is selected under the Layers dropdown bar. Then click the button labeled “Select Image”, 
+which will prompt you to choose an image from your computer to upload. Type in a valid number value in the text box next to “Row Displacement:” and “Column Displacement:” 
+to set the displacement of your image on the project. Then, click the button labeled “Confirm Upload” to upload the image to the project with the specified changes.
+
+- To apply a filter to a layer, use the Dropdown box under “Filter Menu” to select your desired filter. Change the selected layer to the layer you wish to apply your filter to, 
+and click the button “Apply Filter to Layer”
+
+- To save an image, make sure the selected image is the one you want to save, and then click the button labeled “Save Image”
+
+- To see the filter applied to a given layer, select the layer whose filter you want to see and click the button labeled "Show Layer Filter" 
+
+- To save a project, click the button labeled “Save Project”, which will then prompt you to choose where on your computer you wish to save your project to.
+
+- To load a project, click the button labeled “Load Project”
+
+- To exit out of your project, click the red X in the top left corner of the program. Warning: any unsaved changes will not be saved
