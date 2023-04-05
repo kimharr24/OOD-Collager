@@ -6,6 +6,7 @@ To run this program, there are 3 options that a user can specify from their run 
 3) -gui (Runs the GUI version of the collager project)
 
 Make sure to create a run configuration for the Main method inside of the controller package.
+** The JAR must be run from inside of the res/ directory (i.e., the working directory should be res/)
 
 Design Changes
 - Refactored the Filter interface so that it operates on an entire image rather than a single pixel. A filter should take in the image that

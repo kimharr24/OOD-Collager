@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Collager_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassDiagram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Commands.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/blue-cat.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bright-cat-intensity.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bright-cat-luma.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/bright-cat-value.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dark-cat-intensity.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dark-cat-luma.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/dark-cat-value.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/green-cat.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/red-cat.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/CommandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CommandControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/Penguins.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/project.collage" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/tako.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/test.ppm" beforeDir="false" />
-    </list>
+    <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
