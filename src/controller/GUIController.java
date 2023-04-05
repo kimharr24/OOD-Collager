@@ -34,7 +34,7 @@ public class GUIController implements ControllerFeatures {
    * @param view  the GUI view the controller interacts with.
    */
   public GUIController(ProjectModel<Pixel> model, CollageGUIView<Pixel> view) {
-    Util.anyNull(new IllegalArgumentException("Model cannot be null."), model);
+    Util.anyNull(new IllegalArgumentException("Model or view cannot be null."), model, view);
     this.model = model;
     this.view = view;
     this.view.addFeatures(this);
