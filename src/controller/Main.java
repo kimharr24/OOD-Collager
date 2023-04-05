@@ -37,7 +37,7 @@ public class Main {
         controller.executeProgram();
         break;
       }
-      case "": {
+      case "-gui": {
         ControllerFeatures controller = new GUIController(new CollageProject(500, 500),
                 new GUIView());
         break;
