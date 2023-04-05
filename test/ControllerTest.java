@@ -2,7 +2,8 @@ import org.junit.Before;
 import org.junit.Test;
 import controller.CommandController;
 import java.io.StringReader;
-import controller.Controller;
+import controller.TextController;
+import controller.TextController;
 import view.CollageView;
 import view.TextView;
 
@@ -12,7 +13,7 @@ import static org.junit.Assert.fail;
  * Testing class for the controller.
  */
 public class ControllerTest {
-  private Controller controller;
+  private TextController controller;
   private CollageView view;
 
   @Before
