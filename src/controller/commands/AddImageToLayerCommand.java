@@ -1,6 +1,8 @@
 package controller.commands;
 
 import controller.fileio.fileinputcommands.ImageFileInputCommand;
+import controller.fileio.fileinputcommands.JPEGFileInputCommand;
+import controller.fileio.fileinputcommands.PNGFileInputCommand;
 import controller.fileio.fileinputcommands.PPMFileInputCommand;
 import model.images.ImageModel;
 import model.pixels.Pixel;
@@ -48,6 +50,11 @@ public class AddImageToLayerCommand extends AbstractProjectCommand {
         command = new PPMFileInputCommand();
         break;
       case "png":
+        command = new PNGFileInputCommand();
+        break;
+      case "jpg":
+      case "jpeg":
+        command = new JPEGFileInputCommand();
         break;
       default:
         throw new IllegalArgumentException("Unsupported file extension!");

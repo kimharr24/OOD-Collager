@@ -346,7 +346,8 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
 
     this.openFileButton.addActionListener(evt -> {
       final JFileChooser fileChooser = new JFileChooser(".");
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("PPM Images", "ppm");
+      FileNameExtensionFilter filter = new FileNameExtensionFilter("Images",
+              "ppm", "png", "jpeg", "jpg");
       fileChooser.setFileFilter(filter);
 
       int returnValue = fileChooser.showOpenDialog(this);
