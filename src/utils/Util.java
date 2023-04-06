@@ -1,5 +1,12 @@
 package utils;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
+import model.colors.ColorModel;
+import model.images.ImageModel;
+import model.pixels.Pixel;
+
 /**
  * Utility class for any common methods used by the model, controller, or
  * view in the image collage project.
@@ -59,5 +66,33 @@ public class Util {
       throw new IllegalArgumentException("Max value or given value cannot be negative.");
     }
     return ((double) oldValue * newMaxValue) / oldMaxValue;
+  }
+
+  /**
+   * Creates a java.awt.BufferedImage from integer RGBA values.
+   * @param compositeImage the image to convert into a java.awt buffered image.
+   * @return the java.awt.Image.
+   */
+  public static BufferedImage createImageFromScratch(ImageModel<Pixel> compositeImage) {
+    BufferedImage bufferedImage = new BufferedImage(compositeImage.getImageWidth(),
+            compositeImage.getImageHeight(),
+            BufferedImage.TYPE_INT_ARGB);
+
+    for (int x = 0; x < bufferedImage.getWidth(); x++) {
+      for (int y = 0; y < bufferedImage.getHeight(); y++) {
+        ColorModel currentPixelColor = compositeImage.getPixelAtCoord(y, x).getColor();
+        int r = (int) currentPixelColor.getRedComponent();
+        int g = (int) currentPixelColor.getGreenComponent();
+        int b = (int) currentPixelColor.getBlueComponent();
+        int a = (int) currentPixelColor.getAlphaComponent();
+
+        int argb = a << 24;
+        argb |= r << 16;
+        argb |= g << 8;
+        argb |= b;
+        bufferedImage.setRGB(x, y, argb);
+      }
+    }
+    return bufferedImage;
   }
 }

@@ -113,7 +113,12 @@ public class GUIController implements ControllerFeatures {
   @Override
   public void saveImage(String filepath) {
     ProjectCommand command = new SaveImageCommand(filepath);
-    command.executeCommand(this.model);
+    try {
+      command.executeCommand(this.model);
+      this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
+    } catch (IllegalArgumentException e) {
+      this.view.renderErrorMessage("Unknown file extension!");
+    }
   }
 
   @Override

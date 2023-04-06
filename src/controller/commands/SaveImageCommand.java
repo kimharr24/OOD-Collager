@@ -1,10 +1,13 @@
 package controller.commands;
 
 import controller.fileio.fileoutputcommands.FileOutputCommand;
+import controller.fileio.fileoutputcommands.JPEGFileOutputCommand;
+import controller.fileio.fileoutputcommands.PNGFileOutputCommand;
 import controller.fileio.fileoutputcommands.PPMFileOutputCommand;
 import model.images.ImageModel;
 import model.pixels.Pixel;
 import model.projects.ProjectModel;
+import utils.Util;
 
 /**
  * Command for saving an image in a collage project.
@@ -24,9 +27,23 @@ public class SaveImageCommand extends AbstractProjectCommand {
   @Override
   public void executeCommand(ProjectModel<Pixel> project) {
     this.checkNullProject(project);
-    ImageModel<Pixel> compositeImage = project.getCompositeImage();
+    FileOutputCommand<Pixel> command = null;
 
-    FileOutputCommand<Pixel> command = new PPMFileOutputCommand();
+    switch (Util.getFileExtension(this.filePath)) {
+      case "ppm":
+        command = new PPMFileOutputCommand();
+        break;
+      case "png":
+        command = new PNGFileOutputCommand();
+        break;
+      case "jpeg":
+      case "jpg":
+        command = new JPEGFileOutputCommand();
+        break;
+      default:
+        throw new IllegalArgumentException("Unknown file extension");
+    }
+    ImageModel<Pixel> compositeImage = project.getCompositeImage();
     command.saveCollageImage(compositeImage, this.filePath);
   }
 }

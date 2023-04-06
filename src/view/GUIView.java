@@ -252,7 +252,7 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
    * @param image the composite image to display.
    */
   private void renderImage(ImageModel<Pixel> image) {
-    Image compositeImage = this.createImageFromScratch(image);
+    Image compositeImage = Util.createImageFromScratch(image);
 
     JLabel imageLabel = new JLabel();
     imageLabel.setIcon(new ImageIcon(compositeImage));
@@ -279,34 +279,6 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
     commandPanel.add(this.saveImageButton);
 
     this.mainPanel.add(commandPanel);
-  }
-
-  /**
-   * Creates a java.awt.Image from integer RGBA values.
-   * @param compositeImage the image to convert into a java.awt Image.
-   * @return the java.awt.Image.
-   */
-  private Image createImageFromScratch(ImageModel<Pixel> compositeImage) {
-    BufferedImage bufferedImage = new BufferedImage(compositeImage.getImageWidth(),
-            compositeImage.getImageHeight(),
-            BufferedImage.TYPE_INT_ARGB);
-
-    for (int x = 0; x < bufferedImage.getWidth(); x++) {
-      for (int y = 0; y < bufferedImage.getHeight(); y++) {
-        ColorModel currentPixelColor = compositeImage.getPixelAtCoord(y, x).getColor();
-        int r = (int) currentPixelColor.getRedComponent();
-        int g = (int) currentPixelColor.getGreenComponent();
-        int b = (int) currentPixelColor.getBlueComponent();
-        int a = (int) currentPixelColor.getAlphaComponent();
-
-        int argb = a << 24;
-        argb |= r << 16;
-        argb |= g << 8;
-        argb |= b;
-        bufferedImage.setRGB(x, y, argb);
-      }
-    }
-    return bufferedImage;
   }
 
   @Override
