@@ -3,6 +3,9 @@ package controller.fileio.fileinputcommands;
 import model.images.ImageModel;
 import model.pixels.Pixel;
 
+/**
+ * Represents a JPEG file input command. Capable of extracting images from JPEG files.
+ */
 public class JPEGFileInputCommand extends AbstractImageFileInputCommand {
 
   @Override

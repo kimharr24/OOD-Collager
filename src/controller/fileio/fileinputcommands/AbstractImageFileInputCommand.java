@@ -15,6 +15,10 @@ import model.pixels.ImagePixel;
 import model.pixels.Pixel;
 import utils.Position2D;
 
+/**
+ * Represents a general image file input command. All image input commands should be able to
+ * extract the image and provide the image height and width. Contains common code.
+ */
 public abstract class AbstractImageFileInputCommand implements ImageFileInputCommand<Pixel> {
   @Override
   public ImageModel<Pixel> extractImage(String filepath) throws IllegalArgumentException {
