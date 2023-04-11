@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/AbstractImageFileOutputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/JPEGFileOutputCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/PNGFileOutputCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/PNGFileOutputCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/commands/SaveImageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SaveImageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/AbstractImageFileOutputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/AbstractImageFileOutputCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/images/result.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +59,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PNGFileOutputCommandTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="controller.Main" />
       <module name="Collager" />
@@ -105,30 +102,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GUIControllerTest.testSaveImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PNGFileOutputCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Collager" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GUIControllerTest" />
-      <option name="METHOD_NAME" value="testSaveImage" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="PNGFileOutputCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.PNGFileOutputCommandTest" />
       <item itemvalue="JUnit.FileTest" />
       <item itemvalue="JUnit.FileTest.test" />
       <item itemvalue="JUnit.GUIControllerTest" />
-      <item itemvalue="JUnit.GUIControllerTest.testSaveImage" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PNGFileOutputCommandTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.FileTest" />
         <item itemvalue="JUnit.FileTest.test" />
         <item itemvalue="JUnit.GUIControllerTest" />
-        <item itemvalue="JUnit.GUIControllerTest.testSaveImage" />
       </list>
     </recent_temporary>
   </component>
@@ -158,7 +154,8 @@
       <workItem from="1680560957459" duration="2576000" />
       <workItem from="1680620123082" duration="15219000" />
       <workItem from="1680721214660" duration="4883000" />
-      <workItem from="1680814901866" duration="7851000" />
+      <workItem from="1680814901866" duration="8657000" />
+      <workItem from="1681233692025" duration="3339000" />
     </task>
     <servers />
   </component>

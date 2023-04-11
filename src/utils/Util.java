@@ -1,6 +1,5 @@
 package utils;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 import model.colors.ColorModel;
@@ -85,8 +84,10 @@ public class Util {
         int g = (int) currentPixelColor.getGreenComponent();
         int b = (int) currentPixelColor.getBlueComponent();
         int a = (int) currentPixelColor.getAlphaComponent();
-
+//        int a = 0;
+//
         int argb = a << 24;
+//        int argb = r << 16;
         argb |= r << 16;
         argb |= g << 8;
         argb |= b;

@@ -1,6 +1,7 @@
 package controller.fileio.fileoutputcommands;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
 import java.io.File;
 import java.io.IOException;
 
@@ -20,6 +21,7 @@ public abstract class AbstractImageFileOutputCommand implements FileOutputComman
   @Override
   public void saveCollageImage(ImageModel<Pixel> image, String filePath) {
     BufferedImage bufferedImage = Util.createImageFromScratch(image);
+
     File imageFile = new File(filePath);
     try {
       System.out.println(this.formatName);
