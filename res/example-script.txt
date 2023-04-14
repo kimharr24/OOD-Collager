@@ -1,0 +1,38 @@
+new-project 600 500
+add-layer first-layer
+add-layer second-layer
+add-layer third-layer
+add-image-to-layer first-layer example-script-image.ppm 0 0
+add-image-to-layer second-layer example-script-image.png 100 100
+add-image-to-layer third-layer example-script-image.jpg 50 50
+set-filter first-layer darkening-blending
+set-filter second-layer inversion-blending
+set-filter third-layer brightening-blending
+save-image example-script-output.ppm
+save-image example-script-output.png
+save-image example-script-output.jpg
+save-project example-script-project.collage
+new-project 300 300
+add-image-to-layer default-layer example-script-image.ppm 0 0
+set-filter default-layer red-component
+save-image example-script-red-filter.png
+set-filter default-layer blue-component
+save-image example-script-blue-filter.png
+set-filter default-layer green-component
+save-image example-script-green-filter.png
+set-filter default-layer normal
+save-image example-script-normal-filter.png
+set-filter default-layer brighten-value
+save-image example-script-brighten-value-filter.png
+set-filter default-layer darken-value
+save-image example-script-darken-value-filter.png
+set-filter default-layer brighten-intensity
+save-image example-script-brighten-intensity-filter.png
+set-filter default-layer darken-intensity
+save-image example-script-darken-intensity-filter.png
+set-filter default-layer brighten-luma
+save-image example-script-brighten-luma-filter.png
+set-filter default-layer darken-luma
+save-image example-script-darken-luma-filter.png
+load-project example-script-project.collage
+quit

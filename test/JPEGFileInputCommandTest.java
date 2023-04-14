@@ -4,9 +4,9 @@ import org.junit.Test;
 import java.io.File;
 
 import controller.fileio.fileinputcommands.ImageFileInputCommand;
-import controller.fileio.fileinputcommands.PNGFileInputCommand;
+import controller.fileio.fileinputcommands.JPEGFileInputCommand;
 import controller.fileio.fileoutputcommands.FileOutputCommand;
-import controller.fileio.fileoutputcommands.PNGFileOutputCommand;
+import controller.fileio.fileoutputcommands.JPEGFileOutputCommand;
 import model.filters.BlueComponentFilter;
 import model.filters.RedComponentFilter;
 import model.images.ImageModel;
@@ -18,16 +18,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Testing class to ensure that a PNGFileInputCommand can properly read PNG files
- * and convert their contents into an ImageModel.
+ * Testing class to ensure that JPEGFileInputCommands can properly read in JPG images
+ * and load them into the collage project.
  */
-public class PNGFileInputCommandTest {
-
+public class JPEGFileInputCommandTest {
   private ImageFileInputCommand<Pixel> command;
 
   @Before
   public void init() {
-    this.command = new PNGFileInputCommand();
+    this.command = new JPEGFileInputCommand();
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -45,7 +44,7 @@ public class PNGFileInputCommandTest {
     project.addLayer("layer-2");
     project.setLayerFilter("layer-2", new RedComponentFilter());
 
-    FileOutputCommand<Pixel> outputCommand = new PNGFileOutputCommand();
+    FileOutputCommand<Pixel> outputCommand = new JPEGFileOutputCommand();
     outputCommand.saveCollageImage(project.getCompositeImage(), "test.png");
     assertEquals(400, this.command.getImageWidth("test.png"));
     File file = new File("test.png");
@@ -67,7 +66,7 @@ public class PNGFileInputCommandTest {
     project.addLayer("layer-2");
     project.setLayerFilter("layer-2", new RedComponentFilter());
 
-    FileOutputCommand<Pixel> outputCommand = new PNGFileOutputCommand();
+    FileOutputCommand<Pixel> outputCommand = new JPEGFileOutputCommand();
     outputCommand.saveCollageImage(project.getCompositeImage(), "test.png");
     assertEquals(300, this.command.getImageHeight("test.png"));
     File file = new File("test.png");
@@ -89,10 +88,10 @@ public class PNGFileInputCommandTest {
     project.addLayer("layer-2");
     project.setLayerFilter("layer-2", new RedComponentFilter());
 
-    FileOutputCommand<Pixel> outputCommand = new PNGFileOutputCommand();
+    FileOutputCommand<Pixel> outputCommand = new JPEGFileOutputCommand();
     outputCommand.saveCollageImage(project.getCompositeImage(), "test.png");
 
-    ImageFileInputCommand<Pixel> inputCommand = new PNGFileInputCommand();
+    ImageFileInputCommand<Pixel> inputCommand = new JPEGFileInputCommand();
 
     ImageModel<Pixel> extractedImage = inputCommand.extractImage("test.png");
 

@@ -24,7 +24,6 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import controller.ControllerFeatures;
-import model.colors.ColorModel;
 import model.images.ImageModel;
 import model.pixels.Pixel;
 import utils.Util;
@@ -252,7 +251,9 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
    * @param image the composite image to display.
    */
   private void renderImage(ImageModel<Pixel> image) {
-    Image compositeImage = Util.createImageFromScratch(image);
+    Image compositeImage = Util.createImageFromScratch(image,
+            new BufferedImage(image.getImageWidth(), image.getImageHeight(),
+                    BufferedImage.TYPE_INT_ARGB));
 
     JLabel imageLabel = new JLabel();
     imageLabel.setIcon(new ImageIcon(compositeImage));

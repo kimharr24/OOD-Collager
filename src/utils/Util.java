@@ -70,13 +70,11 @@ public class Util {
   /**
    * Creates a java.awt.BufferedImage from integer RGBA values.
    * @param compositeImage the image to convert into a java.awt buffered image.
+   * @param bufferedImage a blank buffered image to populate with the composite image pixels.
    * @return the java.awt.Image.
    */
-  public static BufferedImage createImageFromScratch(ImageModel<Pixel> compositeImage) {
-    BufferedImage bufferedImage = new BufferedImage(compositeImage.getImageWidth(),
-            compositeImage.getImageHeight(),
-            BufferedImage.TYPE_INT_ARGB);
-
+  public static BufferedImage createImageFromScratch(ImageModel<Pixel> compositeImage,
+                                                     BufferedImage bufferedImage) {
     for (int x = 0; x < bufferedImage.getWidth(); x++) {
       for (int y = 0; y < bufferedImage.getHeight(); y++) {
         ColorModel currentPixelColor = compositeImage.getPixelAtCoord(y, x).getColor();
@@ -84,10 +82,8 @@ public class Util {
         int g = (int) currentPixelColor.getGreenComponent();
         int b = (int) currentPixelColor.getBlueComponent();
         int a = (int) currentPixelColor.getAlphaComponent();
-//        int a = 0;
-//
+
         int argb = a << 24;
-//        int argb = r << 16;
         argb |= r << 16;
         argb |= g << 8;
         argb |= b;

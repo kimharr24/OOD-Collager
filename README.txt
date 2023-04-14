@@ -9,20 +9,28 @@ Make sure to create a run configuration for the Main method inside of the contro
 ** The JAR must be run from inside of the res/ directory (i.e., the working directory should be res/)
 ** Make sure that res is on the same directory level as src/ and test/
 
+View Decoupling Files Required
+Interfaces
+- ControllerFeatures: needed for giving the view controller methods as part of the callback design pattern.
+- ColorModel: needed by Util (which is needed by the view) for converting an image from our representation to a buffered image.
+- ColorState: needed because ColorModel extends ColorState.
+- ImageModel: needed by the view because the view has to render the image to display to the user.
+- ImageState: needed because ImageModel extends ImageState.
+- Pixel: needed because many interfaces required by the view are parameterized by a Pixel interface.
+- CollageGUIView: needed because it is the GUI view.
+- CollageView: needed because it is the text view.
+
+Classes
+- Position2D: needed because the Pixel interface has a method that returns a Position2D
+- Util: needed to store the max value of the project as well as some constants that the view needs.
+- GUIView: needed because it is the implementation of CollageGUIView
+- TextView: needed because it is the implementation of CollageView
+
 Design Changes
-- Refactored the Filter interface so that it operates on an entire image rather than a single pixel. A filter should take in the image that
-it will apply the filter to, as well as the composite image of every image below the current image. This was done so that filters are more flexible
-and can use the information of an entire image rather than a single pixel.
-- Moved file IO commands from the model to the controller to maintain proper separation of concerns. We restructured the hierarchy of file IO design. At the top
-of the design is a FileInputCommand which holds common methods for all file input commands such as image reading, project reading, etc. Then, we have more specific
-interfaces ImageFileInputCommand and ProjectFileInputCommand. Classes that implement these specific interfaces will also extend the abstract class that implements 
-FileInputCommand to get access to common file input methods.
-- Kept the old view and controller interfaces intact for backwards compatibility and created new view and controller interfaces specifically for the GUI version
-of the program.
-- Added a command for loading a project into the collager, which is something that we did not have for Assignment #4.
+- No design changes since Assignment #5.
 
 Program Completion Status
-- All required features in Assignment #5 have been implemented.
+- All required features in Assignment #6 have been implemented.
 
 Image Citations
 - emoji.ppm: https://www.clipartmax.com/middle/m2i8m2b1i8Z5b1b1_picture-300-x-300-pixel/

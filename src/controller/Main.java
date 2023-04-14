@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
  * Main class for executing the collage project. The executable has three options:
  * 1) -file path-to-file -> executes a script located at path-to-file
  * 2) -text -> allows the user to manually type in text-based commands
- * 3) [no option] -> opens a GUI for the user to interact with
+ * 3) -gui -> opens a GUI for the user to interact with
  */
 public class Main {
   /**
