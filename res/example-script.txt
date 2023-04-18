@@ -1,38 +1,41 @@
-new-project 600 500
+new-project 1000 1000
 add-layer first-layer
 add-layer second-layer
 add-layer third-layer
-add-image-to-layer first-layer example-script-image.ppm 0 0
+add-layer fourth-layer
+add-layer fifth-layer
+add-layer sixth-layer
+add-layer seventh-layer
+add-layer eighth-layer
+add-layer nineth-layer
+add-layer tenth-layer
+add-layer eleventh-layer
+add-layer twelveth-layer
+add-image-to-layer first-layer example-script-image.ppm 500 500
 add-image-to-layer second-layer example-script-image.png 100 100
-add-image-to-layer third-layer example-script-image.jpg 50 50
+add-image-to-layer third-layer example-script-image.jpg 600 50
+add-image-to-layer fourth-layer example-script-image.jpg 400 100
+add-image-to-layer fifth-layer example-script-image.jpg 10 66
+add-image-to-layer sixth-layer example-script-image.jpg 77 95
+add-image-to-layer seventh-layer example-script-image.jpg 80 80
+add-image-to-layer eighth-layer example-script-image.jpg 200 300
+add-image-to-layer nineth-layer example-script-image.jpg 300 60
+add-image-to-layer tenth-layer example-script-image.jpg 255 600
+add-image-to-layer eleventh-layer example-script-image.jpg 365 40
+add-image-to-layer twelveth-layer example-script-image.jpg 400 500
 set-filter first-layer darkening-blending
 set-filter second-layer inversion-blending
 set-filter third-layer brightening-blending
-save-image example-script-output.ppm
-save-image example-script-output.png
-save-image example-script-output.jpg
-save-project example-script-project.collage
-new-project 300 300
-add-image-to-layer default-layer example-script-image.ppm 0 0
-set-filter default-layer red-component
-save-image example-script-red-filter.png
-set-filter default-layer blue-component
-save-image example-script-blue-filter.png
-set-filter default-layer green-component
-save-image example-script-green-filter.png
-set-filter default-layer normal
-save-image example-script-normal-filter.png
-set-filter default-layer brighten-value
-save-image example-script-brighten-value-filter.png
-set-filter default-layer darken-value
-save-image example-script-darken-value-filter.png
-set-filter default-layer brighten-intensity
-save-image example-script-brighten-intensity-filter.png
-set-filter default-layer darken-intensity
-save-image example-script-darken-intensity-filter.png
-set-filter default-layer brighten-luma
-save-image example-script-brighten-luma-filter.png
-set-filter default-layer darken-luma
-save-image example-script-darken-luma-filter.png
-load-project example-script-project.collage
+set-filter fourth-layer red-component
+set-filter fifth-layer blue-component
+set-filter sixth-layer green-component
+set-filter seventh-layer brighten-value
+set-filter eighth-layer brighten-luma 
+set-filter nineth-layer darken-luma 
+set-filter tenth-layer brighten-intensity 
+set-filter eleventh-layer darken-intensity
+set-filter twelveth-layer darken-value
+save-image example-script-image-output.jpg
+save-image example-script-image-output.ppm
+save-image example-script-image-output.png
 quit
