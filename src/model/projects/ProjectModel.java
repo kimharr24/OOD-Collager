@@ -1,8 +1,10 @@
 package model.projects;
 
+import model.colors.ColorModel;
 import model.filters.Filter;
 import model.images.ImageModel;
 import model.pixels.Pixel;
+import utils.Position2D;
 
 /**
  * Represents a mutable collage project. All interactive actions a user can perform on a collage
@@ -55,4 +57,45 @@ public interface ProjectModel<T> extends ProjectState<T> {
    * @throws IllegalArgumentException if the layer does not exist.
    */
   void deleteLayer(String layerName) throws IllegalArgumentException;
+
+  /**
+   * Creates a new instance of the project, erasing all previous data stored in this project.
+   *
+   * @param width the width of the new project's canvas.
+   * @param height the height of the new project's canvas.
+   * @return the new project.
+   * @throws IllegalArgumentException if the width or height are negative or zero.
+   */
+  ProjectModel<T> createProject(int width, int height) throws IllegalArgumentException;
+
+  /**
+   * Returns a collage project's default representation of an image.
+   *
+   * @param width the width of the image.
+   * @param height the height of the image.
+   * @return the default image representation.
+   * @throws IllegalArgumentException if the width or height are less than or equal to zero.
+   */
+  ImageModel<T> createDefaultImage(int width, int height) throws IllegalArgumentException;
+
+  /**
+   * Returns a collage project's representation of a pixel.
+   *
+   * @param position the position of the pixel.
+   * @param color the color of the pixel.
+   * @return the pixel.
+   * @throws IllegalArgumentException if the position or color are null.
+   */
+  Pixel createPixel(Position2D position, ColorModel color) throws IllegalArgumentException;
+
+  /**
+   * Returns the filter based on the inputted name. A collage project can choose which filters
+   * it will support in its implementation.
+   *
+   * @param name the name of the filter.
+   * @return the filter.
+   * @throws IllegalArgumentException if the given name does not exist because the collage
+   * project does not support that filter.
+   */
+  Filter<T> getFilterFromName(String name) throws IllegalArgumentException;
 }

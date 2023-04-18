@@ -39,7 +39,8 @@ public class SaveProjectCommandTest {
       command.executeCommand(project);
 
       ProjectFileInputCommand<Pixel> loadCommand = new CollageProjectFileInputCommand();
-      ProjectModel<Pixel> loadedProject = loadCommand.extractProject("my-project.collage");
+      ProjectModel<Pixel> loadedProject = loadCommand.extractProject("my-project.collage",
+              new CollageProject(99, 100));
 
       assertEquals(project.getLayerCount(), loadedProject.getLayerCount());
       assertEquals("default-layer", project.getLayerAtPosition(0).getLayerName());

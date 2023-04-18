@@ -13,7 +13,6 @@ import controller.fileio.fileinputcommands.CollageProjectFileInputCommand;
 import controller.fileio.fileinputcommands.ProjectFileInputCommand;
 import model.layers.LayerModel;
 import model.pixels.Pixel;
-import model.projects.CollageProject;
 import model.projects.ProjectModel;
 import utils.Util;
 import view.CollageGUIView;
@@ -70,7 +69,7 @@ public class GUIController implements ControllerFeatures {
   @Override
   public void makeNewProject(int canvasWidth, int canvasHeight) {
     try {
-      this.model = new CollageProject(canvasHeight, canvasWidth);
+      this.model = this.model.createProject(canvasWidth, canvasHeight);
       this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
     } catch (IllegalArgumentException e) {
       this.view.renderErrorMessage("Please enter non-negative, non-zero integers.");
@@ -124,7 +123,7 @@ public class GUIController implements ControllerFeatures {
   @Override
   public void loadProject(String filepath) {
     ProjectFileInputCommand<Pixel> command = new CollageProjectFileInputCommand();
-    this.model = command.extractProject(filepath);
+    this.model = command.extractProject(filepath, this.model);
     this.view.refresh(this.model.getCompositeImage(), this.createLayerToFilterMap());
   }
 }

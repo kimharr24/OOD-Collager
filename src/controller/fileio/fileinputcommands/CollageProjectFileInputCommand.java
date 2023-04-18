@@ -5,9 +5,7 @@ import controller.commands.SetFilterCommand;
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
 import model.layers.LayerModel;
-import model.pixels.ImagePixel;
 import model.pixels.Pixel;
-import model.projects.CollageProject;
 import model.projects.ProjectModel;
 import utils.Position2D;
 import utils.Util;
@@ -19,7 +17,8 @@ import utils.Util;
 public class CollageProjectFileInputCommand extends AbstractFileInputCommand
         implements ProjectFileInputCommand<Pixel> {
   @Override
-  public ProjectModel<Pixel> extractProject(String filepath) throws IllegalArgumentException {
+  public ProjectModel<Pixel> extractProject(String filepath, ProjectModel<Pixel> projectModel)
+          throws IllegalArgumentException {
     this.initializeScanner(filepath);
 
     String token = this.scanner.next();
@@ -30,7 +29,7 @@ public class CollageProjectFileInputCommand extends AbstractFileInputCommand
     int width = Integer.parseInt(this.scanner.next(), 10);
     int height = Integer.parseInt(this.scanner.next(), 10);
 
-    ProjectModel<Pixel> project = new CollageProject(height, width);
+    ProjectModel<Pixel> project = projectModel.createProject(width, height);
     project.deleteLayer("default-layer");
     Util.setMaxValue(Integer.parseInt(this.scanner.next(), 10));
 
@@ -51,8 +50,8 @@ public class CollageProjectFileInputCommand extends AbstractFileInputCommand
 
           ColorModel color = new RGBAColor(red, green, blue, alpha);
           LayerModel<Pixel> currentLayer = project.getLayerAtPosition(currentLayerPosition);
-          currentLayer.getImage().setImagePixelAtCoord(new ImagePixel(new Position2D(i, j),
-                  color), i, j);
+          currentLayer.getImage().setImagePixelAtCoord(projectModel.createPixel(
+                  new Position2D(i, j), color), i, j);
         }
       }
       currentLayerPosition += 1;

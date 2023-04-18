@@ -76,7 +76,7 @@ public class PNGFileInputCommandTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testExtractImageInvalidPath() {
-    this.command.extractImage("./test/images/404.png");
+    this.command.extractImage("./test/images/404.png", new CollageProject(99, 999));
   }
 
   @Test
@@ -94,7 +94,8 @@ public class PNGFileInputCommandTest {
 
     ImageFileInputCommand<Pixel> inputCommand = new PNGFileInputCommand();
 
-    ImageModel<Pixel> extractedImage = inputCommand.extractImage("test.png");
+    ImageModel<Pixel> extractedImage = inputCommand.extractImage("test.png",
+            new CollageProject(666, 666));
 
     assertEquals(project.getCompositeImage(), extractedImage);
     File file = new File("test.png");

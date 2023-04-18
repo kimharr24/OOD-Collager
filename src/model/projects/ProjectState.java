@@ -1,7 +1,10 @@
 package model.projects;
 
+import model.colors.ColorModel;
 import model.images.ImageModel;
 import model.layers.LayerModel;
+import model.pixels.Pixel;
+import utils.Position2D;
 
 /**
  * Represents an observable collage project, that is, a project which cannot be modified.

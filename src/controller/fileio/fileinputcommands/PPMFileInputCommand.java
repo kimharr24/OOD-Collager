@@ -1,10 +1,9 @@
 package controller.fileio.fileinputcommands;
 
 import model.colors.RGBAColor;
-import model.images.Image;
 import model.images.ImageModel;
-import model.pixels.ImagePixel;
 import model.pixels.Pixel;
+import model.projects.ProjectModel;
 import utils.Position2D;
 import utils.Util;
 
@@ -27,8 +26,9 @@ public class PPMFileInputCommand extends AbstractFileInputCommand
   }
 
   @Override
-  public ImageModel<Pixel> extractImage(String filepath) throws IllegalArgumentException {
-    ImageModel<Pixel> extractedImage = new Image(this.getImageWidth(filepath),
+  public ImageModel<Pixel> extractImage(String filepath, ProjectModel<Pixel> project)
+          throws IllegalArgumentException {
+    ImageModel<Pixel> extractedImage = project.createDefaultImage(this.getImageWidth(filepath),
             this.getImageHeight(filepath));
     this.initializeScanner(filepath);
     this.validatePPMToken();
@@ -42,7 +42,7 @@ public class PPMFileInputCommand extends AbstractFileInputCommand
         double r = Util.convertColorScale(Util.MAX_PROJECT_VALUE, maxValue, scanner.nextInt());
         double g = Util.convertColorScale(Util.MAX_PROJECT_VALUE, maxValue, scanner.nextInt());
         double b = Util.convertColorScale(Util.MAX_PROJECT_VALUE, maxValue, scanner.nextInt());
-        extractedImage.setImagePixelAtCoord(new ImagePixel(new Position2D(i, j),
+        extractedImage.setImagePixelAtCoord(project.createPixel(new Position2D(i, j),
                 new RGBAColor(r, g, b, Util.MAX_PROJECT_VALUE)), i, j);
       }
     }

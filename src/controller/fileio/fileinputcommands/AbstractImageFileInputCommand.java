@@ -9,9 +9,8 @@ import javax.imageio.ImageIO;
 
 import model.colors.ColorModel;
 import model.colors.RGBAColor;
-import model.images.Image;
 import model.images.ImageModel;
-import model.pixels.ImagePixel;
+import model.projects.ProjectModel;
 import model.pixels.Pixel;
 import utils.Position2D;
 
@@ -21,9 +20,11 @@ import utils.Position2D;
  */
 public abstract class AbstractImageFileInputCommand implements ImageFileInputCommand<Pixel> {
   @Override
-  public ImageModel<Pixel> extractImage(String filepath) throws IllegalArgumentException {
+  public ImageModel<Pixel> extractImage(String filepath, ProjectModel<Pixel> project)
+          throws IllegalArgumentException {
     File file = new File(filepath);
-    ImageModel<Pixel> extractedImage = new Image(this.getImageWidth(filepath),
+
+    ImageModel<Pixel> extractedImage = project.createDefaultImage(this.getImageWidth(filepath),
             this.getImageHeight(filepath));
     try {
       BufferedImage image = ImageIO.read(file);
@@ -38,7 +39,7 @@ public abstract class AbstractImageFileInputCommand implements ImageFileInputCom
           double alpha = color.getAlpha();
 
           ColorModel rgbaColor = new RGBAColor(red, green, blue, alpha);
-          extractedImage.setImagePixelAtCoord(new ImagePixel(new Position2D(y, x),
+          extractedImage.setImagePixelAtCoord(project.createPixel(new Position2D(y, x),
                   rgbaColor), y, x);
         }
       }

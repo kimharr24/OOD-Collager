@@ -56,7 +56,7 @@ public class PPMFileOutputCommandTest {
 
     ImageFileInputCommand<Pixel> inputCommand = new PPMFileInputCommand();
     ImageModel<Pixel> recoveredCompositeImage = inputCommand.extractImage(
-            "./test/images/ppm_test.ppm");
+            "./test/images/ppm_test.ppm", new CollageProject(43, 44));
 
     assertEquals(compositeImage, recoveredCompositeImage);
 

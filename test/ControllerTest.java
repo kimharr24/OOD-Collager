@@ -3,6 +3,7 @@ import org.junit.Test;
 import controller.CommandController;
 import java.io.StringReader;
 import controller.TextController;
+import model.projects.CollageProject;
 import view.CollageView;
 import view.TextView;
 
@@ -24,7 +25,8 @@ public class ControllerTest {
   public void testImmediateQuit() {
     // Should not lead to an infinite loop
     try {
-      this.controller = new CommandController(new StringReader("quit"), this.view);
+      this.controller = new CommandController(new StringReader("quit"), this.view,
+              new CollageProject(300, 300));
     } catch (RuntimeException e) {
       fail("Expected the constructor to work.");
     }
@@ -34,7 +36,7 @@ public class ControllerTest {
   public void testCreateNewProject() {
     try {
       this.controller = new CommandController(new StringReader("new-project my-project 100 200"),
-              this.view);
+              this.view, new CollageProject(300, 200));
     } catch (RuntimeException e) {
       fail("Expected project to be created successfully!");
     }

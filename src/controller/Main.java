@@ -1,6 +1,8 @@
 package controller;
 
+import model.pixels.Pixel;
 import model.projects.CollageProject;
+import model.projects.ProjectModel;
 import view.GUIView;
 import view.TextView;
 
@@ -20,12 +22,13 @@ public class Main {
    * @param args the arguments provided by someone calling this executable.
    */
   public static void main(String[] args) {
+    ProjectModel<Pixel> defaultModel = new CollageProject(300, 300);
     switch (args[0]) {
       case "-file":
         Readable reader = null;
         try {
           reader = new FileReader(args[1]);
-          TextController controller = new CommandController(reader, new TextView());
+          TextController controller = new CommandController(reader, new TextView(), defaultModel);
           controller.executeProgram();
         } catch (FileNotFoundException e) {
           System.out.printf("Filepath %s not found%n", args[1]);
@@ -33,7 +36,7 @@ public class Main {
         break;
       case "-text": {
         TextController controller = new CommandController(new InputStreamReader(System.in),
-                new TextView());
+                new TextView(), defaultModel);
         controller.executeProgram();
         break;
       }

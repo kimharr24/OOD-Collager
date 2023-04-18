@@ -61,7 +61,7 @@ public class AddImageToLayerCommand extends AbstractProjectCommand {
     }
 
     if (command != null) {
-      ImageModel<Pixel> extractedImage = command.extractImage(this.filePath);
+      ImageModel<Pixel> extractedImage = command.extractImage(this.filePath, project);
       project.addImageToLayer(this.layerName, extractedImage, this.row, this.col);
     }
   }

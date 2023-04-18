@@ -43,7 +43,8 @@ public class SaveImageCommandTest {
     command.executeCommand(project);
     try {
       ImageFileInputCommand<Pixel> in = new PPMFileInputCommand();
-      ImageModel<Pixel> extractedImage = in.extractImage("test-save-command.ppm");
+      ImageModel<Pixel> extractedImage = in.extractImage("test-save-command.ppm",
+              new CollageProject(99, 100));
     } catch (RuntimeException e) {
       fail("Expected extraction to work!");
     }

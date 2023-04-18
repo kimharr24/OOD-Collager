@@ -22,7 +22,7 @@ public class CollageProjectFileInputCommandTest {
   @Test(expected = IllegalArgumentException.class)
   public void testExtractProjectInvalidPath() {
     ProjectFileInputCommand<Pixel> command = new CollageProjectFileInputCommand();
-    command.extractProject("foo");
+    command.extractProject("foo", new CollageProject(100, 200));
   }
 
   @Test
@@ -37,7 +37,8 @@ public class CollageProjectFileInputCommandTest {
     command.executeCommand(project);
 
     ProjectFileInputCommand<Pixel> loadCommand = new CollageProjectFileInputCommand();
-    ProjectModel<Pixel> loadedProject = loadCommand.extractProject("my-project.collage");
+    ProjectModel<Pixel> loadedProject = loadCommand.extractProject("my-project.collage",
+            new CollageProject(11, 22));
 
     assertEquals(project.getLayerCount(), loadedProject.getLayerCount());
     assertEquals("default-layer", project.getLayerAtPosition(0).getLayerName());

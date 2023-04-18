@@ -10,7 +10,6 @@ import controller.commands.SaveImageCommand;
 import controller.commands.SaveProjectCommand;
 import controller.commands.SetFilterCommand;
 import model.pixels.Pixel;
-import model.projects.CollageProject;
 import model.projects.ProjectModel;
 import utils.Util;
 import view.CollageView;
@@ -22,24 +21,26 @@ import view.CollageView;
 public class CommandController implements TextController {
   private final Scanner scanner;
   private final CollageView view;
+  private ProjectModel<Pixel> model;
 
   /**
    * A controller takes in a way to read commands and the view to render to the user.
    * @param input the method of reading commands.
    * @param view the view to display information to the user.
+   * @param model the model that contains the business logic of the collage project.
    * @throws IllegalArgumentException if the input or view are null.
    */
-  public CommandController(Readable input, CollageView view) {
+  public CommandController(Readable input, CollageView view, ProjectModel<Pixel> model) {
     Util.anyNull(new IllegalArgumentException("Input or view cannot be null"), input, view);
     this.scanner = new Scanner(input);
     this.view = view;
+    this.model = model;
   }
 
   @Override
   public void executeProgram() {
     this.view.renderCommandOptions();
     ProjectCommand command = null;
-    ProjectModel<Pixel> model = null;
 
     while (this.scanner.hasNext()) {
       String option = scanner.next();
@@ -48,7 +49,7 @@ public class CommandController implements TextController {
           case "quit":
             return;
           case "new-project":
-            model = new CollageProject(scanner.nextInt(), scanner.nextInt());
+            this.model = this.model.createProject(scanner.nextInt(), scanner.nextInt());
             break;
           case "save-project":
             if (model == null) {

@@ -55,7 +55,7 @@ public class PPMFileInputCommandTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testExtractImageInvalidPath() {
-    this.command.extractImage("./test/images/404.ppm");
+    this.command.extractImage("./test/images/404.ppm", new CollageProject(4, 5));
   }
 
   @Test
@@ -72,7 +72,8 @@ public class PPMFileInputCommandTest {
     FileOutputCommand<Pixel> outputCommand = new PPMFileOutputCommand();
     outputCommand.saveCollageImage(compositeImage, "./test/images/ppm_test.ppm");
 
-    ImageModel<Pixel> extractedImage = this.command.extractImage("./test/images/ppm_test.ppm");
+    ImageModel<Pixel> extractedImage = this.command.extractImage("./test/images/ppm_test.ppm",
+            new CollageProject(44, 44));
 
     assertEquals(compositeImage, extractedImage);
     File file = new File("./test/images/ppm_test.ppm");

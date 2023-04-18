@@ -5,27 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b7b6c1d-b18d-436b-a224-87570dc50462" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/JPEGFileInputCommandTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/JPEGFileOutputCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Class Diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/Class Diagram.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example-script.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Collager.jar" beforeDir="false" afterPath="$PROJECT_DIR$/res/Collager.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Program Screenshot.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/inversion.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/multiply.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/screen.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CommandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/AddImageToLayerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/commands/SetFilterCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/AbstractImageFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/AbstractImageFileInputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/AbstractImageFileOutputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/AbstractImageFileOutputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/JPEGFileOutputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/JPEGFileOutputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/PNGFileOutputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileoutputcommands/PNGFileOutputCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/PNGFileInputCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PNGFileInputCommandTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/Penguins.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/images/dice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/CollageProjectFileInputCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/ImageFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/ImageFileInputCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/JPEGFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/JPEGFileInputCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/PNGFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/PNGFileInputCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/PPMFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/PPMFileInputCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/ProjectFileInputCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/fileio/fileinputcommands/ProjectFileInputCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/CollageProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/CollageProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/projects/ProjectState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/projects/ProjectState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CollageProjectFileInputCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CollageProjectFileInputCommandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CommandControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/CommandControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/SaveProjectCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/SaveProjectCommandTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +171,8 @@
       <workItem from="1680814901866" duration="8657000" />
       <workItem from="1681233692025" duration="7866000" />
       <workItem from="1681327725723" duration="4294000" />
+      <workItem from="1681481113291" duration="1354000" />
+      <workItem from="1681768847829" duration="7455000" />
     </task>
     <servers />
   </component>

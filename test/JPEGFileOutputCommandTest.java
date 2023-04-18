@@ -35,7 +35,8 @@ public class JPEGFileOutputCommandTest {
 
     ImageFileInputCommand<Pixel> inputCommand = new JPEGFileInputCommand();
 
-    ImageModel<Pixel> extractedImage = inputCommand.extractImage("test.png");
+    ImageModel<Pixel> extractedImage = inputCommand.extractImage("test.png",
+            new CollageProject(111, 222));
 
     assertEquals(project.getCompositeImage(), extractedImage);
     File file = new File("test.png");

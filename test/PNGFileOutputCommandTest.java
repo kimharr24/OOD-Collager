@@ -35,7 +35,8 @@ public class PNGFileOutputCommandTest {
 
     ImageFileInputCommand<Pixel> inputCommand = new PNGFileInputCommand();
 
-    ImageModel<Pixel> extractedImage = inputCommand.extractImage("./test/images/test.png");
+    ImageModel<Pixel> extractedImage = inputCommand.extractImage("./test/images/test.png",
+            new CollageProject(89, 77));
 
     assertEquals(project.getCompositeImage(), extractedImage);
     File file = new File("./test/images/test.png");

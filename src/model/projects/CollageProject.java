@@ -1,16 +1,32 @@
 package model.projects;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 
+import model.colors.ColorModel;
 import model.colors.RGBAColor;
+import model.filters.BlueComponentFilter;
+import model.filters.BrightenIntensityFilter;
+import model.filters.BrightenLumaFilter;
+import model.filters.BrightenValueFilter;
+import model.filters.BrighteningBlendingFilter;
+import model.filters.DarkenIntensityFilter;
+import model.filters.DarkenLumaFilter;
+import model.filters.DarkenValueFilter;
+import model.filters.DarkeningBlendingFilter;
 import model.filters.Filter;
+import model.filters.GreenComponentFilter;
+import model.filters.InversionBlendingFilter;
 import model.filters.NormalFilter;
+import model.filters.RedComponentFilter;
 import model.images.Image;
 import model.images.ImageModel;
 import model.layers.Layer;
 import model.layers.LayerModel;
+import model.pixels.ImagePixel;
 import model.pixels.Pixel;
+import utils.Position2D;
 import utils.Util;
 
 /**
@@ -105,6 +121,73 @@ public class CollageProject implements ProjectModel<Pixel> {
       throw new IllegalArgumentException("Layer does not exist");
     }
     this.layers.removeIf(layer -> layer.getLayerName().equals(layerName));
+  }
+
+  @Override
+  public ProjectModel<Pixel> createProject(int width, int height) throws IllegalArgumentException {
+    return new CollageProject(height, width);
+  }
+
+  @Override
+  public ImageModel<Pixel> createDefaultImage(int width, int height) throws IllegalArgumentException {
+    return new Image(width, height);
+  }
+
+  @Override
+  public Pixel createPixel(Position2D position, ColorModel color) throws IllegalArgumentException {
+    return new ImagePixel(position, color);
+  }
+
+  @Override
+  public Filter<Pixel> getFilterFromName(String name) throws IllegalArgumentException {
+    Filter<Pixel> filter = null;
+
+    try {
+      switch (name) {
+        case "normal":
+          filter = new NormalFilter();
+          break;
+        case "red-component":
+          filter = new RedComponentFilter();
+          break;
+        case "blue-component":
+          filter = new BlueComponentFilter();
+          break;
+        case "green-component":
+          filter = new GreenComponentFilter();
+          break;
+        case "brighten-value":
+          filter = new BrightenValueFilter();
+          break;
+        case "darken-value":
+          filter = new DarkenValueFilter();
+          break;
+        case "brighten-intensity":
+          filter = new BrightenIntensityFilter();
+          break;
+        case "darken-intensity":
+          filter = new DarkenIntensityFilter();
+          break;
+        case "brighten-luma":
+          filter = new BrightenLumaFilter();
+          break;
+        case "darken-luma":
+          filter = new DarkenLumaFilter();
+          break;
+        case "inversion-blending":
+          filter = new InversionBlendingFilter();
+          break;
+        case "darkening-blending":
+          filter = new DarkeningBlendingFilter();
+          break;
+        case "brightening-blending":
+          filter = new BrighteningBlendingFilter();
+          break;
+      }
+    } catch (InputMismatchException ignored) {
+      throw new IllegalArgumentException("Unknown filter");
+    }
+    return filter;
   }
 
   @Override

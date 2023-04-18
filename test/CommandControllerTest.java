@@ -7,6 +7,7 @@ import java.io.StringReader;
 
 import controller.TextController;
 import controller.CommandController;
+import model.projects.CollageProject;
 import view.CollageView;
 
 import static org.junit.Assert.assertEquals;
@@ -63,14 +64,15 @@ public class CommandControllerTest {
   @Test(expected = IllegalArgumentException.class)
   public void testConstructorNullModel() {
     TextController controller = new CommandController(null,
-            new CommandControllerTest.TextViewMock(new StringBuilder()));
+            new CommandControllerTest.TextViewMock(new StringBuilder()),
+            new CollageProject(200, 200));
   }
 
   @Test
   public void testExecuteProgram() {
     this.controller = new CommandController(new StringReader(
             "new-project 200 200 save-image saving.ppm"),
-            new TextViewMock(this.log));
+            new TextViewMock(this.log), new CollageProject(20, 100));
     this.controller.executeProgram();
     assertEquals("rendered command options\n", this.log.toString());
     File file = new File("saving.ppm");
@@ -81,7 +83,7 @@ public class CommandControllerTest {
   public void testExecuteProgramWithInvalidCommand() {
 
     this.controller = new CommandController(new StringReader("do-a-flip"),
-            new TextViewMock(this.log));
+            new TextViewMock(this.log), new CollageProject(1111, 222));
     this.controller.executeProgram();
     assertEquals("rendered command options\nUnknown command!\n",
             this.log.toString());

@@ -1,22 +1,7 @@
 package controller.commands;
 
-import java.util.InputMismatchException;
-
-import model.filters.BrightenIntensityFilter;
-import model.filters.BrightenLumaFilter;
-import model.filters.BrighteningBlendingFilter;
-import model.filters.DarkenIntensityFilter;
-import model.filters.DarkenLumaFilter;
-import model.filters.DarkenValueFilter;
-import model.filters.DarkeningBlendingFilter;
-import model.filters.InversionBlendingFilter;
 import model.pixels.Pixel;
-import model.filters.BlueComponentFilter;
-import model.filters.BrightenValueFilter;
 import model.filters.Filter;
-import model.filters.GreenComponentFilter;
-import model.filters.NormalFilter;
-import model.filters.RedComponentFilter;
 import model.projects.ProjectModel;
 
 /**
@@ -40,55 +25,8 @@ public class SetFilterCommand extends AbstractProjectCommand {
   @Override
   public void executeCommand(ProjectModel<Pixel> project) {
     this.checkNullProject(project);
-    Filter<Pixel> filter = null;
-    try {
-      switch (this.filterOption) {
-        case "normal":
-          filter = new NormalFilter();
-          break;
-        case "red-component":
-          filter = new RedComponentFilter();
-          break;
-        case "blue-component":
-          filter = new BlueComponentFilter();
-          break;
-        case "green-component":
-          filter = new GreenComponentFilter();
-          break;
-        case "brighten-value":
-          filter = new BrightenValueFilter();
-          break;
-        case "darken-value":
-          filter = new DarkenValueFilter();
-          break;
-        case "brighten-intensity":
-          filter = new BrightenIntensityFilter();
-          break;
-        case "darken-intensity":
-          filter = new DarkenIntensityFilter();
-          break;
-        case "brighten-luma":
-          filter = new BrightenLumaFilter();
-          break;
-        case "darken-luma":
-          filter = new DarkenLumaFilter();
-          break;
-        case "inversion-blending":
-          filter = new InversionBlendingFilter();
-          break;
-        case "darkening-blending":
-          filter = new DarkeningBlendingFilter();
-          break;
-        case "brightening-blending":
-          filter = new BrighteningBlendingFilter();
-          break;
-        default:
-          System.out.println("Unknown command");
-          break;
-      }
-    } catch (InputMismatchException ignored) {
-      throw new IllegalArgumentException("Unknown filter");
-    }
+    Filter<Pixel> filter = project.getFilterFromName(this.filterOption);
+
     project.setLayerFilter(this.layerName, filter);
   }
 }
