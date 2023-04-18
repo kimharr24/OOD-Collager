@@ -1,0 +1,59 @@
+Classes
+[ Controller Classes ]
+- AbstractProjectCommand: needed by the controller because it performs file IO.
+- AddImageToLayerCommand: needed by the controller because it performs file IO.
+- AddLayerCommand: needed by the controller because it is a command the controller can execute.
+- SaveImageCommand: needed by the controller because it is a command the controller can execute.
+- SaveProjectCommand: needed by the controller because it is a command the controller can execute.
+- SetFilterCommand: needed by the controller because it is a command the controller can execute.
+- AbstractFileInputCommand: needed by the controller because it performs file IO.
+- AbstractImageFileInputCommand: needed by the controller because it performs file IO.
+- CollageProjectFileInputCommand: needed by the controller because it performs file IO.
+- JPEGFileInputCommand: needed by the controller because it performs file IO.
+- PNGFileInputCommand: needed by the controller because it performs file IO.
+- PPMFileInputCommand: needed by the controller because it performs file IO.
+- AbstractImageFileOutputCommand: needed by the controller because it performs file IO.
+- JPEGFileOutputCommand: needed by the controller because it performs file IO.
+- PNGFileOutputCommand: needed by the controller because it performs file IO.
+- PPMFileOutputCommand: needed by the controller because it performs file IO.
+- CommandController: needed by the controller for its text version.
+- GUIController: needed by the controller for its gui version.
+
+[ Model Classes ]
+- RGBAColor: needed by the controller for file IO because we need access to our color's representation for
+loading in an image to the project.
+- HSLAColor: needed by the controller because RGBAColor is needed and RGBAColor depends on HSLAColor.
+
+[ Util Classes ]
+- Position2D: needed by the controller for file IO because we need to tell the controller where a pixel
+is located on the image that it is generating.
+- Util: needed by the controller for accessing the maximum value allowed in a project as well as various
+utility methods used in controller operations.
+
+Interfaces
+[ Controller Interfaces ]
+- ProjectCommand: needed by the controller to perform a controller command.
+- FileInputCommand: needed by the controller because it performs file IO.
+- ImageFileInputCommand: needed by the controller because it performs file IO.
+- ProjectFileInputCommand: needed by the controller because it performs file IO.
+- FileOutputCommand: needed by the controller because it performs file IO.
+- ControllerFeatures: needed by the controller to follow the general callback design pattern.
+- TextController: needed by the controller to represent text controllers.
+
+[ Model Interfaces ]
+- ColorModel: needed by the controller for reading and writing to image files.
+- ColorState: needed by the controller for reading and writing to image files.
+- Filter: needed by the controller to set the filter of a layer.
+- ImageModel: needed by the controller for reading and writing to image files.
+- ImageState: needed by the controller for reading and writing to image files.
+- LayerModel: needed by the controller for manipulating layers in the project.
+- LayerState: needed by the controller for manipulating layers in the project.
+- Pixel: needed by the controller for representing an image pixel.
+- ProjectModel: needed by the controller to have access to the model.
+- ProjectState: needed by the controller to have access to the model.
+
+[ View Interfaces ]
+- CollageGUIView: needed by the controller to have access to the gui view.
+- CollageView: needed by the controller to have access to the text view.
+
+
