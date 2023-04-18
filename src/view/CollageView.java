@@ -6,19 +6,19 @@ package view;
  */
 public interface CollageView {
   /**
-   * Transmits the given message to a user of the collage project.
+   * Renders the given message to a user of the collage project.
    * @param message the message to be transmitted.
    */
   void renderMessage(String message);
 
   /**
-   * Shows the user of the collage project the available commands as
-   * well as their corresponding syntax.
+   * Displays all supported commands of the collage project to the user, as well as their
+   * corresponding syntax.
    */
   void renderCommandOptions();
 
   /**
-   * Shows the user the available filter options in the collage project.
+   * Displays all supported filter options in the collage project to the user.
    */
   void renderFilterOptions();
 }

@@ -247,7 +247,7 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
   }
 
   /**
-   * Renders the composite image in the collage project.
+   * Renders the composite image in the collage project to be displayed to the user.
    * @param image the composite image to display.
    */
   private void renderImage(ImageModel<Pixel> image) {
@@ -265,7 +265,8 @@ public class GUIView extends JFrame implements CollageGUIView<Pixel> {
   }
 
   /**
-   * Renders the commands in the collage project that a user can interact with.
+   * Renders the commands in the collage project that a user can interact with. These commands
+   * include the ability to upload an existing project, save a project, or save an image.
    */
   private void renderProjectCommandComponent() {
     JPanel commandPanel = new JPanel();
